@@ -37,6 +37,17 @@ import kotlinx.coroutines.launch
 import org.linphone.LinphoneApplication.Companion.coreContext
 import org.linphone.LinphoneApplication.Companion.corePreferences
 import org.linphone.R
+import org.linphone.databinding.AssistantLandingFragmentBinding
+import org.linphone.ui.GenericActivity
+import org.linphone.ui.GenericFragment
+import org.linphone.ui.assistant.viewmodel.AccountLoginViewModel
+import org.linphone.utils.DialogUtils
+import org.linphone.utils.LocaleDialogHelper
+
+@UiThread
+class LandingFragment : GenericFragment() {
+    companion object {
+        private const val TAG = "[Landing Fragment]"
     }
 
     private lateinit var binding: AssistantLandingFragmentBinding
