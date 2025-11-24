@@ -71,8 +71,7 @@ open class GenericActivity : AppCompatActivity() {
     }
 
     override fun attachBaseContext(newBase: android.content.Context) {
-        val localeCode = corePreferences.appLocale
-        val context = org.linphone.utils.LocaleHelper.applyLocale(newBase, localeCode)
+        val context = org.linphone.utils.LocaleHelper.applyLocale(newBase)
         super.attachBaseContext(context)
     }
 

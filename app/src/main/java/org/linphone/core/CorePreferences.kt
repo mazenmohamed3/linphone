@@ -29,7 +29,9 @@ import org.linphone.BuildConfig
 import org.linphone.LinphoneApplication.Companion.coreContext
 import org.linphone.contacts.ContactLoader.Companion.LINPHONE_ADDRESS_BOOK_FRIEND_LIST
 
-class CorePreferences @UiThread constructor(private val context: Context) {
+class CorePreferences
+    @UiThread
+    constructor(private val context: Context) {
     companion object {
         private const val TAG = "[Preferences]"
 
