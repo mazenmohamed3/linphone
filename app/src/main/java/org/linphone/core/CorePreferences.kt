@@ -23,9 +23,9 @@ import android.content.Context
 import androidx.annotation.AnyThread
 import androidx.annotation.UiThread
 import androidx.annotation.WorkerThread
-import org.linphone.BuildConfig
 import java.io.File
 import java.io.FileOutputStream
+import org.linphone.BuildConfig
 import org.linphone.LinphoneApplication.Companion.coreContext
 import org.linphone.contacts.ContactLoader.Companion.LINPHONE_ADDRESS_BOOK_FRIEND_LIST
 
@@ -40,84 +40,96 @@ class CorePreferences
 
     private var _config: Config? = null
 
-    @get:AnyThread @set:WorkerThread
+    @get:AnyThread
+    @set:WorkerThread
     var config: Config
         get() = _config ?: coreContext.core.config
         set(value) {
             _config = value
         }
 
-    @get:AnyThread @set:WorkerThread
+    @get:AnyThread
+    @set:WorkerThread
     var printLogsInLogcat: Boolean
         get() = config.getBool("app", "debug", BuildConfig.DEBUG)
         set(value) {
             config.setBool("app", "debug", value)
         }
 
-    @get:AnyThread @set:WorkerThread
+    @get:AnyThread
+    @set:WorkerThread
     var sendLogsToCrashlytics: Boolean
         get() = config.getBool("app", "send_logs_to_crashlytics", BuildConfig.CRASHLYTICS_ENABLED)
         set(value) {
             config.setBool("app", "send_logs_to_crashlytics", value)
         }
 
-    @get:AnyThread @set:WorkerThread
+    @get:AnyThread
+    @set:WorkerThread
     var firstLaunch: Boolean
         get() = config.getBool("app", "first_6.0_launch", true)
         set(value) {
             config.setBool("app", "first_6.0_launch", value)
         }
 
-    @get:AnyThread @set:WorkerThread
+    @get:AnyThread
+    @set:WorkerThread
     var linphoneConfigurationVersion: Int
         get() = config.getInt("app", "config_version", 52005)
         set(value) {
             config.setInt("app", "config_version", value)
         }
 
-    @get:AnyThread @set:WorkerThread
+    @get:AnyThread
+    @set:WorkerThread
     var autoStart: Boolean
         get() = config.getBool("app", "auto_start", true)
         set(value) {
             config.setBool("app", "auto_start", value)
         }
 
-    @get:AnyThread @set:WorkerThread
+    @get:AnyThread
+    @set:WorkerThread
     var checkForUpdateServerUrl: String
         get() = config.getString("misc", "version_check_url_root", "").orEmpty()
         set(value) {
             config.setString("misc", "version_check_url_root", value)
         }
 
-    @get:AnyThread @set:WorkerThread
+    @get:AnyThread
+    @set:WorkerThread
     var conditionsAndPrivacyPolicyAccepted: Boolean
         get() = config.getBool("app", "read_and_agree_terms_and_privacy", false)
         set(value) {
             config.setBool("app", "read_and_agree_terms_and_privacy", value)
         }
 
-    @get:AnyThread @set:WorkerThread
+    @get:AnyThread
+    @set:WorkerThread
     var publishPresence: Boolean
         get() = config.getBool("app", "publish_presence", true)
         set(value) {
             config.setBool("app", "publish_presence", value)
         }
 
-    @get:AnyThread @set:WorkerThread
+    @get:AnyThread
+    @set:WorkerThread
     var keepServiceAlive: Boolean
         get() = config.getBool("app", "keep_service_alive", false)
         set(value) {
             config.setBool("app", "keep_service_alive", value)
         }
 
-    @get:AnyThread @set:WorkerThread
+    @get:AnyThread
+    @set:WorkerThread
     var deviceName: String
         get() = config.getString("app", "device", "").orEmpty().trim()
         set(value) {
             config.setString("app", "device", value.trim())
         }
 
-    @get:AnyThread @set:WorkerThread
+    @get:AnyThread
+    @set:WorkerThread
     var showDeveloperSettings: Boolean
         get() = config.getBool("ui", "show_developer_settings", false)
         set(value) {
@@ -127,70 +139,80 @@ class CorePreferences
     // Call settings
 
     // This won't be done if bluetooth or wired headset is used
-    @get:AnyThread @set:WorkerThread
+    @get:AnyThread
+    @set:WorkerThread
     var routeAudioToBluetoothWhenPossible: Boolean
         get() = config.getBool("app", "route_audio_to_bluetooth_when_possible", true)
         set(value) {
             config.setBool("app", "route_audio_to_bluetooth_when_possible", value)
         }
 
-    @get:AnyThread @set:WorkerThread
+    @get:AnyThread
+    @set:WorkerThread
     var routeAudioToSpeakerWhenVideoIsEnabled: Boolean
         get() = config.getBool("app", "route_audio_to_speaker_when_video_enabled", true)
         set(value) {
             config.setBool("app", "route_audio_to_speaker_when_video_enabled", value)
         }
 
-    @get:AnyThread @set:WorkerThread
+    @get:AnyThread
+    @set:WorkerThread
     var callRecordingUseSmffFormat: Boolean
         get() = config.getBool("app", "use_smff_for_call_recording", false)
         set(value) {
             config.setBool("app", "use_smff_for_call_recording", value)
         }
 
-    @get:AnyThread @set:WorkerThread
+    @get:AnyThread
+    @set:WorkerThread
     var automaticallyStartCallRecording: Boolean
         get() = config.getBool("app", "auto_start_call_record", false)
         set(value) {
             config.setBool("app", "auto_start_call_record", value)
         }
 
-    @get:AnyThread @set:WorkerThread
+    @get:AnyThread
+    @set:WorkerThread
     var showDialogWhenCallingDeviceUuidDirectly: Boolean
         get() = config.getBool("app", "show_confirmation_dialog_zrtp_trust_call", true)
         set(value) {
             config.setBool("app", "show_confirmation_dialog_zrtp_trust_call", value)
         }
 
-    @get:AnyThread @set:WorkerThread
+    @get:AnyThread
+    @set:WorkerThread
     var acceptEarlyMedia: Boolean
         get() = config.getBool("sip", "incoming_calls_early_media", false)
         set(value) {
             config.setBool("sip", "incoming_calls_early_media", value)
         }
 
-    @get:AnyThread @set:WorkerThread
+    @get:AnyThread
+    @set:WorkerThread
     var allowOutgoingEarlyMedia: Boolean
         get() = config.getBool("misc", "real_early_media", false)
         set(value) {
             config.setBool("misc", "real_early_media", value)
         }
 
-    @get:AnyThread @set:WorkerThread
+    @get:AnyThread
+    @set:WorkerThread
     var autoAnswerEnabled: Boolean
         get() = config.getBool("app", "auto_answer", false)
         set(value) {
             config.setBool("app", "auto_answer", value)
         }
 
-    @get:AnyThread @set:WorkerThread
+    @get:AnyThread
+    @set:WorkerThread
     var autoAnswerDelay: Int
         get() = config.getInt("app", "auto_answer_delay", 0)
         set(value) {
             config.setInt("app", "auto_answer_delay", value)
         }
 
-    @get:AnyThread @set:WorkerThread
+    @get:AnyThread
+    @set:WorkerThread
     var autoAnswerVideoCallsWithVideoDirectionSendReceive: Boolean
         get() = config.getBool("app", "auto_answer_video_send_receive", false)
         set(value) {
@@ -199,14 +221,16 @@ class CorePreferences
 
     // Conversation related
 
-    @get:AnyThread @set:WorkerThread
+    @get:AnyThread
+    @set:WorkerThread
     var markConversationAsReadWhenDismissingMessageNotification: Boolean
         get() = config.getBool("app", "mark_as_read_notif_dismissal", false)
         set(value) {
             config.setBool("app", "mark_as_read_notif_dismissal", value)
         }
 
-    @get:AnyThread @set:WorkerThread
+    @get:AnyThread
+    @set:WorkerThread
     var makePublicMediaFilesDownloaded: Boolean
         // Keep old name for backward compatibility
         get() = config.getBool("app", "make_downloaded_images_public_in_gallery", false)
@@ -216,7 +240,8 @@ class CorePreferences
 
     // Conference related
 
-    @get:AnyThread @set:WorkerThread
+    @get:AnyThread
+    @set:WorkerThread
     var createEndToEndEncryptedMeetingsAndGroupCalls: Boolean
         get() = config.getBool("app", "create_e2e_encrypted_conferences", false)
         set(value) {
@@ -225,9 +250,15 @@ class CorePreferences
 
     // Contacts related
 
-    @get:AnyThread @set:WorkerThread
+    @get:AnyThread
+    @set:WorkerThread
     var sortContactsByFirstName: Boolean
-        get() = config.getBool("ui", "sort_contacts_by_first_name", true) // If disabled, last name will be used
+        get() =
+                config.getBool(
+                        "ui",
+                        "sort_contacts_by_first_name",
+                        true
+                ) // If disabled, last name will be used
         set(value) {
             config.setBool("ui", "sort_contacts_by_first_name", value)
         }
@@ -239,34 +270,39 @@ class CorePreferences
             config.setBool("ui", "hide_contacts_without_phone_number_or_sip_address", value)
         }
 
-    @get:AnyThread @set:WorkerThread
+    @get:AnyThread
+    @set:WorkerThread
     var contactsFilter: String
         get() = config.getString("ui", "contacts_filter", "")!! // Default value must be empty!
         set(value) {
             config.setString("ui", "contacts_filter", value)
         }
 
-    @get:AnyThread @set:WorkerThread
+    @get:AnyThread
+    @set:WorkerThread
     var showFavoriteContacts: Boolean
         get() = config.getBool("ui", "show_favorites_contacts", true)
         set(value) {
             config.setBool("ui", "show_favorites_contacts", value)
         }
 
-    @get:AnyThread @set:WorkerThread
+    @get:AnyThread
+    @set:WorkerThread
     var friendListInWhichStoreNewlyCreatedFriends: String
-        get() = config.getString(
-            "app",
-            "friend_list_to_store_newly_created_contacts",
-            LINPHONE_ADDRESS_BOOK_FRIEND_LIST
-        )!!
+        get() =
+                config.getString(
+                        "app",
+                        "friend_list_to_store_newly_created_contacts",
+                        LINPHONE_ADDRESS_BOOK_FRIEND_LIST
+                )!!
         set(value) {
             config.setString("app", "friend_list_to_store_newly_created_contacts", value)
         }
 
     // Voice recordings related
 
-    @get:AnyThread @set:WorkerThread
+    @get:AnyThread
+    @set:WorkerThread
     var voiceRecordingMaxDuration: Int
         get() = config.getInt("app", "voice_recording_max_duration", 600000) // in ms
         set(value) = config.setInt("app", "voice_recording_max_duration", value)
@@ -274,7 +310,8 @@ class CorePreferences
     // User interface related
 
     // -1 means auto, 0 no, 1 yes
-    @get:AnyThread @set:WorkerThread
+    @get:AnyThread
+    @set:WorkerThread
     var darkMode: Int
         get() {
             if (!darkModeAllowed) return 0
@@ -285,39 +322,57 @@ class CorePreferences
         }
 
     // Allows to make screenshots
-    @get:AnyThread @set:WorkerThread
+    @get:AnyThread
+    @set:WorkerThread
     var enableSecureMode: Boolean
         get() = config.getBool("ui", "enable_secure_mode", true)
         set(value) {
             config.setBool("ui", "enable_secure_mode", value)
         }
 
-    @get:AnyThread @set:WorkerThread
+    @get:AnyThread
+    @set:WorkerThread
     var automaticallyShowDialpad: Boolean
         get() = config.getBool("ui", "automatically_show_dialpad", false)
         set(value) {
             config.setBool("ui", "automatically_show_dialpad", value)
         }
 
-    @get:AnyThread @set:WorkerThread
+    @get:AnyThread
+    @set:WorkerThread
     var themeMainColor: String
         get() = config.getString("ui", "theme_main_color", "orange")!!
         set(value) {
             config.setString("ui", "theme_main_color", value)
         }
 
+    @get:AnyThread
+    @set:WorkerThread
+    var appLocale: String
+        get() = config.getString("ui", "app_locale", "")!! // Empty string means system default
+        set(value) {
+            config.setString("ui", "app_locale", value)
+        }
+
     // Customization options
 
-    @get:AnyThread @set:WorkerThread
+    @get:AnyThread
+    @set:WorkerThread
     var showMicrophoneAndSpeakerVuMeters: Boolean
         get() = config.getBool("ui", "show_mic_speaker_vu_meter", false)
         set(value) {
             config.setBool("ui", "show_mic_speaker_vu_meter", value)
         }
 
-    @get:AnyThread @set:WorkerThread
+    @get:AnyThread
+    @set:WorkerThread
     var pushNotificationCompatibleDomains: Array<String>
-        get() = config.getStringList("app", "push_notification_domains", arrayOf("sip.linphone.org"))
+        get() =
+                config.getStringList(
+                        "app",
+                        "push_notification_domains",
+                        arrayOf("sip.linphone.org")
+                )
         set(value) {
             config.setStringList("app", "push_notification_domains", value)
         }
@@ -352,7 +407,12 @@ class CorePreferences
 
     @get:AnyThread
     val disableBroadcasts: Boolean
-        get() = config.getBool("ui", "disable_broadcast_feature", true) // TODO FIXME: not implemented yet
+        get() =
+                config.getBool(
+                        "ui",
+                        "disable_broadcast_feature",
+                        true
+                ) // TODO FIXME: not implemented yet
 
     @get:AnyThread
     val disableCallRecordings: Boolean
@@ -412,11 +472,12 @@ class CorePreferences
 
     @get:AnyThread
     val assistantDirectlyGoToThirdPartySipAccountLogin: Boolean
-        get() = config.getBool(
-            "ui",
-            "assistant_go_directly_to_third_party_sip_account_login",
-            false
-        )
+        get() =
+                config.getBool(
+                        "ui",
+                        "assistant_go_directly_to_third_party_sip_account_login",
+                        false
+                )
 
     @get:AnyThread
     val fetchContactsFromDefaultDirectory: Boolean
@@ -474,9 +535,8 @@ class CorePreferences
         if (icsGrammar.exists()) {
             icsGrammar.delete()
         }
-        val identityGrammar = File(
-            "${context.filesDir.absolutePath}/share/belr/grammars/identity_grammar"
-        )
+        val identityGrammar =
+                File("${context.filesDir.absolutePath}/share/belr/grammars/identity_grammar")
         if (identityGrammar.exists()) {
             identityGrammar.delete()
         }
@@ -492,15 +552,13 @@ class CorePreferences
         if (sipGrammar.exists()) {
             sipGrammar.delete()
         }
-        val vcard3Grammar = File(
-            "${context.filesDir.absolutePath}/share/belr/grammars/vcard3_grammar"
-        )
+        val vcard3Grammar =
+                File("${context.filesDir.absolutePath}/share/belr/grammars/vcard3_grammar")
         if (vcard3Grammar.exists()) {
             vcard3Grammar.delete()
         }
-        val vcardGrammar = File(
-            "${context.filesDir.absolutePath}/share/belr/grammars/vcard_grammar"
-        )
+        val vcardGrammar =
+                File("${context.filesDir.absolutePath}/share/belr/grammars/vcard_grammar")
         if (vcardGrammar.exists()) {
             vcardGrammar.delete()
         }
@@ -512,15 +570,15 @@ class CorePreferences
         if (outFile.exists()) {
             if (!overrideIfExists) {
                 android.util.Log.i(
-                    context.getString(org.linphone.R.string.app_name),
-                    "$TAG File $to already exists"
+                        context.getString(org.linphone.R.string.app_name),
+                        "$TAG File $to already exists"
                 )
                 return
             }
         }
         android.util.Log.i(
-            context.getString(org.linphone.R.string.app_name),
-            "$TAG Overriding $to by $from asset"
+                context.getString(org.linphone.R.string.app_name),
+                "$TAG Overriding $to by $from asset"
         )
 
         val outStream = FileOutputStream(outFile)

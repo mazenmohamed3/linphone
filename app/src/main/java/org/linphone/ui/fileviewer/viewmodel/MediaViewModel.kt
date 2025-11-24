@@ -27,7 +27,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
-import kotlinx.coroutines.channels.ticker
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.linphone.core.tools.Log
@@ -75,8 +74,6 @@ class MediaViewModel
     lateinit var mediaPlayer: MediaPlayer
 
     private lateinit var filePath: String
-
-    private val tickerChannel = ticker(1000, 1000)
 
     private var updatePositionJob: Job? = null
 
@@ -212,10 +209,8 @@ class MediaViewModel
     fun startUpdatePlaybackPosition() {
         updatePositionJob = viewModelScope.launch {
             withContext(Dispatchers.IO) {
-                for (tick in tickerChannel) {
-                    if (::mediaPlayer.isInitialized && mediaPlayer.isPlaying) {
-                        position.postValue(mediaPlayer.currentPosition)
-                    }
+                if (::mediaPlayer.isInitialized && mediaPlayer.isPlaying) {
+                    position.postValue(mediaPlayer.currentPosition)
                 }
             }
         }

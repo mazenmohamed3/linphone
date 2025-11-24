@@ -81,6 +81,21 @@
                     app:layout_constraintEnd_toEndOf="parent"/>
 
                 <ImageView
+    android:id="@+id/locale_icon"
+    android:layout_width="24dp"
+    android:layout_height="24dp"
+    android:src="@drawable/globe"
+    android:contentDescription="@string/settings_locale_title"
+    android:clickable="true"
+    android:focusable="true"
+    app:layout_constraintEnd_toEndOf="@id/title"
+    app:layout_constraintTop_toTopOf="@id/title"
+    app:layout_constraintBottom_toBottomOf="@id/title"/>
+
+
+
+
+                <ImageView
                     android:id="@+id/no_push"
                     android:layout_width="56dp"
                     android:layout_height="56dp"

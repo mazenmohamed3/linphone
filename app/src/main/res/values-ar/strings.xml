@@ -1,0 +1,1042 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<!DOCTYPE resources [
+    <!ENTITY appName "Linphone">
+    ]>
+
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name" translatable="false">&appName;</string>
+
+    <!-- Not translatable strings -->
+
+    <!-- Common words -->
+    <string name="sip_address">عنوان SIP</string>
+    <string name="device_id">معرف الجهاز</string>
+    <string name="sip_address_display_name">اسم العرض</string>
+    <string name="sip_address_domain">النطاق</string>
+    <string name="username">اسم المستخدم</string>
+    <string name="authentication_id">معرف المصادقة (إذا كان مختلفًا)</string>
+    <string name="password">كلمة المرور</string>
+    <string name="phone_number">رقم الهاتف</string>
+    <string name="or">أو</string>
+    <string name="next">التالي</string>
+    <string name="start">ابدأ</string>
+    <string name="today">اليوم</string>
+    <string name="yesterday">البارحة</string>
+    <plurals name="days">
+        <item quantity="zero">0 أيام</item>
+        <item quantity="one">يوم واحد</item>
+        <item quantity="two">يومان</item>
+        <item quantity="few">%s أيام</item>
+        <item quantity="many">%s يومًا</item>
+        <item quantity="other">%s يوم</item>
+    </plurals>
+    <string name="search">بحث</string>
+
+    <plurals name="selection_count_label">
+        <item quantity="zero">0 محدد</item>
+        <item quantity="one">محدد واحد</item>
+        <item quantity="two">محدد اثنان</item>
+        <item quantity="few">%s محدد</item>
+        <item quantity="many">%s محدد</item>
+        <item quantity="other">%s محدد</item>
+    </plurals>
+
+    <!-- Dialog various possible buttons label -->
+    <string name="dialog_deny">رفض</string>
+    <string name="dialog_accept">قبول</string>
+    <string name="dialog_cancel">إلغاء</string>
+    <string name="dialog_continue">متابعة</string>
+    <string name="dialog_call">اتصال</string>
+    <string name="dialog_delete">حذف</string>
+    <string name="dialog_install">تثبيت</string>
+    <string name="dialog_do_not_show_anymore">لا تظهر هذا الحوار مرة أخرى</string>
+    <string name="dialog_no">لا</string>
+    <string name="dialog_yes">نعم</string>
+    <string name="dialog_remove">إزالة</string>
+    <string name="dialog_confirm">تأكيد</string>
+    <string name="dialog_understood">مفهوم</string>
+    <string name="dialog_do_not_cancel">لا تلغي</string>
+
+    <!-- Related to Android notifications -->
+    <string name="notification_channel_call_name">إشعارات المكالمات النشطة</string>
+    <string name="notification_channel_incoming_call_name">إشعارات المكالمات الواردة</string>
+    <string name="notification_channel_missed_call_name">إشعارات المكالمات الفائتة</string>
+    <string name="notification_channel_service_name">إشعار الخدمة</string>
+    <string name="notification_channel_service_desc">ستعمل هذه الخدمة طوال الوقت للحفاظ على التطبيق حيًا وتمكينك من تلقي المكالمات والرسائل دون إشعارات الدفع.</string>
+    <string name="notification_channel_chat_name">إشعارات الرسائل الفورية</string>
+    <string name="notification_channel_account_error_name">إشعارات خطأ الحساب</string>
+    <string name="notification_chat_message_reaction_received">رد %1$s على: %2$s</string>
+    <string name="notification_mark_message_as_read">وضع علامة مقروء</string>
+    <string name="notification_reply_to_message">الرد</string>
+    <string name="notification_missed_call">مكالمة فائتة من %s</string>
+    <string name="notification_missed_group_call">مكالمة جماعية فائتة: %s</string>
+    <string name="notification_missed_calls">%s مكالمات فائتة</string>
+    <string name="notification_missed_call_title">مكالمة فائتة</string>
+    <string name="notification_push_received_title">&appName;</string>
+    <string name="notification_push_received_message">البحث عن رسائل جديدة</string>
+    <string name="notification_file_transfer_title">&appName;</string>
+    <string name="notification_file_transfer_startup_message">نقل الملف(ات) قيد التقدم</string>
+    <plurals name="notification_file_transfer_upload">
+        <item quantity="zero">0 ملفات يتم تحميلها</item>
+        <item quantity="one">ملف واحد يتم تحميله</item>
+        <item quantity="two">ملفان يتم تحميلهما</item>
+        <item quantity="few">%s ملفات يتم تحميلها</item>
+        <item quantity="many">%s ملفًا يتم تحميلها</item>
+        <item quantity="other">%s ملف يتم تحميله</item>
+    </plurals>
+    <plurals name="notification_file_transfer_download">
+        <item quantity="zero">0 ملفات يتم تنزيلها</item>
+        <item quantity="one">ملف واحد يتم تنزيله</item>
+        <item quantity="two">ملفان يتم تنزيلهما</item>
+        <item quantity="few">%s ملفات يتم تنزيلها</item>
+        <item quantity="many">%s ملفًا يتم تنزيلها</item>
+        <item quantity="other">%s ملف يتم تنزيله</item>
+    </plurals>
+    <string name="notification_keep_app_alive_message">انقر لفتح</string>
+    <string name="notification_enable_speaker_for_call">تشغيل السماعة</string>
+    <string name="notification_disable_speaker_for_call">إيقاف السماعة</string>
+    <string name="notification_account_registration_error_title">فشل تسجيل الحساب %s!</string>
+    <string name="notification_account_registration_error_message">افتح &appName; لتحديث التسجيل</string>
+
+    <!-- First screens user see when app is installed and started -->
+    <string name="welcome_page_title">مرحبا</string>
+    <string name="welcome_page_subtitle">في &appName;</string>
+    <string name="welcome_page_1_message">تطبيق اتصال <b>آمن</b>، <b>مفتوح المصدر</b> و<b>فرنسي</b>.</string>
+    <string name="welcome_page_2_title">آمن</string>
+    <string name="welcome_page_2_message">اتصالاتك آمنة بفضل <b>التشفير من طرف إلى طرف</b>.</string>
+    <string name="welcome_page_3_title">مفتوح المصدر</string>
+    <string name="welcome_page_3_message">تطبيق <b>مجاني</b> ومفتوح المصدر منذ <b>2001</b>.</string>
+
+    <!-- Generic toasts -->
+    <string name="sip_address_copied_to_clipboard_toast">تم نسخ عنوان SIP إلى الحافظة</string>
+    <string name="new_account_configured_toast">تم تكوين حساب جديد</string>
+    <string name="file_successfully_exported_to_media_store_toast">تم تصدير الملف إلى معرض الصور الأصلي</string>
+    <string name="export_file_to_media_store_error_toast">خطأ في محاولة تصدير الملف إلى معرض الصور الأصلي</string>
+    <string name="file_successfully_exported_to_documents_toast">تم تصدير الملف إلى المستندات</string>
+    <string name="export_file_to_documents_error_toast">خطأ في محاولة تصدير الملف إلى المستندات</string>
+    <string name="media_playback_low_volume_warning_toast">مستوى صوت الوسائط منخفض، قد لا تسمع شيئًا!</string>
+    <string name="remote_provisioning_config_applied_toast">تم تطبيق التكوين بنجاح</string>
+    <string name="remote_provisioning_config_failed_toast">خطأ أثناء محاولة تنزيل وتطبيق التكوين البعيد</string>
+    <string name="media_player_generic_error_toast">خطأ في محاولة إنشاء مشغل الوسائط</string>
+
+    <!-- Assistant related string (account register / login / etc...) -->
+    <string name="assistant_dialog_general_terms_and_privacy_policy_title">الشروط العامة وسياسة الخصوصية</string>
+    <string name="assistant_dialog_general_terms_label">الشروط العامة</string>
+    <string name="assistant_dialog_privacy_policy_label">سياسة الخصوصية</string>
+    <string name="assistant_dialog_general_terms_and_privacy_policy_message">من خلال المتابعة، تقبل %1$s و %2$s لدينا.</string>
+    <string name="assistant_dialog_confirm_phone_number_title">تأكيد رقم الهاتف</string>
+    <string name="assistant_dialog_confirm_phone_number_message">هل أنت متأكد من أن رقم هاتفك هو %s؟</string>
+    <string name="assistant_account_login">تسجيل الدخول</string>
+    <string name="assistant_scan_qr_code">مسح رمز QR</string>
+    <string name="assistant_qr_code_invalid_toast">رمز QR غير صالح!</string>
+    <string name="assistant_login_third_party_sip_account">استخدام حساب SIP من جهة خارجية</string>
+    <string name="assistant_login_third_party_sip_account_title">حساب SIP من جهة خارجية</string>
+    <string name="assistant_login_using_single_sign_on">تسجيل الدخول المفرد</string>
+    <string name="assistant_login_cant_parse_address_toast">عنوان SIP غير صالح!</string>
+    <string name="assistant_login_address_without_username_toast">عنوان SIP لا يحتوي على اسم مستخدم!</string>
+    <string name="assistant_account_login_already_connected_error">الحساب موجود بالفعل</string>
+    <string name="assistant_no_account_yet">لا يوجد حساب بعد؟</string>
+    <string name="assistant_account_register">تسجيل</string>
+    <string name="assistant_account_creation_sms_confirmation_title">تأكيد رقم هاتفك</string>
+    <string name="assistant_account_creation_sms_confirmation_explanation">لقد أرسلنا رمز التحقق إلى رقم هاتفك %1$s.\n\nيرجى إدخال رمز التحقق أدناه:</string>
+    <string name="assistant_account_creation_wrong_phone_number">رقم خاطئ؟</string>
+    <string name="assistant_account_create">إنشاء</string>
+    <string name="assistant_create_account_using_email_on_our_web_platform">إنشاء حساب باستخدام بريدك الإلكتروني على:</string>
+    <string name="assistant_already_have_an_account">لديك حساب بالفعل؟</string>
+    <string name="assistant_sip_account_transport_protocol">البروتوكول</string>
+    <string name="assistant_sip_account_lime_algorithm">خوارزمية(ات) LIME (مفصولة بفواصل)</string>
+    <string name="assistant_sip_account_lime_algorithm_hint">القيم المسموح بها هي: c25519, c448, c25519k512, c25519mlk512 و c448mlk1024</string>
+    <string name="assistant_third_party_sip_account_warning_explanation">بعض الميزات تتطلب حساب &appName;، مثل الرسائل الجماعية، مؤتمرات الفيديو...\n\nهذه الميزات مخفية عند التسجيل بحساب SIP من جهة خارجية.\n\nلتمكينها في مشروع تجاري، يرجى الاتصال بنا.</string>
+    <string name="assistant_third_party_sip_account_create_linphone_account">أفضل إنشاء حساب &appName;</string>
+    <string name="assistant_third_party_sip_account_warning_ok">أفهم</string>
+    <string name="assistant_account_register_unavailable_no_push_warning">لا تبدو إشعارات الدفع متاحة على جهازك، لكنها إلزامية لإنشاء حساب في التطبيق المحمول.\n\nندعوك لإنشاء حساب على منصتنا الويب بدلاً من ذلك:</string>
+    <string name="assistant_account_register_push_notification_not_received_error">لم يتم تلقي إشعار الدفع برمز المصادقة في غضون 5 ثوانٍ، يرجى المحاولة مرة أخرى لاحقًا</string>
+    <string name="assistant_account_register_unexpected_error">حدث خطأ غير متوقع، يرجى المحاولة مرة أخرى لاحقًا</string>
+    <string name="assistant_account_login_forbidden_error">اسم مستخدم أو كلمة مرور خاطئة</string>
+    <string name="assistant_account_login_error">فشل تسجيل الدخول: رمز الخطأ هو %s</string>
+    <string name="assistant_permissions_title">منح الإذن</string>
+    <string name="assistant_permissions_grant_all_of_them">حسنًا</string>
+    <string name="assistant_permissions_skip_permissions">افعل ذلك لاحقًا</string>
+    <string name="assistant_permissions_subtitle">للاستمتاع الكامل بـ &appName; نحتاج إلى منحنا الإذونات التالية:</string>
+    <string name="assistant_permissions_read_contacts_title"><b>قراءة الاتصالات:</b> لعرض اتصالاتك ومعرفة من يستخدم &appName;.</string>
+    <string name="assistant_permissions_post_notifications_title"><b>نشر الإشعارات:</b> ليتم إخطارك عند تلقي رسالة أو مكالمة.</string>
+    <string name="assistant_permissions_record_audio_title"><b>تسجيل الصوت:</b> حتى يتمكن مراسلك من سماعك وتسجيل الرسائل الصوتية.</string>
+    <string name="assistant_permissions_access_camera_title"><b>الوصول إلى الكاميرا:</b> لالتقاط الفيديو أثناء مكالمات الفيديو والمؤتمرات.</string>
+    <string name="assistant_forgotten_password_title">استعادة الحساب</string>
+    <string name="assistant_forgotten_password_subtitle">اختر كيفية استعادة حسابك.</string>
+    <string name="assistant_forgotten_password_message">لقد أنشأت حسابك باستخدام:</string>
+    <string name="assistant_recover_email_account_label">بريد إلكتروني</string>
+    <string name="assistant_recover_phone_number_account_label">رقم هاتف</string>
+    <string name="assistant_recover_phone_number_account_unavailable_no_push_warning">لا تبدو إشعارات الدفع متاحة على جهازك، لكنها إلزامية لاستعادة حساب رقم الهاتف في التطبيق المحمول.</string>
+
+    <!-- Main navigation items -->
+    <string name="bottom_navigation_contacts_label">الاتصالات</string>
+    <string name="bottom_navigation_calls_label">المكالمات</string>
+    <string name="bottom_navigation_conversations_label">المحادثات</string>
+    <string name="bottom_navigation_meetings_label">الاجتماعات</string>
+
+    <!-- Side menu -->
+    <string name="drawer_menu_manage_account">إدارة الملف الشخصي</string>
+    <string name="drawer_menu_account_connection_status_connected">متصل</string>
+    <string name="drawer_menu_account_connection_status_disconnected">غير متصل</string>
+    <string name="drawer_menu_account_connection_status_refreshing">تحديث</string>
+    <string name="drawer_menu_account_connection_status_cleared">معطل</string>
+    <string name="drawer_menu_account_connection_status_progress">جاري الاتصال...</string>
+    <string name="drawer_menu_account_connection_status_failed">خطأ</string>
+    <string name="drawer_menu_no_account_configured_yet">لم يتم تكوين أي حساب بعد</string>
+    <string name="drawer_menu_add_account">إضافة حساب</string>
+
+    <!-- Help & troubleshooting related -->
+    <string name="help_title">مساعدة</string>
+    <string name="help_about_title">حول &appName;</string>
+    <string name="help_about_user_guide_title">دليل مستخدم &appName;</string>
+    <string name="help_about_user_guide_subtitle">تعلم كيفية إتقان جميع ميزات التطبيق، خطوة بخطوة.</string>
+    <string name="help_about_privacy_policy_title">سياسة الخصوصية</string>
+    <string name="help_about_privacy_policy_subtitle">ما هي المعلومات التي يجمعها ويستخدمها &appName;</string>
+    <string name="help_about_version_title">الإصدار</string>
+    <string name="help_about_check_for_update">التحقق من التحديث</string>
+    <string name="help_about_contribute_translations_title">المساهمة في ترجمة &appName;</string>
+    <string name="help_about_contribute_translations_subtitle">ساعد في جعل التطبيق متاحًا لأكبر عدد ممكن من الناس.</string>
+    <string name="help_about_advanced_title">متقدم</string>
+    <string name="help_version_up_to_date_toast_message">إصدارك محدث</string>
+    <string name="help_error_checking_version_toast_message">حدث خطأ أثناء التحقق من التحديث</string>
+    <string name="help_dialog_update_available_title">تحديث متوفر</string>
+    <string name="help_dialog_update_available_message">إصدار جديد %s متوفر. هل تريد التحديث؟</string>
+    <string name="help_quit_title">الخروج من التطبيق</string>
+    <string name="help_troubleshooting_title">استكشاف الأخطاء وإصلاحها</string>
+    <string name="help_troubleshooting_subtitle">نقل سجلات التشخيص الخاصة بك لتسهيل حل الأخطاء.</string>
+    <string name="help_troubleshooting_print_logs_in_logcat">طباعة السجلات في logcat</string>
+    <string name="help_troubleshooting_clean_logs">تنظيف السجلات</string>
+    <string name="help_troubleshooting_share_logs">مشاركة السجلات</string>
+    <string name="help_troubleshooting_app_version_title">إصدار التطبيق</string>
+    <string name="help_troubleshooting_sdk_version_title">إصدار SDK</string>
+    <string name="help_troubleshooting_firebase_project_title">معرف مشروع Firebase</string>
+    <string name="help_troubleshooting_share_logs_dialog_title">مشاركة رابط سجلات التصحيح باستخدام...</string>
+    <string name="help_troubleshooting_debug_logs_cleaned_toast_message">تم تنظيف سجلات التصحيح</string>
+    <string name="help_troubleshooting_debug_logs_upload_error_toast_message">فشل في تحميل سجلات التصحيح</string>
+    <string name="help_troubleshooting_show_config_file">عرض التكوين</string>
+
+    <!-- App & SDK settings -->
+    <string name="settings_title">الإعدادات</string>
+    <string name="settings_security_title">الأمان</string>
+    <string name="settings_security_enable_vfs_title">تشفير كل شيء</string>
+    <string name="settings_security_enable_vfs_subtitle">تحذير: بمجرد تمكينه لا يمكن تعطيله!</string>
+    <string name="settings_security_enable_vfs_failure_toast">فشل في تمكين وحدة التشفير!</string>
+    <string name="settings_security_enable_vfs_success_toast">تم تمكين وحدة التشفير</string>
+    <string name="settings_security_enable_vfs_dialog_confirmation_title">هل تريد حقًا تشفير كل شيء؟</string>
+    <string name="settings_security_enable_vfs_dialog_confirmation_message">بمجرد التنشيط، سيتعين عليك إعادة تشغيل التطبيق.\nبعد ذلك سيتم تشفير جميع بيانات التطبيق ويمكن الوصول إليها فقط عبر التطبيق.\n\nكن حذرًا، لا يمكن التراجع عنه!</string>
+    <string name="settings_security_prevent_screenshots_title">منع تسجيل الواجهة</string>
+    <string name="settings_calls_title">المكالمات</string>
+    <string name="settings_calls_echo_canceller_title">استخدام إلغاء الصدى البرمجي</string>
+    <string name="settings_calls_echo_canceller_subtitle">يمنع الصدى من أن يسمع من الطرف البعيد إذا لم يكن إلغاء الصدى الجهازي متوفرًا</string>
+    <string name="settings_calls_calibrate_echo_canceller_title">معايرة إلغاء الصدى</string>
+    <string name="settings_calls_calibrate_echo_canceller_in_progress">قيد التقدم</string>
+    <string name="settings_calls_calibrate_echo_canceller_done_no_echo">لا صدى</string>
+    <string name="settings_calls_calibrate_echo_canceller_done">%s مللي ثانية</string>
+    <string name="settings_calls_calibrate_echo_canceller_failed">فشل</string>
+    <string name="settings_calls_adaptive_rate_control_title">التحكم في المعدل التكيفي</string>
+    <string name="settings_calls_enable_video_title">تمكين الفيديو</string>
+    <string name="settings_calls_enable_fec_title">تمكين FEC الفيديو</string>
+    <string name="settings_calls_vibrate_while_ringing_title">الاهتزاز أثناء رنين المكالمة الواردة</string>
+    <string name="settings_calls_auto_record_title">بدء تسجيل المكالمات تلقائيًا</string>
+    <string name="settings_calls_change_ringtone_title">تغيير نغمة الرنين</string>
+    <string name="settings_calls_change_ringtone_pick_title">اختر نغمة الرنين</string>
+    <string name="settings_conversations_title">المحادثات</string>
+    <string name="settings_conversations_auto_download_title">تنزيل الملفات تلقائيًا</string>
+    <string name="settings_conversations_auto_export_media_to_native_gallery_title">جعل الوسائط المنزلة عامة</string>
+    <string name="settings_conversations_mark_as_read_when_dismissing_notif_title">وضع علامة مقروء على المحادثة عند تجاهل إشعار الرسالة</string>
+    <string name="settings_contacts_title">الاتصالات</string>
+    <string name="settings_contacts_sort_by_first_name_title">ترتيب الاتصالات حسب</string>
+    <string name="settings_contacts_hide_empty_contacts_title">إخفاء الاتصالات بدون عنوان SIP أو رقم هاتف</string>
+    <string name="settings_contacts_presence_subscribe_title">الاشتراك في معلومات الحضور</string>
+    <string name="settings_contacts_add_ldap_server_title">إضافة خادم LDAP</string>
+    <string name="settings_contacts_edit_ldap_server_title">تحرير خادم LDAP</string>
+    <string name="settings_contacts_add_carddav_server_title">إضافة دفتر عناوين CardDAV</string>
+    <string name="settings_contacts_edit_carddav_server_title">تحرير دفتر عناوين CardDAV</string>
+    <string name="settings_contacts_carddav_name_title">اسم العرض</string>
+    <string name="settings_contacts_carddav_server_url_title">عنوان URL للخادم</string>
+    <string name="settings_contacts_carddav_username_title">اسم المستخدم</string>
+    <string name="settings_contacts_carddav_password_title">كلمة المرور</string>
+    <string name="settings_contacts_carddav_realm_title">نطاق المصادقة</string>
+    <string name="settings_contacts_carddav_use_as_default_title">تخزين الاتصالات الجديدة فيه</string>
+    <string name="settings_contacts_carddav_sync_successful_toast">تمت المزامنة بنجاح</string>
+    <string name="settings_contacts_carddav_sync_error_toast">خطأ في المزامنة!</string>
+    <string name="settings_contacts_carddav_deleted_toast">تم إزالة حساب CardDAV</string>
+    <string name="settings_contacts_carddav_mandatory_field_not_filled_toast">يرجى ملء اسم العرض وعنوان URL للخادم على الأقل</string>
+    <string name="settings_contacts_carddav_read_only_label">دفتر العناوين هذا للقراءة فقط</string>
+    <string name="settings_contacts_ldap_enabled_title">ممكن</string>
+    <string name="settings_contacts_ldap_server_url_title">عنوان URL للخادم (لا يمكن أن يكون فارغًا)</string>
+    <string name="settings_contacts_ldap_bind_dn_title">Bind DN</string>
+    <string name="settings_contacts_ldap_password_title">كلمة المرور</string>
+    <string name="settings_contacts_ldap_use_tls_title">استخدام TLS</string>
+    <string name="settings_contacts_ldap_verbose_mode_title">إضافة سجلات LDAP إلى سجلات &appName;</string>
+    <string name="settings_contacts_ldap_search_base_title">قاعدة البحث (لا يمكن أن تكون فارغة)</string>
+    <string name="settings_contacts_ldap_search_filter_title">المرشح</string>
+    <string name="settings_contacts_ldap_max_results_title">أقصى نتائج</string>
+    <string name="settings_contacts_ldap_request_timeout_title">المهلة (بالثواني)</string>
+    <string name="settings_contacts_ldap_request_delay_title">التأخير بين الاستعلامات (بالمللي ثانية)</string>
+    <string name="settings_contacts_ldap_min_characters_title">الحد الأدنى للحروف لبدء استعلام</string>
+    <string name="settings_contacts_ldap_name_attributes_title">سمات الاسم</string>
+    <string name="settings_contacts_ldap_sip_attributes_title">سمات SIP</string>
+    <string name="settings_contacts_ldap_sip_domain_title">نطاق SIP</string>
+    <string name="settings_contacts_ldap_error_toast">حدث خطأ، لم يتم حفظ خادم LDAP!</string>
+    <string name="settings_contacts_ldap_empty_field_error_toast">يجب ملء جميع الحقول</string>
+    <string name="settings_meetings_title">الاجتماعات</string>
+    <string name="settings_meetings_default_layout_title">التخطيط الافتراضي</string>
+    <string name="settings_meetings_layout_active_speaker_label">المتحدث النشط</string>
+    <string name="settings_meetings_layout_mosaic_label">فسيفساء</string>
+    <string name="settings_network_title">الشبكة</string>
+    <string name="settings_network_use_wifi_only">استخدام شبكات Wi-Fi فقط</string>
+    <string name="settings_network_allow_ipv6">السماح بـ IPv6</string>
+    <string name="settings_user_interface_title">واجهة المستخدم</string>
+    <string name="settings_user_interface_auto_show_dialpad_title">فتح لوحة الاتصال تلقائيًا</string>
+    <string name="settings_user_interface_theme_title">السمة</string>
+    <string name="settings_user_interface_dark_theme_label">السمة الداكنة</string>
+    <string name="settings_user_interface_light_theme_label">السمة الفاتحة</string>
+    <string name="settings_user_interface_auto_theme_label">تلقائي</string>
+    <string name="settings_user_interface_color_title">اللون الرئيسي</string>
+    <string name="settings_tunnel_title">النفق</string>
+    <string name="settings_tunnel_main_host_label">المضيف</string>
+    <string name="settings_tunnel_main_port_label">المنفذ</string>
+    <string name="settings_tunnel_dual_mode_label">استخدام خادمين</string>
+    <string name="settings_tunnel_second_host_label">المضيف الثاني</string>
+    <string name="settings_tunnel_second_port_label">المنفذ الثاني</string>
+    <string name="settings_tunnel_mode_label">الوضع</string>
+    <string name="settings_tunnel_mode_disabled_label">معطل</string>
+    <string name="settings_tunnel_mode_always_label">دائمًا</string>
+    <string name="settings_tunnel_mode_auto_label">تلقائي</string>
+
+    <string name="settings_advanced_title">إعدادات متقدمة</string>
+    <string name="settings_advanced_print_logs_crashlytics_title">مساعدة المطورين في استكشاف المشكلات عن طريق إرسال السجلات إلى Crashlytics بعد الانهيار</string>
+    <string name="settings_advanced_start_at_boot_title">البدء عند تشغيل الجهاز</string>
+    <string name="settings_advanced_keep_alive_service_title">الحفاظ على التطبيق حيًا باستخدام الخدمة</string>
+    <string name="settings_advanced_device_id">معرف الجهاز</string>
+    <string name="settings_advanced_device_id_hint">أحرف أبجدية رقمية فقط</string>
+    <string name="settings_advanced_upload_server_url">عنوان URL لخادم مشاركة الملفات</string>
+    <string name="settings_advanced_logs_upload_server_url">عنوان URL لخادم مشاركة السجلات</string>
+    <string name="settings_advanced_calls">إعدادات المكالمات المتقدمة</string>
+    <string name="settings_advanced_use_smff_format_for_call_recordings_title">تسجيل مكالمات الفيديو باستخدام H265/AV1</string>
+    <string name="settings_advanced_use_smff_format_for_call_recordings_subtitle">سيستخدم تنسيق ملف خاص</string>
+    <string name="settings_advanced_media_encryption_title">تشفير الوسائط</string>
+    <string name="settings_advanced_media_encryption_mandatory_title">تشفير الوسائط إلزامي</string>
+    <string name="settings_advanced_create_e2e_encrypted_conferences_title">إنشاء اجتماعات ومكالمات جماعية مشفرة من طرف إلى طرف</string>
+    <string name="settings_advanced_early_media_title">الوسائط المبكرة</string>
+    <string name="settings_advanced_accept_early_media_title">قبول الوسائط المبكرة</string>
+    <string name="settings_advanced_ring_during_early_media_title">رنين أثناء مكالمة الوسائط المبكرة الواردة</string>
+    <string name="settings_advanced_allow_outgoing_early_media_title">السماح بالوسائط المبكرة الصادرة</string>
+    <string name="settings_advanced_auto_answer_title">الإجابة التلقائية</string>
+    <string name="settings_advanced_enable_auto_answer_incoming_calls_title">الإجابة التلقائية على المكالمات الواردة</string>
+    <string name="settings_advanced_enable_auto_answer_incoming_calls_after_delay_title">التأخير قبل الإجابة التلقائية على المكالمة</string>
+    <string name="settings_advanced_enable_auto_answer_incoming_calls_after_delay_hint">التأخير بالمللي ثانية</string>
+    <string name="settings_advanced_enable_auto_answer_video_send_receive">الإجابة التلقائية مع تمكين الفيديو في كلا الاتجاهين</string>
+    <string name="settings_advanced_remote_provisioning_url">عنوان URL للتزويد البعيد</string>
+    <string name="settings_advanced_download_apply_remote_provisioning">تنزيل وتطبيق</string>
+    <string name="settings_advanced_audio_devices_title">أجهزة الصوت</string>
+    <string name="settings_advanced_input_audio_device_title">جهاز إدخال الصوت الافتراضي</string>
+    <string name="settings_advanced_output_audio_device_title">جهاز إخراج الصوت الافتراضي</string>
+    <string name="settings_advanced_audio_codecs_title">رموز الصوت</string>
+    <string name="settings_advanced_audio_codecs_mono_subtitle">أحادي</string>
+    <string name="settings_advanced_audio_codecs_stereo_subtitle">ستيريو</string>
+    <string name="settings_advanced_video_codecs_title">رموز الفيديو</string>
+    <string name="settings_advanced_go_to_android_app_settings_title">إعدادات Android لـ &appName;</string>
+
+    <string name="settings_developer_title">إعدادات المطور</string>
+    <string name="settings_developer_show_title">عرض إعدادات المطور</string>
+    <string name="settings_developer_two_more_clicks_required_toast">انقر مرتين إضافيتين لتمكين إعدادات المطور</string>
+    <string name="settings_developer_one_more_click_required_toast">انقر مرة إضافية لتمكين إعدادات المطور</string>
+    <string name="settings_developer_enabled_toast">تم تمكين إعدادات المطور</string>
+    <string name="settings_developer_already_enabled_toast">إعدادات المطور ممكنة بالفعل</string>
+    <string name="settings_developer_enable_vu_meters_title">تمكين مقاييس مستوى التسجيل/التشغيل أثناء المكالمة</string>
+    <string name="settings_developer_push_compatible_domains_list_title">قائمة النطاقات المتوافقة مع إشعارات الدفع (مفصولة بفواصل)</string>
+    <string name="settings_developer_clear_native_friends_in_database_title">مسح الاتصالات المستوردة من دفتر العناوين الأصلي</string>
+    <string name="settings_developer_clear_native_friends_in_database_subtitle">سيتم استيرادها مرة أخرى في المرة التالية التي يبدأ فيها التطبيق ما لم تقم بإزالة إذن الاتصالات</string>
+    <string name="settings_developer_cleared_native_friends_in_database_toast">تم حذف الاتصالات المستوردة</string>
+
+    <!-- Account profile & settings -->
+    <string name="manage_account_title">إدارة الحساب</string>
+    <string name="manage_account_details_title">التفاصيل</string>
+    <string name="manage_account_devices_title">الأجهزة</string>
+    <string name="manage_account_empty_devices_label">لم يتم العثور على جهاز...</string>
+    <string name="manage_account_add_picture">إضافة صورة</string>
+    <string name="manage_account_edit_picture">تحرير الصورة</string>
+    <string name="manage_account_remove_picture">إزالة الصورة</string>
+    <string name="manage_account_status_connected_summary">هذا الحساب متصل، يمكن للجميع الاتصال بك.</string>
+    <string name="manage_account_status_disconnected_summary">هذا الحساب غير متصل، ربما لأنك غير متصل بالإنترنت الآن.</string>
+    <string name="manage_account_status_cleared_summary">تم تعطيل الحساب، لن تتلقى أي مكالمة أو رسالة.</string>
+    <string name="manage_account_status_progress_summary">الحساب يتصل بالخادم، يرجى الانتظار...</string>
+    <string name="manage_account_status_failed_summary">فشل اتصال الحساب، تحقق من إعداداتك.</string>
+    <string name="manage_account_international_prefix">البادئة الدولية</string>
+    <string name="manage_account_dialog_international_prefix_help_message">اختر بلدك للسماح لـ &appName; بمطابقة اتصالاتك.</string>
+    <string name="manage_account_settings">إعدادات الحساب</string>
+    <string name="manage_account_delete">تسجيل الخروج</string>
+    <string name="manage_account_choose_mode_title">اختر وضع الحساب</string>
+    <string name="manage_account_choose_mode_apply_label">تطبيق</string>
+    <string name="manage_account_e2e_encrypted_mode_default_title">وضع التشفير من طرف إلى طرف</string>
+    <string name="manage_account_e2e_encrypted_mode_interoperable_title">وضع التوافق</string>
+    <string name="manage_account_e2e_encrypted_mode_default_summary">يضمن هذا الوضع سرية بياناتك. تقنية التشفير من طرف إلى طرف لدينا توفر أعلى مستوى من الأمان لاتصالاتك.</string>
+    <string name="manage_account_e2e_encrypted_mode_interoperable_summary">يسمح لك هذا الوضع بالاستمتاع بجميع ميزات &appName; مع الحفاظ على التوافق مع أي خدمة SIP من خلال التشفير نقطة إلى نقطة.</string>
+    <string name="manage_account_device_remove">إزالة</string>
+    <string name="manage_account_device_last_connection">آخر اتصال:</string>
+    <string name="manage_account_dialog_remove_account_title">تسجيل الخروج من حسابك؟</string>
+    <string name="manage_account_dialog_remove_account_message">إذا كنت ترغب في حذف حسابك نهائيًا، اذهب إلى: https://sip.linphone.org</string>
+    <string name="manage_account_outbound_proxy">وكيل SIP الصادر</string>
+    <string name="manage_account_dialog_outbound_proxy_help_message">إذا تم ملء هذا الحقل، سيتم تمكين الوكيل الصادر تلقائيًا. اتركه فارغًا لتعطيله.</string>
+
+    <string name="account_settings_title">إعدادات الحساب</string>
+    <string name="account_settings_push_notification_title">السماح بإشعارات الدفع</string>
+    <string name="account_settings_push_notification_not_available_title">إشعارات الدفع غير متوفرة!</string>
+    <string name="account_settings_im_encryption_mandatory_title">تشفير الرسائل الفورية إلزامي</string>
+    <string name="account_settings_sip_proxy_url_title">URI المسجل</string>
+    <string name="account_settings_outbound_proxy_title">URI وكيل SIP الصادر</string>
+    <string name="account_settings_nat_policy_title">إعدادات سياسة NAT</string>
+    <string name="account_settings_stun_server_url_title">عنوان URL لخادم STUN/TURN</string>
+    <string name="account_settings_enable_ice_title">تمكين ICE</string>
+    <string name="account_settings_enable_turn_title">تمكين TURN</string>
+    <string name="account_settings_turn_username_title">اسم مستخدم TURN</string>
+    <string name="account_settings_turn_password_title">كلمة مرور TURN</string>
+    <string name="account_settings_avpf_title">AVPF</string>
+    <string name="account_settings_expire_title">انتهاء الصلاحية (بالثواني)</string>
+    <string name="account_settings_conference_factory_uri_title">URI مصنع المؤتمر</string>
+    <string name="account_settings_audio_video_conference_factory_uri_title">URI مصنع مؤتمر الصوت/الفيديو</string>
+    <string name="account_settings_ccmp_server_url_title">عنوان URL لخادم CCMP</string>
+    <string name="account_settings_lime_server_url_title">عنوان URL لخادم مفاتيح التشفير من طرف إلى طرف</string>
+    <string name="account_settings_bundle_mode_title">وضع الحزمة</string>
+    <string name="account_settings_cpim_in_basic_conversations_title">استخدام CPIM في المحادثات \"الأساسية\"</string>
+    <string name="account_settings_voicemail_uri_title">URI البريد الصوتي</string>
+    <string name="account_settings_mwi_uri_title">URI خادم MWI (مؤشر الرسائل المنتظرة)</string>
+    <string name="account_settings_apply_international_prefix_title">تهيئة أرقام الهاتف باستخدام البادئة الدولية</string>
+    <string name="account_settings_replace_plus_by_00_title">استبدال + بـ 00 عند تهيئة أرقام الهاتف</string>
+    <string name="account_settings_update_password_title">تحديث كلمة المرور</string>
+
+    <string name="account_settings_dialog_invalid_password_title">المصادقة مطلوبة</string>
+    <string name="account_settings_dialog_invalid_password_message">فشل الاتصال لأن المصادقة مفقودة أو غير صالحة للحساب \n%s.\n\nيمكنك تقديم كلمة المرور مرة أخرى، أو التحقق من تكوين حسابك في الإعدادات.</string>
+    <string name="account_settings_dialog_invalid_password_hint">كلمة المرور</string>
+    <string name="account_failed_to_find_identity_toast">فشل في العثور على حساب مطابق!</string>
+
+    <!-- Call history -->
+    <string name="history_call_start_title">مكالمة جديدة</string>
+    <string name="history_call_start_search_bar_filter_hint">البحث عن اتصال أو سجل مكالمات</string>
+    <string name="history_call_start_create_group_call">إنشاء مكالمة جماعية</string>
+    <string name="history_call_start_no_suggestion_nor_contact">لا اقتراح ولا اتصال في الوقت الحالي...</string>
+    <string name="history_group_call_start_dialog_set_subject">تعيين موضوع المكالمة الجماعية</string>
+    <string name="history_group_call_start_dialog_subject_hint">موضوع المكالمة الجماعية</string>
+    <string name="history_list_empty_history">لم يتم العثور على مكالمة من/إلى هذا الحساب...</string>
+    <string name="history_list_change_selected_account_label">تغيير الحساب</string>
+    <string name="history_group_call_go_to_conversation">المحادثة</string>
+
+    <string name="history_dialog_delete_all_call_logs_title">هل تريد حقًا حذف جميع سجل المكالمات؟</string>
+    <string name="history_dialog_delete_all_call_logs_message">سيتم إزالة جميع المكالمات من السجل</string>
+    <string name="history_dialog_delete_call_logs_title">هل تريد حقًا حذف السجل مع هذا الشخص؟</string>
+    <string name="history_dialog_delete_call_logs_message">سيتم إزالة جميع المكالمات من السجل</string>
+
+    <!-- Contacts -->
+    <string name="contacts_list_empty">لا اتصال في الوقت الحالي...</string>
+    <string name="contacts_list_sip_empty">لا اتصال SIP في الوقت الحالي...</string>
+    <string name="contacts_change_filter_label">تغيير الفلتر</string>
+    <string name="contacts_list_favourites_title">المفضلات</string>
+    <string name="contacts_list_all_contacts_title">جميع الاتصالات</string>
+    <string name="contacts_list_filter_popup_see_all">رؤية الكل</string>
+    <string name="contacts_list_filter_popup_see_linphone_only">رؤية اتصالات &appName; فقط</string>
+    <string name="contacts_list_filter_popup_see_sip_only">رؤية اتصالات SIP فقط</string>
+    <string name="contacts_list_search_results_limit_reached_label">تم الوصول إلى حد نتائج البحث، قم بتحسين بحثك.</string>
+
+    <string name="contact_new_title">اتصال جديد</string>
+    <string name="contact_edit_title">تحرير الاتصال</string>
+    <string name="contact_editor_first_name">الاسم الأول</string>
+    <string name="contact_editor_last_name">الاسم الأخير</string>
+    <string name="contact_editor_company">الشركة</string>
+    <string name="contact_editor_job_title">المسمى الوظيفي</string>
+    <string name="contact_editor_saved_changes_toast">تم حفظ التغييرات بنجاح</string>
+    <string name="contact_editor_error_saving_changes_toast">فشل في حفظ التغييرات!</string>
+    <string name="contact_editor_saved_contact_toast">تم إنشاء الاتصال بنجاح</string>
+    <string name="contact_editor_error_saving_contact_toast">فشل في إنشاء الاتصال!</string>
+    <string name="contact_editor_dialog_abort_confirmation_title">لا تحفظ التغييرات؟</string>
+    <string name="contact_editor_dialog_abort_confirmation_message">سيتم فقدان جميع التغييرات</string>
+    <string name="contact_editor_mandatory_field_not_filled_toast">يرجى ملء الاسم الأول أو الاسم الأخير أو اسم الشركة</string>
+
+    <string name="contact_details_numbers_and_addresses_title">أرقام الهواتف وعناوين SIP</string>
+    <string name="contact_details_company_name">الشركة:</string>
+    <string name="contact_details_job_title">المسمى الوظيفي:</string>
+    <string name="contact_details_trust_title">الثقة</string>
+    <string name="contact_details_no_device_found">لم يتم العثور على جهاز...</string>
+    <string name="contact_details_trusted_devices_count">عدد الأجهزة الموثوقة:</string>
+    <string name="contact_details_actions_title">إجراءات أخرى</string>
+    <string name="contact_details_edit">تحرير</string>
+    <string name="contact_details_add_to_favourites">إضافة إلى المفضلات</string>
+    <string name="contact_details_remove_from_favourites">إزالة من المفضلات</string>
+    <string name="contact_details_share">مشاركة</string>
+    <string name="contact_details_delete">حذف</string>
+    <string name="contact_sms_invite_content">مرحبًا، انضم إلي على &appName;! يمكنك تنزيله مجانًا على %s</string>
+    <string name="contact_deleted_toast">تم إزالة الاتصال</string>
+    <string name="contact_details_phone_number_copied_to_clipboard_toast">تم نسخ الرقم إلى الحافظة</string>
+
+    <string name="contact_dialog_increase_trust_level_title">زيادة مستوى الثقة</string>
+    <string name="contact_dialog_increase_trust_level_message">أنت على وشك إجراء مكالمة إلى جهاز %1$s الخاص بـ %2$s.\nهل تريد إجراء المكالمة؟</string>
+    <string name="contact_dialog_devices_trust_help_title">مستوى الثقة</string>
+    <string name="contact_dialog_devices_trust_help_message">تحقق من جميع أجهزة اتصالك للتأكد من أن اتصالاتك ستكون آمنة وغير معدلة.\nعند التحقق من الجميع، ستصل إلى أقصى مستوى ثقة.</string>
+    <string name="contact_dialog_delete_title">حذف %s؟</string>
+    <string name="contact_dialog_delete_message">سيتم إزالة هذا الاتصال نهائيًا.</string>
+    <string name="contact_dialog_pick_phone_number_or_sip_address_title">اختر رقمًا أو عنوان SIP</string>
+
+    <string name="contact_presence_status_online">متصل</string>
+    <string name="contact_presence_status_was_online_on">متصل على %s</string>
+    <string name="contact_presence_status_was_online_today_at">متصل اليوم في %s</string>
+    <string name="contact_presence_status_was_online_yesterday_at">متصل أمس في %s</string>
+    <string name="contact_presence_status_away">بعيد</string>
+    <string name="contact_presence_status_do_not_disturb">لا تزعج</string>
+    <string name="contact_call_action">اتصال</string>
+    <string name="contact_message_action">رسالة</string>
+    <string name="contact_video_call_action">مكالمة فيديو</string>
+    <string name="contact_make_call_check_device_trust">التحقق</string>
+    <string name="contact_device_without_name">جهاز بدون اسم</string>
+
+    <!-- Chat -->
+    <string name="conversations_list_empty">لا محادثة متعلقة بهذا الحساب في الوقت الحالي...</string>
+    <string name="conversations_list_is_being_removed_label">جاري الإزالة...</string>
+    <string name="conversations_last_message_format">%s:</string>
+    <plurals name="conversations_files_waiting_to_be_shared_toast">
+        <item quantity="zero">0 ملفات في انتظار المشاركة</item>
+        <item quantity="one">%s ملف في انتظار المشاركة</item>
+        <item quantity="two">%s ملفين في انتظار المشاركة</item>
+        <item quantity="few">%s ملفات في انتظار المشاركة</item>
+        <item quantity="many">%s ملفًا في انتظار المشاركة</item>
+        <item quantity="other">%s ملف في انتظار المشاركة</item>
+    </plurals>
+    <string name="conversations_text_waiting_to_be_shared_toast">النص في انتظار المشاركة</string>
+
+    <string name="conversation_action_mark_as_read">وضع علامة مقروء</string>
+    <string name="conversation_action_mute">كتم الصوت</string>
+    <string name="conversation_action_unmute">إلغاء كتم الصوت</string>
+    <string name="conversation_action_call">اتصال</string>
+    <string name="conversation_action_delete">حذف المحادثة</string>
+    <string name="conversation_action_leave_group">مغادرة المجموعة</string>
+    <string name="conversation_action_configure_ephemeral_messages">تكوين الرسائل المؤقتة</string>
+    <string name="conversation_ephemeral_messages_title">الرسائل المؤقتة</string>
+    <string name="conversation_ephemeral_messages_subtitle">سيتم حذف الرسائل الجديدة تلقائيًا بمجرد قراءتها من قبل الجميع.\nاختر مدة:</string>
+    <string name="conversation_ephemeral_messages_duration_disabled">معطل</string>
+    <string name="conversation_ephemeral_messages_duration_one_minute">دقيقة واحدة</string>
+    <string name="conversation_ephemeral_messages_duration_one_hour">ساعة واحدة</string>
+    <string name="conversation_ephemeral_messages_duration_one_day">يوم واحد</string>
+    <string name="conversation_ephemeral_messages_duration_three_days">3 أيام</string>
+    <string name="conversation_ephemeral_messages_duration_one_week">أسبوع واحد</string>
+    <string name="new_conversation_title">محادثة جديدة</string>
+    <string name="new_group_conversation_title">محادثة جماعية جديدة</string>
+    <string name="conversation_invalid_empty_subject_toast">يرجى إدخال اسم للمحادثة</string>
+    <string name="new_conversation_search_bar_filter_hint">البحث عن اتصال</string>
+    <string name="new_conversation_create_group">إنشاء محادثة جماعية</string>
+    <string name="new_conversation_no_contact">لا اتصال ولا اقتراح في الوقت الحالي...</string>
+    <string name="new_conversation_no_matching_contact">لا نتيجة مطابقة...</string>
+    <string name="conversation_text_field_hint">قل شيئًا...</string>
+    <plurals name="conversation_composing_label">
+        <item quantity="zero">0 يقومون بكتابة...</item>
+        <item quantity="one">%s يكتب...</item>
+        <item quantity="two">%s يكتبان...</item>
+        <item quantity="few">%s يكتبون...</item>
+        <item quantity="many">%s يكتب...</item>
+        <item quantity="other">%s يكتبون...</item>
+    </plurals>
+    <plurals name="conversation_composing_voice_message_label">
+        <item quantity="zero">0 يقومون بتسجيل رسالة صوتية...</item>
+        <item quantity="one">%s يسجل رسالة صوتية...</item>
+        <item quantity="two">%s يسجلان رسالة صوتية...</item>
+        <item quantity="few">%s يسجلون رسالة صوتية...</item>
+        <item quantity="many">%s يسجل...</item>
+        <item quantity="other">%s يسجلون رسالة صوتية...</item>
+    </plurals>
+    <string name="conversation_add_participants_title">إضافة مشاركين</string>
+    <string name="conversation_reply_to_message_title">الرد على:</string>
+    <string name="conversation_menu_search_in_messages">البحث</string>
+    <string name="conversation_menu_go_to_info">معلومات المحادثة</string>
+    <string name="conversation_menu_configure_ephemeral_messages">الرسائل المؤقتة</string>
+    <string name="conversation_menu_media_files">الوسائط</string>
+    <string name="conversation_menu_documents_files">المستندات</string>
+    <string name="conversation_no_media_found">لم يتم العثور على وسائط...</string>
+    <string name="conversation_no_document_found">لم يتم العثور على مستند...</string>
+    <string name="conversation_end_to_end_encrypted_event_title">محادثة مشفرة من طرف إلى طرف</string>
+    <string name="conversation_end_to_end_encrypted_event_subtitle">الرسائل في هذه المحادثة مشفرة من طرف إلى طرف. يمكن لمراسلك فقط فك تشفيرها.</string>
+    <string name="conversation_end_to_end_encrypted_bottom_sheet_title">سرية مضمونة</string>
+    <string name="conversation_end_to_end_encrypted_bottom_sheet_message">بفضل تقنية التشفير من طرف إلى طرف في &appName;، يتم ضمان سرية الرسائل والمكالمات والاجتماعات. لا يمكن لأحد فك تشفير البيانات المتبادلة، ولا حتى نحن.</string>
+    <string name="conversation_warning_unsafe_event_subtitle">الرسائل غير مشفرة من طرف إلى طرف، تأكد من عدم مشاركة معلومات حساسة!</string>
+    <string name="conversation_warning_unsafe_bottom_sheet_title">محادثة غير مشفرة</string>
+    <string name="conversation_warning_unsafe_bottom_sheet_message">يمكن اعتراض الرسائل المتبادلة في هذه المحادثة وقراءتها من قبل أشخاص آخرين غير مراسلك، السرية غير مضمونة!</string>
+    <string name="conversation_warning_disabled_because_not_secured_title">هذه المحادثة غير مشفرة!</string>
+    <string name="conversation_warning_disabled_because_not_secured_subtitle">لأجل سلامتك، تم تعطيل هذه المحادثة.</string>
+    <string name="conversation_warning_disabled_encrypted_bottom_sheet_title">التشفير الإلزامي</string>
+    <string name="conversation_warning_disabled_encrypted_bottom_sheet_message">لقد قمت بتمكين التشفير الإلزامي. تم تعطيل المحادثات غير المشفرة لسلامتك. يمكنك إعادة إنشاء هذه المحادثة أو تعطيل التشفير الإلزامي في معلمات حسابك.</string>
+    <string name="conversation_maximum_number_of_attachments_reached">تم الوصول إلى الحد الأقصى لعدد المرفقات!</string>
+    <string name="conversation_dialog_set_subject">تعيين موضوع المحادثة</string>
+    <string name="conversation_dialog_edit_subject">تحرير موضوع المحادثة</string>
+    <string name="conversation_dialog_subject_cant_be_empty_error">الموضوع إلزامي</string>
+    <string name="conversation_dialog_subject_hint">موضوع المحادثة</string>
+    <string name="conversation_dialog_open_or_export_file_title">فتح أو تصدير الملف؟</string>
+    <string name="conversation_dialog_open_or_export_file_message">لا يمكن لـ &appName; فتح هذا الملف.\n\nهل تريد فتحه في تطبيق آخر (إذا أمكن)، أو تصديره على جهازك؟</string>
+    <string name="conversation_dialog_open_file_label">فتح الملف</string>
+    <string name="conversation_dialog_export_file_label">تصدير الملف</string>
+    <string name="conversation_no_app_registered_to_handle_content_type_dialog_title">فتح كنص عادي؟</string>
+    <string name="conversation_no_app_registered_to_handle_content_type_dialog_message">لم يتم العثور على تطبيق لفتح هذا النوع من الملفات.\n\nهل تريد محاولة فتحه كنص عادي؟</string>
+    <string name="conversation_dialog_open_plain_text_label">فتح كنص عادي</string>
+    <string name="conversation_failed_to_play_voice_recording_message">لا يمكن تشغيل التسجيل الصوتي!</string>
+    <string name="conversation_message_deleted_toast">تم حذف الرسالة</string>
+    <string name="conversation_failed_to_create_toast">فشل في إنشاء المحادثة!</string>
+    <string name="conversation_invalid_participant_due_to_security_mode_toast">لا يمكن إنشاء محادثة مع مشارك غير في نفس النطاق بسبب قيود الأمان!</string>
+    <string name="conversation_media_not_found_toast">لم يتم العثور على الوسائط المحددة</string>
+    <string name="conversation_subject_changed_toast">تم تغيير موضوع المحادثة</string>
+    <string name="conversation_ephemeral_messages_enabled_toast">تم تمكين الرسائل المؤقتة</string>
+    <string name="conversation_ephemeral_messages_disabled_toast">تم تعطيل الرسائل المؤقتة</string>
+    <string name="conversation_ephemeral_messages_lifetime_changed_toast">تم تغيير عمر الرسائل المؤقتة</string>
+    <string name="conversation_voice_recording_max_duration_reached_toast">تم الوصول إلى المدة القصوى</string>
+    <string name="conversation_failed_to_add_participant_to_group_conversation_toast">فشل في إضافة مشارك(ين) إلى المحادثة</string>
+    <string name="conversation_deleted_toast">تم حذف المحادثة بنجاح</string>
+    <string name="conversation_group_left_toast">لقد غادرت المجموعة</string>
+    <string name="conversation_no_app_registered_to_handle_content_type_error_toast">لم يتم العثور على تطبيق لفتح هذا النوع من الملفات</string>
+    <string name="conversation_to_display_no_found_toast">لم يتم العثور على المحادثة</string>
+    <string name="conversation_search_no_match_found">لم يتم العثور على نتيجة مطابقة</string>
+    <string name="conversation_search_no_more_match">تم الوصول إلى آخر نتيجة مطابقة</string>
+    <string name="conversation_take_picture_label">التقاط صورة</string>
+    <string name="conversation_pick_file_from_gallery_label">فتح المعرض</string>
+    <string name="conversation_pick_any_file_label">اختيار ملف</string>
+    <string name="conversation_file_cant_be_opened_error_toast">لا يمكن فتح الملف!</string>
+    <string name="conversation_pdf_password_protected_file_cant_be_opened_error_toast">لا يمكن فتح ملفات PDF المحمية بكلمة مرور بعد</string>
+    <string name="conversation_pdf_file_error_toast">لا يمكن فتح هذا PDF، قد يكون الملف تالفًا</string>
+    <string name="conversation_editing_message_title">الرسالة قيد التحرير</string>
+    <string name="conversation_message_edited_label">تم تحريره</string>
+    <string name="conversation_dialog_delete_chat_message_title">حذف هذه الرسالة؟</string>
+    <string name="conversation_dialog_delete_locally_label">بالنسبة لي</string>
+    <string name="conversation_dialog_delete_for_everyone_label">بالنسبة للجميع</string>
+    <string name="conversation_message_content_deleted_label"><i>تم حذف هذه الرسالة</i></string>
+    <string name="conversation_message_content_deleted_by_us_label"><i>لقد حذفت هذه الرسالة</i></string>
+
+    <string name="conversation_info_participants_list_title">أعضاء المجموعة (%s)</string>
+    <string name="conversation_info_add_participants_label">إضافة مشاركين</string>
+    <string name="conversation_info_participant_is_admin_label">مدير</string>
+    <string name="conversation_info_delete_history_action">حذف السجل</string>
+    <string name="conversation_info_admin_menu_remove_participant">إزالة من المجموعة</string>
+    <string name="conversation_info_admin_menu_set_participant_admin">منح حقوق المدير</string>
+    <string name="conversation_info_admin_menu_unset_participant_admin">إزالة حقوق المدير</string>
+    <string name="conversation_info_menu_go_to_contact">رؤية ملف الاتصال</string>
+    <string name="conversation_info_menu_add_to_contacts">إضافة إلى الاتصالات</string>
+    <string name="conversation_info_dialog_delete_all_call_logs_title">هل تريد حقًا حذف جميع الرسائل؟</string>
+    <string name="conversation_info_dialog_delete_all_message">سيتم إزالة جميع الرسائل من السجل</string>
+    <string name="conversation_info_history_deleted_toast">تم حذف السجل بنجاح</string>
+    <string name="conversation_info_participant_added_to_conversation_toast">%s انضم إلى المحادثة</string>
+    <string name="conversation_info_participant_removed_from_conversation_toast">%s غادر المحادثة</string>
+    <string name="conversation_info_participant_has_been_granted_admin_rights_toast">%s أصبح مديرًا الآن</string>
+    <string name="conversation_info_participant_no_longer_has_admin_rights_toast">%s لم يعد مديرًا</string>
+    <string name="conversation_info_cant_find_contact_to_display_toast">لم يتم العثور على الاتصال</string>
+    <string name="conversation_info_no_address_to_add_to_contact_toast">لا عنوان لإضافته إلى الاتصال</string>
+    <string name="conversation_info_confirm_start_group_call_dialog_title">بدء مكالمة جماعية؟</string>
+    <string name="conversation_info_confirm_start_group_call_dialog_message">سيتلقى جميع المشاركين مكالمة.</string>
+
+    <string name="conversation_event_conference_created">لقد انضممت إلى المجموعة</string>
+    <string name="conversation_event_conference_destroyed">لقد غادرت المجموعة</string>
+    <string name="conversation_event_participant_added">%s انضم</string>
+    <string name="conversation_event_participant_removed">%s غادر</string>
+    <string name="conversation_event_device_added">جهاز جديد لـ %s</string>
+    <string name="conversation_event_device_removed">تم إزالة جهاز %s</string>
+    <string name="conversation_event_subject_changed">موضوع جديد: %s</string>
+    <string name="conversation_event_admin_set">%s هو مدير</string>
+    <string name="conversation_event_admin_unset">%s لم يعد مديرًا</string>
+    <string name="conversation_event_ephemeral_messages_enabled">تم تمكين الرسائل المؤقتة</string>
+    <string name="conversation_event_ephemeral_messages_disabled">تم تعطيل الرسائل المؤقتة</string>
+    <string name="conversation_event_ephemeral_messages_lifetime_changed">عمر الرسائل المؤقتة الآن %s</string>
+    <string name="conversation_event_security_event_lime_identity_key_changed">تم تغيير مفتاح هوية LIME لـ %s</string>
+    <string name="conversation_event_security_event_man_in_the_middle_detected">تم اكتشاف هجوم رجل في الوسط لـ %s</string>
+    <string name="conversation_event_security_event_level_downgraded">انخفض مستوى الأمان بسبب %s</string>
+    <string name="conversation_event_security_event_max_participant_count_exceeded">تم تجاوز الحد الأقصى لعدد المشاركين بواسطة %s</string>
+
+    <string name="conversation_details_media_documents_title">الوسائط والمستندات</string>
+    <string name="conversation_media_list_title">الوسائط المشتركة</string>
+    <string name="conversation_document_list_title">المستندات المشتركة</string>
+
+    <string name="conversation_forward_message_title">إعادة توجيه الرسالة إلى...</string>
+    <string name="conversation_message_forwarded_toast">تم إعادة توجيه الرسالة</string>
+    <string name="conversation_message_forward_cancelled_toast">تم إلغاء إعادة توجيه الرسالة</string>
+
+    <string name="message_delivery_info_read_title">مقروء %s</string>
+    <string name="message_delivery_info_received_title">مستلم %s</string>
+    <string name="message_delivery_info_sent_title">مرسل %s</string>
+    <string name="message_delivery_info_error_title">خطأ %s</string>
+    <string name="message_reactions_info_all_title">ردود الفعل %s</string>
+    <string name="message_reactions_info_emoji_title">%1$s %2$s</string>
+    <string name="message_reaction_click_to_remove_label">انقر لإزالة</string>
+    <string name="message_forwarded_label">معاد توجيهه</string>
+
+    <string name="message_meeting_invitation_content_description">دعوة اجتماع:</string>
+    <string name="message_meeting_invitation_updated_content_description">تم تحديث الاجتماع:</string>
+    <string name="message_meeting_invitation_cancelled_content_description">تم إلغاء الاجتماع:</string>
+    <string name="message_voice_message_content_description">رسالة صوتية</string>
+
+    <!-- Scheduled conferences -->
+    <string name="meetings_list_no_meeting_for_today">لا اجتماع مجدول لليوم</string>
+
+    <string name="meeting_schedule_title">اجتماع جديد</string>
+    <string name="meeting_schedule_meeting_label">اجتماع</string>
+    <string name="meeting_schedule_broadcast_label">بث</string>
+    <string name="meeting_schedule_broadcast_help">معلومات عن البث.\n<u>تعلم المزيد</u></string>
+    <string name="meeting_schedule_subject_hint">إضافة عنوان...</string>
+    <string name="meeting_schedule_pick_start_date_title">اختر تاريخ البدء</string>
+    <string name="meeting_schedule_pick_start_time_title">اختر وقت البدء</string>
+    <string name="meeting_schedule_pick_end_time_title">اختر وقت النهاية</string>
+    <string name="meeting_schedule_timezone_title">المنطقة الزمنية</string>
+    <string name="meeting_schedule_one_time_label">مرة واحدة</string>
+    <string name="meeting_schedule_description_hint">إضافة وصف</string>
+    <string name="meeting_schedule_add_participants_title">إضافة مشاركين</string>
+    <string name="meeting_schedule_add_more_participants_title">انقر لإضافة المزيد من المشاركين</string>
+    <string name="meeting_schedule_add_speaker_title">إضافة متحدث</string>
+    <string name="meeting_schedule_send_invitations_title">إرسال الدعوات إلى المشاركين</string>
+    <string name="meeting_info_join_title">الانضمام إلى الاجتماع الآن</string>
+    <string name="meeting_info_organizer_label">المنظم</string>
+    <string name="meeting_info_export_as_calendar_event">إنشاء حدث تقويم</string>
+    <string name="meeting_info_deleted_toast">تم حذف الاجتماع</string>
+    <string name="meeting_info_not_found_toast">لا يمكن العثور على الاجتماع!</string>
+    <string name="meeting_schedule_description_title">الوصف</string>
+    <string name="meeting_schedule_edit_title">تحرير الاجتماع</string>
+    <string name="meeting_schedule_notify_cancel_dialog_title">سيتم إلغاء الاجتماع</string>
+    <string name="meeting_schedule_notify_cancel_dialog_message">هل تريد إرسال إشعار إلى جميع المشاركين؟</string>
+    <string name="meeting_cancel_action_label">إلغاء الاجتماع</string>
+    <string name="meeting_schedule_delete_dialog_title">حذف الاجتماع؟</string>
+    <string name="meeting_schedule_delete_dialog_message">هل تريد حذف الاجتماع؟</string>
+    <string name="meeting_delete_action_label">حذف الاجتماع</string>
+    <string name="meeting_info_created_toast">تم إنشاء الاجتماع</string>
+    <string name="meeting_info_updated_toast">تم تحديث الاجتماع</string>
+    <string name="meeting_info_cancelled_toast">تم إلغاء الاجتماع</string>
+    <string name="meeting_info_cancelled">تم إلغاء الاجتماع</string>
+    <string name="meeting_failed_to_schedule_toast">فشل في جدولة الاجتماع!</string>
+    <string name="meeting_failed_to_edit_schedule_toast">فشل في تحرير الاجتماع!</string>
+    <string name="meeting_schedule_mandatory_field_not_filled_toast">يرجى ملء العنوان واختيار مشارك واحد على الأقل</string>
+    <string name="meeting_failed_to_send_invites_toast">فشل في إرسال جميع الدعوات إلى الاجتماع!</string>
+    <string name="meeting_failed_to_send_part_of_invites_toast">فشل في إرسال الدعوات إلى بعض المشاركين في الاجتماع!</string>
+    <string name="meeting_address_copied_to_clipboard_toast">تم نسخ عنوان الاجتماع إلى الحافظة</string>
+
+    <string name="meeting_waiting_room_join">انضمام</string>
+    <string name="meeting_waiting_room_cancel">إلغاء</string>
+    <string name="meeting_waiting_room_joining_title">جاري الاتصال</string>
+    <string name="meeting_waiting_room_joining_subtitle">ستنضم في لحظة قصيرة</string>
+    <string name="meeting_waiting_room_failed_to_join_toast">فشل في الانضمام إلى الاجتماع!</string>
+
+    <!-- Call related -->
+    <string name="call_outgoing">مكالمة صادرة</string>
+    <string name="call_audio_incoming">مكالمة واردة</string>
+    <string name="call_video_incoming">مكالمة فيديو واردة</string>
+    <string name="call_locally_ended">لقد أنهيت المكالمة</string>
+    <string name="call_remotely_ended">أنهى المراسل المكالمة</string>
+    <string name="call_audio_incoming_for_account">مكالمة واردة لـ %s</string>
+    <string name="call_video_incoming_for_account">مكالمة فيديو واردة لـ %s</string>
+    <string name="call_transfer_current_call_title">نقل %s إلى...</string>
+    <string name="call_transfer_active_calls_label">المكالمات الحالية</string>
+    <string name="call_transfer_no_active_call_label">لا مكالمة أخرى</string>
+    <string name="call_transfer_confirm_dialog_tittle">تأكيد نقل المكالمة</string>
+    <string name="call_transfer_confirm_dialog_message">أنت على وشك نقل المكالمة %1$s إلى %2$s.</string>
+
+    <string name="call_action_transfer">نقل</string>
+    <string name="call_action_start_new_call">مكالمة جديدة</string>
+    <string name="call_action_go_to_calls_list">قائمة المكالمات</string>
+    <string name="call_action_show_dialer">الطالب</string>
+    <string name="call_action_show_messages">الرسائل</string>
+    <string name="call_action_pause_call">إيقاف مؤقت</string>
+    <string name="call_action_resume_call">استئناف</string>
+    <string name="call_action_record_call">تسجيل</string>
+    <string name="call_action_hang_up">إنهاء</string>
+    <string name="call_action_decline">رفض</string>
+    <string name="call_action_answer">الإجابة</string>
+    <string name="call_action_change_layout">التخطيط</string>
+    <string name="call_state_outgoing_progress">قيد التقدم</string>
+    <string name="call_state_outgoing_ringing">رنين</string>
+    <string name="call_state_incoming_received">واردة</string>
+    <string name="call_state_connected">نشط</string>
+    <string name="call_state_paused">موقوف مؤقتًا</string>
+    <string name="call_state_paused_by_remote">موقوف مؤقتًا من الطرف البعيد</string>
+    <string name="call_state_resuming">جاري الاستئناف...</string>
+    <string name="call_state_ended">منتهية</string>
+    <string name="call_waiting_for_encryption_info">في انتظار التشفير...</string>
+    <string name="call_zrtp_end_to_end_encrypted">مشفرة من طرف إلى طرف بواسطة ZRTP</string>
+    <string name="call_zrtp_point_to_point_encrypted">مشفرة نقطة إلى نقطة بواسطة ZRTP</string>
+    <string name="call_do_zrtp_sas_validation_again">التحقق من ZRTP SAS مرة أخرى</string>
+    <string name="call_zrtp_sas_validation_required">التحقق مطلوب</string>
+    <string name="call_srtp_point_to_point_encrypted">مشفرة نقطة إلى نقطة بواسطة SRTP</string>
+    <string name="call_not_encrypted">المكالمة غير مشفرة</string>
+    <string name="calls_list_title">قائمة المكالمات</string>
+    <string name="call_is_being_recorded">المكالمة قيد التسجيل</string>
+    <string name="call_remote_is_recording">%s يسجل</string>
+    <string name="calls_count_label">%s مكالمات</string>
+    <string name="calls_paused_count_label">%s مكالمات موقوفة</string>
+    <string name="calls_list_dialog_merge_into_conference_title">دمج جميع المكالمات في مؤتمر؟</string>
+    <string name="calls_list_dialog_merge_into_conference_label">إنشاء مؤتمر</string>
+    <string name="call_audio_record_permission_not_granted_toast">تم رفض إذن تسجيل الصوت!</string>
+    <string name="call_camera_permission_not_granted_toast">تم رفض إذن الكاميرا!</string>
+
+    <string name="call_dialog_zrtp_validate_trust_title">التحقق من الجهاز</string>
+    <string name="call_dialog_zrtp_validate_trust_message">لأجل سلامتك، نحتاج إلى مصادقة جهاز مراسلك.\nيرجى تبادل رموزكم:</string>
+    <string name="call_dialog_zrtp_validate_trust_warning_message">لأجل سلامتك، نحتاج إلى إعادة مصادقة جهاز مراسلك.\nيرجى إعادة تبادل رموزكم:</string>
+    <string name="call_dialog_zrtp_validate_trust_local_code_label">رمزك:</string>
+    <string name="call_dialog_zrtp_validate_trust_remote_code_label">رمز المراسل:</string>
+    <string name="call_dialog_zrtp_validate_trust_letters_do_not_match">لا شيء يطابق</string>
+    <string name="call_dialog_zrtp_security_alert_title">إنذار أمان</string>
+    <string name="call_dialog_zrtp_security_alert_try_again">جرب مرة أخرى</string>
+    <string name="call_dialog_zrtp_security_alert_message">قد تكون سرية هذه المكالمة معرضة للخطر!</string>
+
+    <string name="call_audio_device_type_microphone">الميكروفون</string>
+    <string name="call_audio_device_type_earpiece">سماعة الأذن</string>
+    <string name="call_audio_device_type_speaker">السماعة</string>
+    <string name="call_audio_device_type_bluetooth">بلوتوث (%s)</string>
+    <string name="call_audio_device_type_hearing_aid">مساعد السمع (%s)</string>
+    <string name="call_audio_device_type_headset">سماعة الرأس</string>
+    <string name="call_audio_device_type_headphones">سماعات الرأس</string>
+    <string name="call_audio_device_type_hdmi">HDMI</string>
+
+    <string name="call_stats_audio_title">الصوت</string>
+    <string name="call_stats_codec_label">الرمز: %s</string>
+    <string name="call_stats_bandwidth_label">عرض النطاق: %s</string>
+    <string name="call_stats_loss_rate_label">معدل الفقدان: %s</string>
+    <string name="call_stats_jitter_buffer_label">عازل الاهتزاز: %s</string>
+    <string name="call_stats_video_title">الفيديو</string>
+    <string name="call_stats_resolution_label">الدقة: %s</string>
+    <string name="call_stats_fps_label">إطارات في الثانية: %s</string>
+    <string name="call_stats_fec_title">FEC</string>
+    <string name="call_stats_fec_lost_packets_label">الحزم المفقودة: %s</string>
+    <string name="call_stats_fec_repaired_packets_label">الحزم المصلحة: %s</string>
+    <string name="call_stats_fec_lost_bandwidth_label">عرض النطاق: %s</string>
+
+    <string name="call_stats_media_encryption_title">تشفير الوسائط</string>
+    <string name="call_stats_media_encryption">تشفير الوسائط: %s</string>
+    <string name="call_stats_media_encryption_zrtp_post_quantum">ZRTP ما بعد الكم</string>
+    <string name="call_stats_zrtp_cipher_algo">خوارزمية التشفير: %s</string>
+    <string name="call_stats_zrtp_key_agreement_algo">خوارزمية اتفاق المفتاح: %s</string>
+    <string name="call_stats_zrtp_hash_algo">خوارزمية الهاش: %s</string>
+    <string name="call_stats_zrtp_auth_tag_algo">خوارزمية العلامة المصادقة: %s</string>
+    <string name="call_stats_zrtp_sas_algo">خوارزمية SAS: %s</string>
+
+    <string name="call_history_deleted_toast">تم حذف السجل</string>
+    <string name="call_can_be_trusted_toast">تم التحقق من الجهاز</string>
+    <string name="call_transfer_in_progress_toast">جاري نقل المكالمة</string>
+    <string name="call_transfer_successful_toast">تم نقل المكالمة بنجاح</string>
+    <string name="call_transfer_failed_toast">فشل نقل المكالمة!</string>
+    <string name="call_error_user_busy_toast">المستخدم مشغول</string>
+    <string name="call_error_user_not_found_toast">لم يتم العثور على المستخدم</string>
+    <string name="call_error_incompatible_media_params_toast">معلمات وسائط غير متوافقة</string>
+    <string name="call_error_io_error_toast">الخدمة غير متوفرة أو خطأ في الشبكة</string>
+    <string name="call_error_server_timeout_toast">مهلة الخادم</string>
+    <string name="call_error_temporarily_unavailable_toast">غير متوفر مؤقتًا</string>
+
+    <!-- Conference (in-call) -->
+    <string name="conference_share_link_title">مشاركة الدعوة</string>
+    <string name="conference_call_empty">في انتظار المشاركين الآخرين...</string>
+    <string name="conference_action_screen_sharing">مشاركة الشاشة</string>
+    <string name="conference_action_show_participants">المشاركون</string>
+    <string name="conference_failed_to_create_group_call_toast">فشل في إنشاء مكالمة جماعية!</string>
+    <string name="conference_failed_to_merge_calls_into_conference_toast">فشل في دمج المكالمة!</string>
+    <plurals name="conference_participants_list_title">
+        <item quantity="zero">مشارك (0)</item>
+        <item quantity="one">مشارك (%s)</item>
+        <item quantity="two">مشاركان (%s)</item>
+        <item quantity="few">مشاركون (%s)</item>
+        <item quantity="many">مشاركًا (%s)</item>
+        <item quantity="other">مشاركون (%s)</item>
+    </plurals>
+    <string name="conference_confirm_removing_participant_dialog_title">إزالة %s من المؤتمر؟</string>
+    <string name="conference_confirm_removing_participant_dialog_message">هل أنت متأكد من رغبتك في إزالة هذا المشارك من المؤتمر؟</string>
+    <string name="conference_participant_was_kicked_out_toast">تم طرد المشارك من المؤتمر</string>
+    <string name="conference_participant_joining_text">جاري الانضمام...</string>
+    <string name="conference_participant_paused_text">موقوف مؤقتًا</string>
+    <string name="conference_active_speaker_is_screen_sharing">يشارك شاشته</string>
+    <string name="conference_failed_to_add_participant_invalid_address_toast">عنوان SIP غير صالح، لا يمكن إضافته إلى المؤتمر</string>
+
+    <string name="conference_layout_grid">فسيفساء</string>
+    <string name="conference_layout_active_speaker">المتحدث</string>
+    <string name="conference_layout_audio_only">صوت فقط</string>
+    <string name="conference_too_many_participants_for_mosaic_layout_toast">عدد كبير جدًا من المشاركين لتخطيط الفسيفساء</string>
+
+    <string name="conference_remotely_hosted_title">مكالمة جماعية بعيدة</string>
+    <string name="conference_locally_hosted_title">مكالمة جماعية محلية</string>
+
+    <!-- Call records -->
+    <string name="recordings_title">التسجيلات</string>
+    <string name="recordings_list_empty">لا تسجيل في الوقت الحالي...</string>
+
+    <!-- Android Auto UI texts -->
+    <string name="car_favorites_contacts_title">المفضلات</string>
+    <string name="car_favorites_contacts_list_empty">لا اتصال مفضل بعد</string>
+
+    <!-- Various menu entries -->
+    <string name="menu_add_address_to_contacts">إضافة إلى الاتصالات</string>
+    <string name="menu_see_existing_contact">رؤية الاتصال</string>
+    <string name="menu_copy_sip_address">نسخ عنوان SIP</string>
+    <string name="menu_copy_phone_number">نسخ رقم الهاتف</string>
+    <string name="menu_delete_history">حذف السجل</string>
+    <string name="menu_delete_selected_item">حذف</string>
+    <string name="menu_invite">دعوة</string>
+    <string name="menu_resend_chat_message">إعادة إرسال</string>
+    <string name="menu_show_imdn">حالة التسليم</string>
+    <string name="menu_edit_chat_message">تحرير</string>
+    <string name="menu_reply_to_chat_message">الرد</string>
+    <string name="menu_forward_chat_message">إعادة توجيه</string>
+    <string name="menu_copy_chat_message">نسخ</string>
+    <string name="menu_export_selected_item">تنزيل</string>
+    <string name="menu_share_selected_item">مشاركة</string>
+
+    <!-- Colors -->
+    <string name="orange">برتقالي</string>
+    <string name="yellow">أصفر</string>
+    <string name="green">أخضر</string>
+    <string name="blue">أزرق</string>
+    <string name="red">أحمر</string>
+    <string name="pink">وردي</string>
+    <string name="purple">أرجواني</string>
+
+    <!-- Misc -->
+    <string name="list_filter_no_result_found">لم يتم العثور على نتيجة...</string>
+    <string name="multiple_participants_selection_placeholder">سيظهر المشاركون المحددون هنا</string>
+    <string name="connection_error_for_non_default_account">خطأ في اتصال الحساب(ات)</string>
+    <plurals name="pending_notification_for_other_accounts">
+        <item quantity="zero">0 إشعارات لحسابات أخرى</item>
+        <item quantity="one">%s إشعار لحسابات أخرى</item>
+        <item quantity="two">%s إشعاران لحسابات أخرى</item>
+        <item quantity="few">%s إشعارات لحسابات أخرى</item>
+        <item quantity="many">%s إشعارًا لحسابات أخرى</item>
+        <item quantity="other">%s إشعار لحسابات أخرى</item>
+    </plurals>
+    <string name="default_account_disabled">الحساب المحدد معطل حاليًا</string>
+    <string name="network_not_reachable">أنت غير متصل بالإنترنت</string>
+    <string name="network_is_not_wifi">تم تمكين وضع Wi-Fi فقط</string>
+    <string name="operation_in_progress_overlay">العملية قيد التقدم، يرجى الانتظار</string>
+    <string name="generic_address_picker_conversations_list_title">المحادثات</string>
+    <string name="generic_address_picker_contacts_list_title">الاتصالات</string>
+    <string name="generic_address_picker_favorites_list_title">المفضلات</string>
+    <string name="generic_address_picker_suggestions_list_title">الاقتراحات</string>
+    <string name="post_notifications_permission_not_granted">لم يتم منح إذن نشر الإشعارات!</string>
+    <string name="full_screen_intent_permission_not_granted">لم يتم منح إذن عرض المكالمة الواردة!</string>
+    <plurals name="mwi_messages_are_waiting">
+        <item quantity="zero">0 رسائل صوتية جديدة</item>
+        <item quantity="one">%s رسالة صوتية جديدة</item>
+        <item quantity="two">%s رسالتين صوتيتين جديدتين</item>
+        <item quantity="few">%s رسائل صوتية جديدة</item>
+        <item quantity="many">%s رسالة صوتية جديدة</item>
+        <item quantity="other">%s رسائل صوتية جديدة</item>
+    </plurals>
+
+    <!-- Keep <u></u> in the following strings translations! -->
+    <string name="welcome_carousel_skip"><u>تخطي</u></string>
+    <string name="assistant_forgotten_password"><u>كلمة مرور منسية أو غير معروفة؟</u></string>
+    <string name="call_zrtp_sas_validation_skip"><u>تخطي</u></string>
+
+    <!-- Keep <b></b> in the following strings translations! -->
+    <string name="conversation_message_meeting_updated_label"><b>تم تحديث الاجتماع</b></string>
+    <string name="conversation_message_meeting_cancelled_label"><b>تم إلغاء الاجتماع!</b></string>
+
+    <!-- Content description for accessibility -->
+    <string name="content_description_trusted_contact_icon">الاتصال موثوق</string>
+    <string name="content_description_not_trusted_contact_icon">الاتصال غير موثوق!</string>
+    <string name="content_description_contact_online">الاتصال متصل</string>
+    <string name="content_description_contact_away">الاتصال غير متصل</string>
+    <string name="content_description_open_drawer_menu_icon">فتح قائمة الدرج</string>
+    <string name="content_description_go_back_icon">الرجوع</string>
+    <string name="content_description_dismiss_notification">تجاهل الإشعار</string>
+    <string name="content_description_save_changes">حفظ التغييرات</string>
+    <string name="content_description_show_popup_menu">عرض القائمة</string>
+    <string name="content_description_confirm_new_participants_list">تأكيد قائمة المشاركين الجدد</string>
+    <string name="content_description_click_for_more_info">انقر للحصول على مزيد من المعلومات</string>
+    <string name="content_description_click_to_remove_participant">انقر لإزالة المشارك</string>
+    <string name="content_description_toggle_password_visibility">تبديل رؤية كلمة المرور</string>
+    <string name="content_description_toggle_bottom_sheet">توسيع/تقليص الورقة السفلية</string>
+    <string name="content_description_hang_up_call">إنهاء المكالمة</string>
+    <string name="content_description_answer_audio_call">الإجابة على المكالمة</string>
+    <string name="content_description_answer_video_call">الإجابة على مكالمة الفيديو</string>
+    <string name="content_description_call_start">بدء مكالمة</string>
+    <string name="content_description_call_start_video">بدء مكالمة فيديو</string>
+    <string name="content_description_toggle_video">تمكين/تعطيل إرسال تغذية الكاميرا الخاصة بك</string>
+    <string name="content_description_toggle_microphone">كتم/إلغاء كتم الميكروفون الخاص بك</string>
+    <string name="content_description_change_output_audio_device">تغيير جهاز إخراج الصوت</string>
+    <string name="content_description_change_camera">تغيير الكاميرا (أمامية/خلفية) المستخدمة</string>
+    <string name="content_description_paused_call">المكالمة في حالة إيقاف مؤقت</string>
+    <string name="content_description_show_call_statistics">عرض إحصائيات المكالمة</string>
+    <string name="content_description_call_is_being_recorded">أنت تسجل هذه المكالمة</string>
+    <string name="content_description_erase_last_input">إزالة الرقم أو الحرف الأخير</string>
+    <string name="content_description_merge_calls_into_conference">دمج المكالمات في مؤتمر</string>
+    <string name="content_description_open_filter">فتح منطقة الفلتر</string>
+    <string name="content_description_cancel_filter">إغلاق منطقة الفلتر</string>
+    <string name="content_description_clear_filter">مسح الفلتر الحالي</string>
+    <string name="content_description_create_group_conversation">إنشاء المحادثة الجماعية</string>
+    <string name="content_description_create_group_call">بدء المكالمة الجماعية</string>
+    <string name="content_description_show_numpad">عرض لوحة الأرقام</string>
+    <string name="content_description_spinner_caret">انقر لعرض جميع الخيارات المتاحة</string>
+    <string name="content_description_conference_participant_muted">المشارك مكتم</string>
+    <string name="content_description_conference_participant_speaking">المشارك يتحدث</string>
+    <string name="content_description_add_participants">إضافة مشاركين</string>
+    <string name="content_description_play_pause_audio_playback">تشغيل/إيقاف تشغيل الصوت</string>
+    <string name="content_description_play_pause_video_playback">تشغيل/إيقاف تشغيل الفيديو</string>
+    <string name="content_description_share_file">مشاركة الملف</string>
+    <string name="content_description_save_file">حفظ الملف</string>
+    <string name="content_description_chat_bubble_image">صورة مرفقة بالرسالة</string>
+    <string name="content_description_chat_bubble_video">فيديو مرفق بالرسالة</string>
+    <string name="content_description_chat_bubble_file">ملف مرفق بالرسالة</string>
+    <string name="content_description_chat_bubble_reply">هذه الرسالة رد على رسالة سابقة</string>
+    <string name="content_description_chat_bubble_forward">تم إعادة توجيه هذه الرسالة من محادثة أخرى</string>
+    <string name="content_description_chat_bubble_delivery_status">انقر للحصول على حالة التسليم</string>
+    <string name="content_description_chat_bubble_toggle_voice_message_play_pause">تشغيل/إيقاف تشغيل الرسالة الصوتية</string>
+    <string name="content_description_chat_remove_attachment">إزالة هذا الملف من المرفقات</string>
+    <string name="content_description_chat_remove_attachments">إغلاق المرفقات</string>
+    <string name="content_description_chat_muted">تم كتم المحادثة</string>
+    <string name="content_description_chat_ephemeral_enabled">تم تمكين الرسائل المؤقتة</string>
+    <string name="content_description_chat_scroll_to_bottom_or_first_unread">التمرير إلى الرسالة غير المقروءة الأولى أو إلى الأسفل</string>
+    <string name="content_description_chat_close_participants_list">إغلاق قائمة المشاركين</string>
+    <string name="content_description_cancel_voice_message_recording">إلغاء تسجيل الرسالة الصوتية</string>
+    <string name="content_description_stop_voice_message_recording">إيقاف تسجيل الرسالة الصوتية</string>
+    <string name="content_description_chat_start_voice_message_recording">بدء تسجيل رسالة صوتية</string>
+    <string name="content_description_chat_send_message">إرسال الرسالة في المحادثة</string>
+    <string name="content_description_chat_cancel_reply">الرسالة لن تكون ردًا على رسالة سابقة بعد الآن</string>
+    <string name="content_description_chat_cancel_edit">إلغاء تحرير الرسالة</string>
+    <string name="content_description_chat_open_emoji_picker">فتح منتقي الإيموجي</string>
+    <string name="content_description_chat_open_attach_file">فتح منتقي الملفات</string>
+    <string name="content_description_chat_edit_conversation_subject">انقر لتحرير موضوع هذه المحادثة</string>
+    <string name="content_description_chat_toggle_mute">كتم/إلغاء كتم هذه المحادثة</string>
+    <string name="content_description_chat_removal_in_progress">جاري إزالة المحادثة</string>
+    <string name="content_description_chat_unsecured">هذه المحادثة غير آمنة</string>
+    <string name="content_description_chat_search_message_up">البحث لأعلى</string>
+    <string name="content_description_chat_search_message_down">البحث لأسفل</string>
+    <string name="content_description_chat_create">بدء محادثة جديدة</string>
+    <string name="content_description_meeting_today">التمرير إلى اليوم</string>
+    <string name="content_description_schedule_meeting">جدولة اجتماع</string>
+    <string name="content_description_meeting_schedule">جدولة الاجتماع</string>
+    <string name="content_description_meeting_edit">تحرير الاجتماع</string>
+    <string name="content_description_meeting_share">مشاركة عنوان الاجتماع</string>
+    <string name="content_description_meeting_participants_list">قائمة المشاركين</string>
+    <string name="content_description_contact_device_trusted">الجهاز موثوق</string>
+    <string name="content_description_contact_edit">تحرير الاتصال</string>
+    <string name="content_description_contact_remove_field">إزالة الحقل</string>
+    <string name="content_description_contacts_list_filters">عرض فلاتر قائمة الاتصالات</string>
+    <string name="content_description_contact_create">إنشاء اتصال</string>
+    <string name="content_description_join_conference">الانضمام إلى المؤتمر</string>
+    <string name="content_description_carddav_delete">حذف تكوين CardDAV هذا</string>
+    <string name="content_description_carddav_save">حفظ تكوين CardDAV</string>
+    <string name="content_description_ldap_delete">حذف تكوين LDAP هذا</string>
+    <string name="content_description_ldap_save">حفظ تكوين LDAP</string>
+    <string name="content_description_play_call_recording">تشغيل تسجيل المكالمة</string>
+    <string name="content_description_go_to_conversation">الذهاب إلى المحادثة</string>
+    <string name="content_description_copy_text_to_clipboard">نسخ النص إلى الحافظة</string>
+    <string name="content_description_voicemail_available">الرسائل الصوتية متوفرة</string>
+    <string name="content_description_call_voicemail">اضغط مطولاً للاتصال بالبريد الصوتي</string>
+    <string name="content_description_cancel_files_or_text_pending_sharing">انقر لإلغاء الملفات أو النص في انتظار المشاركة</string>
+    <string name="content_description_close_drawer_menu">إغلاق القائمة</string>
+
+    <!-- Copy of private hosts_allowlist_sample in androidx.car.app:app:1.7.0-beta01, as they recommend it -->
+    <string-array name="hosts_allowlist_sample_copy" translatable="false">
+        <item>fdb00c43dbde8b51cb312aa81d3b5fa17713adb94b28f598d77f8eb89daceedf,
+            com.google.android.projection.gearhead</item>
+
+        <item>70811a3eacfd2e83e18da9bfede52df16ce91f2e69a44d21f18ab66991130771,
+            com.google.android.projection.gearhead</item>
+
+        <item>1975b2f17177bc89a5dff31f9e64a6cae281a53dc1d1d59b1d147fe1c82afa00,
+            com.google.android.projection.gearhead</item>
+
+        <item>c241ffbc8e287c4e9a4ad19632ba1b1351ad361d5177b7d7b29859bd2b7fc631,
+            com.google.android.apps.automotive.templates.host</item>
+
+        <item>dd66deaf312d8daec7adbe85a218ecc8c64f3b152f9b5998d5b29300c2623f61,
+            com.google.android.apps.automotive.templates.host</item>
+
+        <item>50e603d333c6049a37bd751375d08f3bd0abebd33facd30bd17b64b89658b421,
+            com.google.android.apps.automotive.templates.host</item>
+    </string-array>
+</resources>

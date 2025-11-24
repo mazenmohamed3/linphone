@@ -33,6 +33,7 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.annotation.UiThread
 import androidx.appcompat.widget.AppCompatTextView
+import androidx.core.net.toUri
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.navGraphViewModels
@@ -44,11 +45,11 @@ import org.linphone.core.tools.Log
 import org.linphone.databinding.AssistantRegisterFragmentBinding
 import org.linphone.ui.GenericFragment
 import org.linphone.ui.assistant.viewmodel.AccountCreationViewModel
-import org.linphone.utils.ConfirmationDialogModel
 import org.linphone.utils.AppUtils
+import org.linphone.utils.ConfirmationDialogModel
 import org.linphone.utils.DialogUtils
+import org.linphone.utils.LocaleDialogHelper
 import org.linphone.utils.PhoneNumberUtils
-import androidx.core.net.toUri
 
 @UiThread
 class RegisterFragment : GenericFragment() {
@@ -58,27 +59,30 @@ class RegisterFragment : GenericFragment() {
 
     private lateinit var binding: AssistantRegisterFragmentBinding
 
-    private val viewModel: AccountCreationViewModel by navGraphViewModels(
-        R.id.assistant_nav_graph
-    )
+    private val viewModel: AccountCreationViewModel by navGraphViewModels(R.id.assistant_nav_graph)
 
-    private val dropdownListener = object : AdapterView.OnItemSelectedListener {
-        override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-            val dialPlan = viewModel.dialPlansList[position]
-            Log.i(
-                "$TAG Selected dialplan updated [+${dialPlan.countryCallingCode}] / [${dialPlan.country}]"
-            )
-            viewModel.selectedDialPlan.value = dialPlan
-        }
+    private val dropdownListener =
+            object : AdapterView.OnItemSelectedListener {
+                override fun onItemSelected(
+                        parent: AdapterView<*>?,
+                        view: View?,
+                        position: Int,
+                        id: Long
+                ) {
+                    val dialPlan = viewModel.dialPlansList[position]
+                    Log.i(
+                            "$TAG Selected dialplan updated [+${dialPlan.countryCallingCode}] / [${dialPlan.country}]"
+                    )
+                    viewModel.selectedDialPlan.value = dialPlan
+                }
 
-        override fun onNothingSelected(parent: AdapterView<*>?) {
-        }
-    }
+                override fun onNothingSelected(parent: AdapterView<*>?) {}
+            }
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater,
+            container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View {
         binding = AssistantRegisterFragmentBinding.inflate(layoutInflater)
         return binding.root
@@ -91,13 +95,9 @@ class RegisterFragment : GenericFragment() {
         binding.viewModel = viewModel
         observeToastEvents(viewModel)
 
-        binding.setBackClickListener {
-            goBack()
-        }
+        binding.setBackClickListener { goBack() }
 
-        binding.setLoginClickListener {
-            goBack()
-        }
+        binding.setLoginClickListener { goBack() }
 
         binding.setOpenSubscribeWebPageClickListener {
             val url = getString(R.string.web_platform_register_email_url)
@@ -106,43 +106,70 @@ class RegisterFragment : GenericFragment() {
                 startActivity(browserIntent)
             } catch (ise: IllegalStateException) {
                 Log.e(
-                    "$TAG Can't start ACTION_VIEW intent for URL [$url], IllegalStateException: $ise"
+                        "$TAG Can't start ACTION_VIEW intent for URL [$url], IllegalStateException: $ise"
                 )
             } catch (anfe: ActivityNotFoundException) {
                 Log.e(
-                    "$TAG Can't start ACTION_VIEW intent for URL [$url], ActivityNotFoundException: $anfe"
+                        "$TAG Can't start ACTION_VIEW intent for URL [$url], ActivityNotFoundException: $anfe"
                 )
             } catch (e: Exception) {
-                Log.e(
-                    "$TAG Can't start ACTION_VIEW intent for URL [$url]: $e"
-                )
+                Log.e("$TAG Can't start ACTION_VIEW intent for URL [$url]: $e")
             }
         }
 
-        binding.username.addTextChangedListener(object : TextWatcher {
-            override fun afterTextChanged(s: Editable?) {
-                viewModel.usernameError.value = ""
+        binding.username.addTextChangedListener(
+                object : TextWatcher {
+                    override fun afterTextChanged(s: Editable?) {
+                        viewModel.usernameError.value = ""
+                    }
+
+                    override fun beforeTextChanged(
+                            s: CharSequence?,
+                            start: Int,
+                            count: Int,
+                            after: Int
+                    ) {}
+
+                    override fun onTextChanged(
+                            s: CharSequence?,
+                            start: Int,
+                            before: Int,
+                            count: Int
+                    ) {}
+                }
+        )
+
+        binding.phoneNumber.addTextChangedListener(
+                object : TextWatcher {
+                    override fun afterTextChanged(s: Editable?) {
+                        viewModel.phoneNumberError.value = ""
+                    }
+
+                    override fun beforeTextChanged(
+                            s: CharSequence?,
+                            start: Int,
+                            count: Int,
+                            after: Int
+                    ) {}
+
+                    override fun onTextChanged(
+                            s: CharSequence?,
+                            start: Int,
+                            before: Int,
+                            count: Int
+                    ) {}
+                }
+        )
+
+        // Set up locale icon
+        binding.localeIcon?.let { icon ->
+            LocaleDialogHelper.setupLocaleIcon(requireContext(), icon) {
+                requireActivity().recreate()
             }
-
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
-
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
-        })
-
-        binding.phoneNumber.addTextChangedListener(object : TextWatcher {
-            override fun afterTextChanged(s: Editable?) {
-                viewModel.phoneNumberError.value = ""
-            }
-
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
-
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
-        })
+        }
 
         viewModel.normalizedPhoneNumberEvent.observe(viewLifecycleOwner) {
-            it.consume { number ->
-                showPhoneNumberConfirmationDialog(number)
-            }
+            it.consume { number -> showPhoneNumberConfirmationDialog(number) }
         }
 
         viewModel.showPassword.observe(viewLifecycleOwner) {
@@ -157,29 +184,37 @@ class RegisterFragment : GenericFragment() {
                 Log.i("$TAG Going to SMS code confirmation fragment")
                 if (findNavController().currentDestination?.id == R.id.registerFragment) {
                     val action =
-                        RegisterFragmentDirections.actionRegisterFragmentToRegisterCodeConfirmationFragment()
+                            RegisterFragmentDirections
+                                    .actionRegisterFragmentToRegisterCodeConfirmationFragment()
                     findNavController().navigate(action)
                 }
             }
         }
 
-        val telephonyManager = requireContext().getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager
+        val telephonyManager =
+                requireContext().getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager
         val countryIso = telephonyManager.networkCountryIso
         coreContext.postOnCoreThread {
             val fragmentContext = context ?: return@postOnCoreThread
 
-            val adapter = object : ArrayAdapter<String>(
-                fragmentContext,
-                R.layout.drop_down_item,
-                viewModel.dialPlansLabelList
-            ) {
-                override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
-                    val view = convertView ?: super.getView(position, null, parent)
-                    val label = viewModel.dialPlansShortLabelList[position]
-                    (view as? AppCompatTextView)?.text = label
-                    return view
-                }
-            }
+            val adapter =
+                    object :
+                            ArrayAdapter<String>(
+                                    fragmentContext,
+                                    R.layout.drop_down_item,
+                                    viewModel.dialPlansLabelList
+                            ) {
+                        override fun getView(
+                                position: Int,
+                                convertView: View?,
+                                parent: ViewGroup
+                        ): View {
+                            val view = convertView ?: super.getView(position, null, parent)
+                            val label = viewModel.dialPlansShortLabelList[position]
+                            (view as? AppCompatTextView)?.text = label
+                            return view
+                        }
+                    }
             adapter.setDropDownViewResource(R.layout.assistant_country_picker_dropdown_cell)
 
             val dialPlan = PhoneNumberUtils.getDeviceDialPlan(countryIso)
@@ -202,18 +237,19 @@ class RegisterFragment : GenericFragment() {
     }
 
     private fun showPhoneNumberConfirmationDialog(number: String) {
-        val label  = AppUtils.getFormattedString(R.string.assistant_dialog_confirm_phone_number_message, number)
+        val label =
+                AppUtils.getFormattedString(
+                        R.string.assistant_dialog_confirm_phone_number_message,
+                        number
+                )
         val model = ConfirmationDialogModel(label)
-        val dialog = DialogUtils.getAccountCreationPhoneNumberConfirmationDialog(
-            requireActivity(),
-            model
-        )
+        val dialog =
+                DialogUtils.getAccountCreationPhoneNumberConfirmationDialog(
+                        requireActivity(),
+                        model
+                )
 
-        model.dismissEvent.observe(viewLifecycleOwner) {
-            it.consume {
-                dialog.dismiss()
-            }
-        }
+        model.dismissEvent.observe(viewLifecycleOwner) { it.consume { dialog.dismiss() } }
 
         model.confirmEvent.observe(viewLifecycleOwner) {
             it.consume {

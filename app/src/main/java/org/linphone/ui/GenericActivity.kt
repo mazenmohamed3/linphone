@@ -70,6 +70,11 @@ open class GenericActivity : AppCompatActivity() {
         return theme
     }
 
+    override fun attachBaseContext(newBase: android.content.Context) {
+        val context = org.linphone.utils.LocaleHelper.applyLocale(newBase)
+        super.attachBaseContext(context)
+    }
+
     @SuppressLint("SourceLockedOrientationActivity")
     override fun onCreate(savedInstanceState: Bundle?) {
         enableWindowSecureMode(corePreferences.enableSecureMode)
@@ -77,7 +82,7 @@ open class GenericActivity : AppCompatActivity() {
         val nightMode = resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK
         val darkModeEnabled = corePreferences.darkMode
         Log.i(
-            "$TAG Theme selected in config file is [${if (darkModeEnabled == -1) "auto" else if (darkModeEnabled == 0) "light" else "dark"}]"
+                "$TAG Theme selected in config file is [${if (darkModeEnabled == -1) "auto" else if (darkModeEnabled == 0) "light" else "dark"}]"
         )
         when (nightMode) {
             Configuration.UI_MODE_NIGHT_NO, Configuration.UI_MODE_NIGHT_UNDEFINED -> {
@@ -107,106 +112,94 @@ open class GenericActivity : AppCompatActivity() {
     }
 
     fun showGreenToast(
-        message: String,
-        @DrawableRes icon: Int,
-        duration: Long = 4000,
-        doNotTint: Boolean = false
+            message: String,
+            @DrawableRes icon: Int,
+            duration: Long = 4000,
+            doNotTint: Boolean = false
     ) {
         lifecycleScope.launch {
             withContext(Dispatchers.Main) {
-                val greenToast = ToastUtils.getGreenToast(
-                    this@GenericActivity,
-                    toastsArea,
-                    message,
-                    icon,
-                    doNotTint
-                )
+                val greenToast =
+                        ToastUtils.getGreenToast(
+                                this@GenericActivity,
+                                toastsArea,
+                                message,
+                                icon,
+                                doNotTint
+                        )
                 toastsArea.addView(greenToast.root)
 
-                greenToast.root.slideInToastFromTopForDuration(
-                    toastsArea,
-                    lifecycleScope,
-                    duration
-                )
+                greenToast.root.slideInToastFromTopForDuration(toastsArea, lifecycleScope, duration)
             }
         }
     }
 
     fun showBlueToast(
-        message: String,
-        @DrawableRes icon: Int,
-        duration: Long = 4000,
-        doNotTint: Boolean = false
+            message: String,
+            @DrawableRes icon: Int,
+            duration: Long = 4000,
+            doNotTint: Boolean = false
     ) {
         lifecycleScope.launch {
             withContext(Dispatchers.Main) {
-                val blueToast = ToastUtils.getBlueToast(
-                    this@GenericActivity,
-                    toastsArea,
-                    message,
-                    icon,
-                    doNotTint
-                )
+                val blueToast =
+                        ToastUtils.getBlueToast(
+                                this@GenericActivity,
+                                toastsArea,
+                                message,
+                                icon,
+                                doNotTint
+                        )
                 toastsArea.addView(blueToast.root)
 
-                blueToast.root.slideInToastFromTopForDuration(
-                    toastsArea,
-                    lifecycleScope,
-                    duration
-                )
+                blueToast.root.slideInToastFromTopForDuration(toastsArea, lifecycleScope, duration)
             }
         }
     }
 
     fun showRedToast(
-        message: String,
-        @DrawableRes icon: Int,
-        duration: Long = 4000,
-        doNotTint: Boolean = false
+            message: String,
+            @DrawableRes icon: Int,
+            duration: Long = 4000,
+            doNotTint: Boolean = false
     ) {
         lifecycleScope.launch {
             withContext(Dispatchers.Main) {
-                val redToast = ToastUtils.getRedToast(
-                    this@GenericActivity,
-                    toastsArea,
-                    message,
-                    icon,
-                    doNotTint
-                )
+                val redToast =
+                        ToastUtils.getRedToast(
+                                this@GenericActivity,
+                                toastsArea,
+                                message,
+                                icon,
+                                doNotTint
+                        )
                 toastsArea.addView(redToast.root)
 
-                redToast.root.slideInToastFromTopForDuration(
-                    toastsArea,
-                    lifecycleScope,
-                    duration
-                )
+                redToast.root.slideInToastFromTopForDuration(toastsArea, lifecycleScope, duration)
             }
         }
     }
 
     fun showPersistentRedToast(
-        message: String,
-        @DrawableRes icon: Int,
-        tag: String,
-        doNotTint: Boolean = false
+            message: String,
+            @DrawableRes icon: Int,
+            tag: String,
+            doNotTint: Boolean = false
     ) {
         lifecycleScope.launch {
             withContext(Dispatchers.Main) {
                 val redToast =
-                    ToastUtils.getRedToast(
-                        this@GenericActivity,
-                        toastsArea,
-                        message,
-                        icon,
-                        doNotTint
-                    )
+                        ToastUtils.getRedToast(
+                                this@GenericActivity,
+                                toastsArea,
+                                message,
+                                icon,
+                                doNotTint
+                        )
                 redToast.root.tag = tag
                 toastsArea.addView(redToast.root)
 
-                redToast.root.slideInToastFromTop(
-                    toastsArea,
-                    true
-                )
+                redToast.root.slideInToastFromTop(toastsArea, true)
             }
         }
     }
@@ -226,13 +219,11 @@ open class GenericActivity : AppCompatActivity() {
     fun goToAndroidPermissionSettings() {
         Log.i("$TAG Going into Android settings for our app")
         try {
-            val intent = Intent(
-                Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
-                Uri.fromParts(
-                    "package",
-                    packageName, null
-                )
-            )
+            val intent =
+                    Intent(
+                            Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
+                            Uri.fromParts("package", packageName, null)
+                    )
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
             startActivity(intent)
         } catch (anfe: ActivityNotFoundException) {
@@ -243,10 +234,10 @@ open class GenericActivity : AppCompatActivity() {
     protected fun enableWindowSecureMode(enable: Boolean) {
         val flags: Int = window.attributes.flags
         if ((enable && flags and WindowManager.LayoutParams.FLAG_SECURE != 0) ||
-            (!enable && flags and WindowManager.LayoutParams.FLAG_SECURE == 0)
+                        (!enable && flags and WindowManager.LayoutParams.FLAG_SECURE == 0)
         ) {
             Log.d(
-                "$TAG Secure flag is already ${if (enable) "enabled" else "disabled"}, skipping..."
+                    "$TAG Secure flag is already ${if (enable) "enabled" else "disabled"}, skipping..."
             )
             return
         }
