@@ -66,29 +66,31 @@ class AppUtils {
 
         @AnyThread
         fun getString(@StringRes id: Int): String {
-            return coreContext.context.getString(id)
+            return LocaleHelper.applyLocale(coreContext.context).getString(id)
         }
 
         @AnyThread
         fun getFormattedString(@StringRes id: Int, arg: Any): String {
-            return coreContext.context.getString(id, arg)
+            return LocaleHelper.applyLocale(coreContext.context).getString(id, arg)
         }
 
         @AnyThread
         fun getFormattedString(@StringRes id: Int, arg1: Any, arg2: Any): String {
-            return coreContext.context.getString(id, arg1, arg2)
+            return LocaleHelper.applyLocale(coreContext.context).getString(id, arg1, arg2)
         }
 
         @AnyThread
         fun getStringWithPlural(@PluralsRes id: Int, count: Int, value: String): String {
-            return coreContext.context.resources.getQuantityString(id, count, value)
+            return LocaleHelper.applyLocale(coreContext.context)
+                    .resources
+                    .getQuantityString(id, count, value)
         }
 
         @MainThread
         fun getPipRatio(
-            activity: Activity,
-            forcePortrait: Boolean = false,
-            forceLandscape: Boolean = false
+                activity: Activity,
+                forcePortrait: Boolean = false,
+                forceLandscape: Boolean = false
         ): Rational {
             val displayMetrics = DisplayMetrics()
             activity.windowManager.defaultDisplay.getMetrics(displayMetrics)
@@ -104,19 +106,20 @@ class AppUtils {
                 height = 1
             }
 
-            val ratio = if (width > height) {
-                if (forcePortrait) {
-                    Rational(height, width)
-                } else {
-                    Rational(width, height)
-                }
-            } else {
-                if (forceLandscape) {
-                    Rational(height, width)
-                } else {
-                    Rational(width, height)
-                }
-            }
+            val ratio =
+                    if (width > height) {
+                        if (forcePortrait) {
+                            Rational(height, width)
+                        } else {
+                            Rational(width, height)
+                        }
+                    } else {
+                        if (forceLandscape) {
+                            Rational(height, width)
+                        } else {
+                            Rational(width, height)
+                        }
+                    }
             return ratio
         }
 
@@ -164,25 +167,20 @@ class AppUtils {
                 val symbolLength = firstSymbol.length
                 if (symbolLength <= 1) return false
                 textToCheck = textToCheck.substring(symbolLength)
-            }  while (textToCheck.isNotEmpty())
+            } while (textToCheck.isNotEmpty())
 
             return true
         }
 
         @AnyThread
         fun getDeviceName(context: Context): String {
-            var name = Settings.Global.getString(
-                context.contentResolver,
-                Settings.Global.DEVICE_NAME
-            )
+            var name =
+                    Settings.Global.getString(context.contentResolver, Settings.Global.DEVICE_NAME)
 
             if (name == null) {
                 Log.w("$TAG Failed to obtain device name, trying to get bluetooth name")
                 try {
-                    name = Settings.Secure.getString(
-                        context.contentResolver,
-                        "bluetooth_name"
-                    )
+                    name = Settings.Secure.getString(context.contentResolver, "bluetooth_name")
                 } catch (e: SecurityException) {
                     Log.e("$TAG Failed to get bluetooth_name: $e")
                 }
