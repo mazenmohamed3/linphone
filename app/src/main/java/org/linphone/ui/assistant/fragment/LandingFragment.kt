@@ -37,12 +37,15 @@ import kotlinx.coroutines.launch
 import org.linphone.LinphoneApplication.Companion.coreContext
 import org.linphone.LinphoneApplication.Companion.corePreferences
 import org.linphone.R
+import org.linphone.core.tools.Log
 import org.linphone.databinding.AssistantLandingFragmentBinding
 import org.linphone.ui.GenericActivity
 import org.linphone.ui.GenericFragment
+import org.linphone.ui.assistant.model.AcceptConditionsAndPolicyDialogModel
 import org.linphone.ui.assistant.viewmodel.AccountLoginViewModel
 import org.linphone.utils.DialogUtils
 import org.linphone.utils.LocaleDialogHelper
+import org.linphone.utils.PhoneNumberUtils
 
 @UiThread
 class LandingFragment : GenericFragment() {
