@@ -141,11 +141,13 @@ class RegisterFragment : GenericFragment() {
 
 
         // Set up locale spinner
-        LocaleSpinnerHelper.setupLocaleSpinner(
-            requireContext(),
-            binding.localeSpinner
-        ) {
-            requireActivity().recreate()
+        binding.localeSpinner?.let { spinner ->
+            LocaleSpinnerHelper.setupLocaleSpinner(
+                requireContext(),
+                spinner
+            ) {
+                requireActivity().recreate()
+            }
         }
 
         viewModel.normalizedPhoneNumberEvent.observe(viewLifecycleOwner) {
