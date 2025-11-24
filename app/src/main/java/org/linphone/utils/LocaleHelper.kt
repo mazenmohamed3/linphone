@@ -1,3 +1,20 @@
+package org.linphone.utils
+
+import android.content.Context
+import android.content.res.Configuration
+import android.content.res.Resources
+import android.os.Build
+import android.os.LocaleList
+import androidx.core.os.ConfigurationCompat
+import java.util.Locale
+import org.linphone.LinphoneApplication
+import org.linphone.core.tools.Log
+
+object LocaleHelper {
+    private const val TAG = "[LocaleHelper]"
+
+    const val LOCALE_ENGLISH = "en"
+    const val LOCALE_FRENCH = "fr"
     const val LOCALE_ARABIC = "ar"
     const val LOCALE_SYSTEM_DEFAULT = ""
 
