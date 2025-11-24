@@ -37,20 +37,6 @@ import kotlinx.coroutines.launch
 import org.linphone.LinphoneApplication.Companion.coreContext
 import org.linphone.LinphoneApplication.Companion.corePreferences
 import org.linphone.R
-import org.linphone.core.tools.Log
-import org.linphone.databinding.AssistantLandingFragmentBinding
-import org.linphone.ui.GenericActivity
-import org.linphone.ui.GenericFragment
-import org.linphone.ui.assistant.model.AcceptConditionsAndPolicyDialogModel
-import org.linphone.ui.assistant.viewmodel.AccountLoginViewModel
-import org.linphone.utils.DialogUtils
-import org.linphone.utils.LocaleSpinnerHelper
-import org.linphone.utils.PhoneNumberUtils
-
-@UiThread
-class LandingFragment : GenericFragment() {
-    companion object {
-        private const val TAG = "[Landing Fragment]"
     }
 
     private lateinit var binding: AssistantLandingFragmentBinding
@@ -114,9 +100,9 @@ class LandingFragment : GenericFragment() {
             }
         }
 
-        // Set up locale spinner
-        binding.localeSpinner?.let { spinner ->
-            LocaleSpinnerHelper.setupLocaleSpinner(requireContext(), spinner) {
+        // Set up locale icon
+        binding.localeIcon?.let { icon ->
+            LocaleDialogHelper.setupLocaleIcon(requireContext(), icon) {
                 requireActivity().recreate()
             }
         }

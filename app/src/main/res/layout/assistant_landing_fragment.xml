@@ -68,34 +68,19 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"/>
 
-                <androidx.appcompat.widget.AppCompatSpinner
-                    style="@style/default_text_style"
-                    android:id="@+id/locale_spinner"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                <ImageView
+                    android:id="@+id/locale_icon"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
                     android:layout_marginEnd="12dp"
-                    android:minWidth="100dp"
-                    android:paddingStart="12dp"
-                    android:paddingEnd="28dp"
-                    android:background="@drawable/edit_text_background"
-                    android:overlapAnchor="false"
-                    android:spinnerMode="dropdown"
-                    android:popupBackground="@drawable/shape_squircle_white_background"
+                    android:src="@drawable/globe"
+                    android:contentDescription="@string/settings_locale_title"
+                    android:clickable="true"
+                    android:focusable="true"
                     app:layout_constraintEnd_toStartOf="@id/help"
                     app:layout_constraintTop_toTopOf="@id/title"
-                    app:layout_constraintBottom_toBottomOf="@id/title"/>
-
-                <ImageView
-                    android:id="@+id/locale_spinner_caret"
-                    android:layout_width="16dp"
-                    android:layout_height="16dp"
-                    android:layout_marginEnd="8dp"
-                    android:src="@drawable/caret_down"
-                    android:contentDescription="@string/content_description_spinner_caret"
-                    app:tint="?attr/color_main2_600"
-                    app:layout_constraintTop_toTopOf="@id/locale_spinner"
-                    app:layout_constraintBottom_toBottomOf="@id/locale_spinner"
-                    app:layout_constraintEnd_toEndOf="@id/locale_spinner"/>
+                    app:layout_constraintBottom_toBottomOf="@id/title"
+                    app:tint="?attr/color_text"/>
 
 
                 <androidx.appcompat.widget.AppCompatTextView
