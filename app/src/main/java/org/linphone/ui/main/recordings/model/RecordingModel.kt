@@ -21,6 +21,7 @@ package org.linphone.ui.main.recordings.model
 
 import androidx.annotation.UiThread
 import androidx.annotation.WorkerThread
+import org.linphone.LinphoneApplication
 import java.text.SimpleDateFormat
 import java.util.Locale
 import org.linphone.LinphoneApplication.Companion.coreContext
@@ -56,6 +57,8 @@ class RecordingModel
     val duration: Int
 
     init {
+         val code: String? = LinphoneApplication.corePreferences.appLocale
+        val currentLocale: Locale = if (code.isNullOrEmpty()) Locale.getDefault() else Locale.forLanguageTag(code)
         if (isLegacy) {
             val username = fileName.split("_")[0]
             val sipAddress = coreContext.core.interpretUrl(username, false)
@@ -70,11 +73,11 @@ class RecordingModel
             val parsedDate = fileName.split("_")[1]
             var parsedTimestamp = 0L
             try {
-                val date = SimpleDateFormat("dd-MM-yyyy-HH-mm-ss", Locale.getDefault()).parse(
+                val date = SimpleDateFormat("dd-MM-yyyy-HH-mm-ss", currentLocale).parse(
                     parsedDate
                 )
                 parsedTimestamp = date?.time ?: 0L
-            } catch (e: Exception) {
+            } catch (_: Exception) {
                 Log.e("$TAG Failed to parse legacy timestamp [$parsedDate]")
             }
             timestamp = parsedTimestamp
@@ -116,7 +119,7 @@ class RecordingModel
         if (audioPlayer != null) {
             audioPlayer.open(filePath)
             duration = audioPlayer.duration
-            formattedDuration = SimpleDateFormat("mm:ss", Locale.getDefault()).format(duration)
+            formattedDuration = SimpleDateFormat("mm:ss", currentLocale).format(duration)
         } else {
             duration = 0
             formattedDuration = "??:??"

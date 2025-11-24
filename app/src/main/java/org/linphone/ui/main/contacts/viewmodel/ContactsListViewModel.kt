@@ -47,6 +47,9 @@ import org.linphone.utils.FileUtils
 class ContactsListViewModel
     @UiThread
     constructor() : AbstractMainViewModel() {
+     val code: String? = corePreferences.appLocale
+    val currentLocale: Locale = if (code.isNullOrEmpty()) Locale.getDefault() else Locale.forLanguageTag(code)
+
     companion object {
         private const val TAG = "[Contacts List ViewModel]"
     }
@@ -243,7 +246,7 @@ class ContactsListViewModel
             if (!vCard.isNullOrEmpty()) {
                 Log.i("$TAG Friend has been successfully dumped as vCard string")
                 val fileName = friend.name.orEmpty().replace(" ", "_").lowercase(
-                    Locale.getDefault()
+                    currentLocale
                 )
                 val file = FileUtils.getFileStorageCacheDir(
                     "$fileName.vcf",
@@ -351,7 +354,7 @@ class ContactsListViewModel
 
         val list = arrayListOf<ContactAvatarModel>()
         var count = 0
-        val collator = Collator.getInstance(Locale.getDefault())
+        val collator = Collator.getInstance(currentLocale)
         val hideEmptyContacts = corePreferences.hideContactsWithoutPhoneNumberOrSipAddress
 
         for (result in results) {

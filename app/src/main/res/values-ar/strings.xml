@@ -4,7 +4,7 @@
     <!ENTITY appName "Linphone">
     ]>
 
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <string name="app_name" translatable="false">&appName;</string>
 
     <!-- Not translatable strings -->
@@ -120,7 +120,7 @@
     <string name="remote_provisioning_config_failed_toast">خطأ أثناء محاولة تنزيل وتطبيق التكوين البعيد</string>
     <string name="media_player_generic_error_toast">خطأ في محاولة إنشاء مشغل الوسائط</string>
 
-    <!-- Assistant related string (account register / login / etc...) -->
+    <!-- Assistant related string (account register / login / etc…) -->
     <string name="assistant_dialog_general_terms_and_privacy_policy_title">الشروط العامة وسياسة الخصوصية</string>
     <string name="assistant_dialog_general_terms_label">الشروط العامة</string>
     <string name="assistant_dialog_privacy_policy_label">سياسة الخصوصية</string>
@@ -147,7 +147,7 @@
     <string name="assistant_sip_account_transport_protocol">البروتوكول</string>
     <string name="assistant_sip_account_lime_algorithm">خوارزمية(ات) LIME (مفصولة بفواصل)</string>
     <string name="assistant_sip_account_lime_algorithm_hint">القيم المسموح بها هي: c25519, c448, c25519k512, c25519mlk512 و c448mlk1024</string>
-    <string name="assistant_third_party_sip_account_warning_explanation">بعض الميزات تتطلب حساب &appName;، مثل الرسائل الجماعية، مؤتمرات الفيديو...\n\nهذه الميزات مخفية عند التسجيل بحساب SIP من جهة خارجية.\n\nلتمكينها في مشروع تجاري، يرجى الاتصال بنا.</string>
+    <string name="assistant_third_party_sip_account_warning_explanation">بعض الميزات تتطلب حساب &appName;، مثل الرسائل الجماعية، مؤتمرات الفيديو…\n\nهذه الميزات مخفية عند التسجيل بحساب SIP من جهة خارجية.\n\nلتمكينها في مشروع تجاري، يرجى الاتصال بنا.</string>
     <string name="assistant_third_party_sip_account_create_linphone_account">أفضل إنشاء حساب &appName;</string>
     <string name="assistant_third_party_sip_account_warning_ok">أفهم</string>
     <string name="assistant_account_register_unavailable_no_push_warning">لا تبدو إشعارات الدفع متاحة على جهازك، لكنها إلزامية لإنشاء حساب في التطبيق المحمول.\n\nندعوك لإنشاء حساب على منصتنا الويب بدلاً من ذلك:</string>
@@ -182,7 +182,7 @@
     <string name="drawer_menu_account_connection_status_disconnected">غير متصل</string>
     <string name="drawer_menu_account_connection_status_refreshing">تحديث</string>
     <string name="drawer_menu_account_connection_status_cleared">معطل</string>
-    <string name="drawer_menu_account_connection_status_progress">جاري الاتصال...</string>
+    <string name="drawer_menu_account_connection_status_progress">جاري الاتصال…</string>
     <string name="drawer_menu_account_connection_status_failed">خطأ</string>
     <string name="drawer_menu_no_account_configured_yet">لم يتم تكوين أي حساب بعد</string>
     <string name="drawer_menu_add_account">إضافة حساب</string>
@@ -212,7 +212,7 @@
     <string name="help_troubleshooting_app_version_title">إصدار التطبيق</string>
     <string name="help_troubleshooting_sdk_version_title">إصدار SDK</string>
     <string name="help_troubleshooting_firebase_project_title">معرف مشروع Firebase</string>
-    <string name="help_troubleshooting_share_logs_dialog_title">مشاركة رابط سجلات التصحيح باستخدام...</string>
+    <string name="help_troubleshooting_share_logs_dialog_title">مشاركة رابط سجلات التصحيح باستخدام…</string>
     <string name="help_troubleshooting_debug_logs_cleaned_toast_message">تم تنظيف سجلات التصحيح</string>
     <string name="help_troubleshooting_debug_logs_upload_error_toast_message">فشل في تحميل سجلات التصحيح</string>
     <string name="help_troubleshooting_show_config_file">عرض التكوين</string>
@@ -357,14 +357,14 @@
     <string name="manage_account_title">إدارة الحساب</string>
     <string name="manage_account_details_title">التفاصيل</string>
     <string name="manage_account_devices_title">الأجهزة</string>
-    <string name="manage_account_empty_devices_label">لم يتم العثور على جهاز...</string>
+    <string name="manage_account_empty_devices_label">لم يتم العثور على جهاز…</string>
     <string name="manage_account_add_picture">إضافة صورة</string>
     <string name="manage_account_edit_picture">تحرير الصورة</string>
     <string name="manage_account_remove_picture">إزالة الصورة</string>
     <string name="manage_account_status_connected_summary">هذا الحساب متصل، يمكن للجميع الاتصال بك.</string>
     <string name="manage_account_status_disconnected_summary">هذا الحساب غير متصل، ربما لأنك غير متصل بالإنترنت الآن.</string>
     <string name="manage_account_status_cleared_summary">تم تعطيل الحساب، لن تتلقى أي مكالمة أو رسالة.</string>
-    <string name="manage_account_status_progress_summary">الحساب يتصل بالخادم، يرجى الانتظار...</string>
+    <string name="manage_account_status_progress_summary">الحساب يتصل بالخادم، يرجى الانتظار…</string>
     <string name="manage_account_status_failed_summary">فشل اتصال الحساب، تحقق من إعداداتك.</string>
     <string name="manage_account_international_prefix">البادئة الدولية</string>
     <string name="manage_account_dialog_international_prefix_help_message">اختر بلدك للسماح لـ &appName; بمطابقة اتصالاتك.</string>
@@ -418,10 +418,10 @@
     <string name="history_call_start_title">مكالمة جديدة</string>
     <string name="history_call_start_search_bar_filter_hint">البحث عن اتصال أو سجل مكالمات</string>
     <string name="history_call_start_create_group_call">إنشاء مكالمة جماعية</string>
-    <string name="history_call_start_no_suggestion_nor_contact">لا اقتراح ولا اتصال في الوقت الحالي...</string>
+    <string name="history_call_start_no_suggestion_nor_contact">لا اقتراح ولا اتصال في الوقت الحالي…</string>
     <string name="history_group_call_start_dialog_set_subject">تعيين موضوع المكالمة الجماعية</string>
     <string name="history_group_call_start_dialog_subject_hint">موضوع المكالمة الجماعية</string>
-    <string name="history_list_empty_history">لم يتم العثور على مكالمة من/إلى هذا الحساب...</string>
+    <string name="history_list_empty_history">لم يتم العثور على مكالمة من/إلى هذا الحساب…</string>
     <string name="history_list_change_selected_account_label">تغيير الحساب</string>
     <string name="history_group_call_go_to_conversation">المحادثة</string>
 
@@ -431,8 +431,8 @@
     <string name="history_dialog_delete_call_logs_message">سيتم إزالة جميع المكالمات من السجل</string>
 
     <!-- Contacts -->
-    <string name="contacts_list_empty">لا اتصال في الوقت الحالي...</string>
-    <string name="contacts_list_sip_empty">لا اتصال SIP في الوقت الحالي...</string>
+    <string name="contacts_list_empty">لا اتصال في الوقت الحالي…</string>
+    <string name="contacts_list_sip_empty">لا اتصال SIP في الوقت الحالي…</string>
     <string name="contacts_change_filter_label">تغيير الفلتر</string>
     <string name="contacts_list_favourites_title">المفضلات</string>
     <string name="contacts_list_all_contacts_title">جميع الاتصالات</string>
@@ -459,7 +459,7 @@
     <string name="contact_details_company_name">الشركة:</string>
     <string name="contact_details_job_title">المسمى الوظيفي:</string>
     <string name="contact_details_trust_title">الثقة</string>
-    <string name="contact_details_no_device_found">لم يتم العثور على جهاز...</string>
+    <string name="contact_details_no_device_found">لم يتم العثور على جهاز…</string>
     <string name="contact_details_trusted_devices_count">عدد الأجهزة الموثوقة:</string>
     <string name="contact_details_actions_title">إجراءات أخرى</string>
     <string name="contact_details_edit">تحرير</string>
@@ -492,8 +492,8 @@
     <string name="contact_device_without_name">جهاز بدون اسم</string>
 
     <!-- Chat -->
-    <string name="conversations_list_empty">لا محادثة متعلقة بهذا الحساب في الوقت الحالي...</string>
-    <string name="conversations_list_is_being_removed_label">جاري الإزالة...</string>
+    <string name="conversations_list_empty">لا محادثة متعلقة بهذا الحساب في الوقت الحالي…</string>
+    <string name="conversations_list_is_being_removed_label">جاري الإزالة…</string>
     <string name="conversations_last_message_format">%s:</string>
     <plurals name="conversations_files_waiting_to_be_shared_toast">
         <item quantity="zero">0 ملفات في انتظار المشاركة</item>
@@ -525,24 +525,24 @@
     <string name="conversation_invalid_empty_subject_toast">يرجى إدخال اسم للمحادثة</string>
     <string name="new_conversation_search_bar_filter_hint">البحث عن اتصال</string>
     <string name="new_conversation_create_group">إنشاء محادثة جماعية</string>
-    <string name="new_conversation_no_contact">لا اتصال ولا اقتراح في الوقت الحالي...</string>
-    <string name="new_conversation_no_matching_contact">لا نتيجة مطابقة...</string>
-    <string name="conversation_text_field_hint">قل شيئًا...</string>
+    <string name="new_conversation_no_contact">لا اتصال ولا اقتراح في الوقت الحالي…</string>
+    <string name="new_conversation_no_matching_contact">لا نتيجة مطابقة…</string>
+    <string name="conversation_text_field_hint">قل شيئًا…</string>
     <plurals name="conversation_composing_label">
-        <item quantity="zero">0 يقومون بكتابة...</item>
-        <item quantity="one">%s يكتب...</item>
-        <item quantity="two">%s يكتبان...</item>
-        <item quantity="few">%s يكتبون...</item>
-        <item quantity="many">%s يكتب...</item>
-        <item quantity="other">%s يكتبون...</item>
+        <item quantity="zero">0 يقومون بكتابة…</item>
+        <item quantity="one">%s يكتب…</item>
+        <item quantity="two">%s يكتبان…</item>
+        <item quantity="few">%s يكتبون…</item>
+        <item quantity="many">%s يكتب…</item>
+        <item quantity="other">%s يكتبون…</item>
     </plurals>
     <plurals name="conversation_composing_voice_message_label">
-        <item quantity="zero">0 يقومون بتسجيل رسالة صوتية...</item>
-        <item quantity="one">%s يسجل رسالة صوتية...</item>
-        <item quantity="two">%s يسجلان رسالة صوتية...</item>
-        <item quantity="few">%s يسجلون رسالة صوتية...</item>
-        <item quantity="many">%s يسجل...</item>
-        <item quantity="other">%s يسجلون رسالة صوتية...</item>
+        <item quantity="zero">0 يقومون بتسجيل رسالة صوتية…</item>
+        <item quantity="one">%s يسجل رسالة صوتية…</item>
+        <item quantity="two">%s يسجلان رسالة صوتية…</item>
+        <item quantity="few">%s يسجلون رسالة صوتية…</item>
+        <item quantity="many">%s يسجل…</item>
+        <item quantity="other">%s يسجلون رسالة صوتية…</item>
     </plurals>
     <string name="conversation_add_participants_title">إضافة مشاركين</string>
     <string name="conversation_reply_to_message_title">الرد على:</string>
@@ -551,8 +551,8 @@
     <string name="conversation_menu_configure_ephemeral_messages">الرسائل المؤقتة</string>
     <string name="conversation_menu_media_files">الوسائط</string>
     <string name="conversation_menu_documents_files">المستندات</string>
-    <string name="conversation_no_media_found">لم يتم العثور على وسائط...</string>
-    <string name="conversation_no_document_found">لم يتم العثور على مستند...</string>
+    <string name="conversation_no_media_found">لم يتم العثور على وسائط…</string>
+    <string name="conversation_no_document_found">لم يتم العثور على مستند…</string>
     <string name="conversation_end_to_end_encrypted_event_title">محادثة مشفرة من طرف إلى طرف</string>
     <string name="conversation_end_to_end_encrypted_event_subtitle">الرسائل في هذه المحادثة مشفرة من طرف إلى طرف. يمكن لمراسلك فقط فك تشفيرها.</string>
     <string name="conversation_end_to_end_encrypted_bottom_sheet_title">سرية مضمونة</string>
@@ -649,7 +649,7 @@
     <string name="conversation_media_list_title">الوسائط المشتركة</string>
     <string name="conversation_document_list_title">المستندات المشتركة</string>
 
-    <string name="conversation_forward_message_title">إعادة توجيه الرسالة إلى...</string>
+    <string name="conversation_forward_message_title">إعادة توجيه الرسالة إلى…</string>
     <string name="conversation_message_forwarded_toast">تم إعادة توجيه الرسالة</string>
     <string name="conversation_message_forward_cancelled_toast">تم إلغاء إعادة توجيه الرسالة</string>
 
@@ -674,7 +674,7 @@
     <string name="meeting_schedule_meeting_label">اجتماع</string>
     <string name="meeting_schedule_broadcast_label">بث</string>
     <string name="meeting_schedule_broadcast_help">معلومات عن البث.\n<u>تعلم المزيد</u></string>
-    <string name="meeting_schedule_subject_hint">إضافة عنوان...</string>
+    <string name="meeting_schedule_subject_hint">إضافة عنوان…</string>
     <string name="meeting_schedule_pick_start_date_title">اختر تاريخ البدء</string>
     <string name="meeting_schedule_pick_start_time_title">اختر وقت البدء</string>
     <string name="meeting_schedule_pick_end_time_title">اختر وقت النهاية</string>
@@ -723,7 +723,7 @@
     <string name="call_remotely_ended">أنهى المراسل المكالمة</string>
     <string name="call_audio_incoming_for_account">مكالمة واردة لـ %s</string>
     <string name="call_video_incoming_for_account">مكالمة فيديو واردة لـ %s</string>
-    <string name="call_transfer_current_call_title">نقل %s إلى...</string>
+    <string name="call_transfer_current_call_title">نقل %s إلى…</string>
     <string name="call_transfer_active_calls_label">المكالمات الحالية</string>
     <string name="call_transfer_no_active_call_label">لا مكالمة أخرى</string>
     <string name="call_transfer_confirm_dialog_tittle">تأكيد نقل المكالمة</string>
@@ -747,9 +747,9 @@
     <string name="call_state_connected">نشط</string>
     <string name="call_state_paused">موقوف مؤقتًا</string>
     <string name="call_state_paused_by_remote">موقوف مؤقتًا من الطرف البعيد</string>
-    <string name="call_state_resuming">جاري الاستئناف...</string>
+    <string name="call_state_resuming">جاري الاستئناف…</string>
     <string name="call_state_ended">منتهية</string>
-    <string name="call_waiting_for_encryption_info">في انتظار التشفير...</string>
+    <string name="call_waiting_for_encryption_info">في انتظار التشفير…</string>
     <string name="call_zrtp_end_to_end_encrypted">مشفرة من طرف إلى طرف بواسطة ZRTP</string>
     <string name="call_zrtp_point_to_point_encrypted">مشفرة نقطة إلى نقطة بواسطة ZRTP</string>
     <string name="call_do_zrtp_sas_validation_again">التحقق من ZRTP SAS مرة أخرى</string>
@@ -821,7 +821,7 @@
 
     <!-- Conference (in-call) -->
     <string name="conference_share_link_title">مشاركة الدعوة</string>
-    <string name="conference_call_empty">في انتظار المشاركين الآخرين...</string>
+    <string name="conference_call_empty">في انتظار المشاركين الآخرين…</string>
     <string name="conference_action_screen_sharing">مشاركة الشاشة</string>
     <string name="conference_action_show_participants">المشاركون</string>
     <string name="conference_failed_to_create_group_call_toast">فشل في إنشاء مكالمة جماعية!</string>
@@ -837,7 +837,7 @@
     <string name="conference_confirm_removing_participant_dialog_title">إزالة %s من المؤتمر؟</string>
     <string name="conference_confirm_removing_participant_dialog_message">هل أنت متأكد من رغبتك في إزالة هذا المشارك من المؤتمر؟</string>
     <string name="conference_participant_was_kicked_out_toast">تم طرد المشارك من المؤتمر</string>
-    <string name="conference_participant_joining_text">جاري الانضمام...</string>
+    <string name="conference_participant_joining_text">جاري الانضمام…</string>
     <string name="conference_participant_paused_text">موقوف مؤقتًا</string>
     <string name="conference_active_speaker_is_screen_sharing">يشارك شاشته</string>
     <string name="conference_failed_to_add_participant_invalid_address_toast">عنوان SIP غير صالح، لا يمكن إضافته إلى المؤتمر</string>
@@ -852,7 +852,7 @@
 
     <!-- Call records -->
     <string name="recordings_title">التسجيلات</string>
-    <string name="recordings_list_empty">لا تسجيل في الوقت الحالي...</string>
+    <string name="recordings_list_empty">لا تسجيل في الوقت الحالي…</string>
 
     <!-- Android Auto UI texts -->
     <string name="car_favorites_contacts_title">المفضلات</string>
@@ -885,7 +885,7 @@
     <string name="purple">أرجواني</string>
 
     <!-- Misc -->
-    <string name="list_filter_no_result_found">لم يتم العثور على نتيجة...</string>
+    <string name="list_filter_no_result_found">لم يتم العثور على نتيجة…</string>
     <string name="multiple_participants_selection_placeholder">سيظهر المشاركون المحددون هنا</string>
     <string name="connection_error_for_non_default_account">خطأ في اتصال الحساب(ات)</string>
     <plurals name="pending_notification_for_other_accounts">
@@ -1018,6 +1018,37 @@
     <string name="content_description_call_voicemail">اضغط مطولاً للاتصال بالبريد الصوتي</string>
     <string name="content_description_cancel_files_or_text_pending_sharing">انقر لإلغاء الملفات أو النص في انتظار المشاركة</string>
     <string name="content_description_close_drawer_menu">إغلاق القائمة</string>
+    <string name="monday">الاثنين</string>
+    <string name="tuesday">الثلاثاء</string>
+    <string name="wednesday">الأربعاء</string>
+    <string name="thursday">الخميس</string>
+    <string name="friday">الجمعة</string>
+    <string name="saturday">السبت</string>
+    <string name="sunday">الأحد</string>
+
+    <string name="monday_short">الاثنين</string>
+    <string name="tuesday_short">الثلاثاء</string>
+    <string name="wednesday_short">الأربعاء</string>
+    <string name="thursday_short">الخميس</string>
+    <string name="friday_short">الجمعة</string>
+    <string name="saturday_short">السبت</string>
+    <string name="sunday_short">الأحد</string>
+
+    <string name="month_january">يناير</string>
+    <string name="month_february">فبراير</string>
+    <string name="month_march">مارس</string>
+    <string name="month_april">أبريل</string>
+    <string name="month_may">مايو</string>
+    <string name="month_june">يونيو</string>
+    <string name="month_july">يوليو</string>
+    <string name="month_august">أغسطس</string>
+    <string name="month_september">سبتمبر</string>
+    <string name="month_october">أكتوبر</string>
+    <string name="month_november">نوفمبر</string>
+    <string name="month_december">ديسمبر</string>
+
+    <string name="time_am">ص</string>
+    <string name="time_pm">م</string>
 
     <!-- Copy of private hosts_allowlist_sample in androidx.car.app:app:1.7.0-beta01, as they recommend it -->
     <string-array name="hosts_allowlist_sample_copy" translatable="false">

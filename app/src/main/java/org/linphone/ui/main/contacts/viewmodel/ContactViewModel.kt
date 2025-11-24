@@ -322,11 +322,11 @@ class ContactViewModel
 
         val organization = friend.organization
         if (!organization.isNullOrEmpty()) {
-            company.postValue(organization!!)
+            company.postValue(organization)
         }
         val jobTitle = friend.jobTitle
         if (!jobTitle.isNullOrEmpty()) {
-            title.postValue(jobTitle!!)
+            title.postValue(jobTitle)
         }
 
         val addressesAndNumbers = friend.getListOfSipAddressesAndPhoneNumbers(listener)
@@ -374,12 +374,14 @@ class ContactViewModel
     @UiThread
     fun exportContactAsVCard() {
         coreContext.postOnCoreThread {
+            val code: String? = corePreferences.appLocale
+            val currentLocale: Locale = if (code.isNullOrEmpty()) Locale.getDefault() else Locale.forLanguageTag(code)
             if (::friend.isInitialized) {
                 val vCard = friend.dumpVcard()
                 if (!vCard.isNullOrEmpty()) {
                     Log.i("$TAG Friend has been successfully dumped as vCard string")
                     val fileName = friend.name.orEmpty().replace(" ", "_").lowercase(
-                        Locale.getDefault()
+                        currentLocale
                     )
                     val file = FileUtils.getFileStorageCacheDir(
                         "$fileName.vcf",

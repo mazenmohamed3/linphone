@@ -607,6 +607,8 @@ class LinphoneUtils {
 
         @WorkerThread
         private fun getTextDescribingMessage(message: ChatMessage): Pair<String, String> {
+            val code: String? = corePreferences.appLocale
+            val currentLocale: Locale = if (code.isNullOrEmpty()) Locale.getDefault() else Locale.forLanguageTag(code)
             // Check if message is empty (when deleted by it's sender, for everyone)
             if (message.isRetracted) {
                 val text = if (message.isOutgoing) {
@@ -658,7 +660,7 @@ class LinphoneUtils {
                     )
                     val formattedDuration = SimpleDateFormat(
                         "mm:ss",
-                        Locale.getDefault()
+                        currentLocale
                     ).format(firstContent.fileDuration) // duration is in ms
                     contentDescription = "$label ($formattedDuration)"
                 } else {

@@ -41,10 +41,15 @@ import org.linphone.utils.AppUtils
 import org.linphone.utils.Event
 
 class ThirdPartySipAccountLoginViewModel
-    @UiThread
-    constructor() : GenericViewModel() {
+@UiThread
+constructor() : GenericViewModel() {
     companion object {
         private const val TAG = "[Third Party SIP Account Login ViewModel]"
+    }
+
+    private val currentLocale: Locale by lazy {
+        val code = corePreferences.appLocale
+        if (code.isEmpty()) Locale.getDefault() else Locale.forLanguageTag(code)
     }
 
     val username = MutableLiveData<String>()
@@ -147,17 +152,15 @@ class ThirdPartySipAccountLoginViewModel
             loginEnabled.value = isLoginButtonEnabled()
         }
 
-        // TODO: handle formatting errors ?
-
-        availableTransports.add(TransportType.Udp.name.uppercase(Locale.getDefault()))
-        availableTransports.add(TransportType.Tcp.name.uppercase(Locale.getDefault()))
-        availableTransports.add(TransportType.Tls.name.uppercase(Locale.getDefault()))
+        availableTransports.add(TransportType.Udp.name.uppercase(currentLocale))
+        availableTransports.add(TransportType.Tcp.name.uppercase(currentLocale))
+        availableTransports.add(TransportType.Tls.name.uppercase(currentLocale))
 
         coreContext.postOnCoreThread {
             domain.postValue(corePreferences.thirdPartySipAccountDefaultDomain)
 
             val defaultTransport = corePreferences.thirdPartySipAccountDefaultTransport.uppercase(
-                Locale.getDefault()
+                currentLocale
             )
             val index = if (defaultTransport.isNotEmpty()) {
                 availableTransports.indexOf(defaultTransport)
@@ -250,8 +253,8 @@ class ThirdPartySipAccountLoginViewModel
                 domainAddress ?: Factory.instance().createAddress("sip:$domainWithoutSip")
             }
             proxyServerAddress?.transport = when (transport.value.orEmpty().trim()) {
-                TransportType.Tcp.name.uppercase(Locale.getDefault()) -> TransportType.Tcp
-                TransportType.Tls.name.uppercase(Locale.getDefault()) -> TransportType.Tls
+                TransportType.Tcp.name.uppercase(currentLocale) -> TransportType.Tcp
+                TransportType.Tls.name.uppercase(currentLocale) -> TransportType.Tls
                 else -> TransportType.Udp
             }
             Log.i("$TAG Created proxy server SIP address [${proxyServerAddress?.asStringUriOnly()}]")
@@ -270,11 +273,12 @@ class ThirdPartySipAccountLoginViewModel
             }
             if (outboundProxyAddress != null) {
                 outboundProxyAddress.transport = when (transport.value.orEmpty().trim()) {
-                    TransportType.Tcp.name.uppercase(Locale.getDefault()) -> TransportType.Tcp
-                    TransportType.Tls.name.uppercase(Locale.getDefault()) -> TransportType.Tls
+                    TransportType.Tcp.name.uppercase(currentLocale) -> TransportType.Tcp
+                    TransportType.Tls.name.uppercase(currentLocale) -> TransportType.Tls
                     else -> TransportType.Udp
                 }
-                Log.i("$TAG Created outbound proxy server SIP address [${outboundProxyAddress?.asStringUriOnly()}]")
+                // FIX 2: Removed redundant safe call ?.asStringUriOnly() because outboundProxyAddress is already checked for null
+                Log.i("$TAG Created outbound proxy server SIP address [${outboundProxyAddress.asStringUriOnly()}]")
                 accountParams.setRoutesAddresses(arrayOf(outboundProxyAddress))
             }
 

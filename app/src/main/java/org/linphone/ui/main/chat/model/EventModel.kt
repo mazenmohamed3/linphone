@@ -22,6 +22,7 @@ package org.linphone.ui.main.chat.model
 import android.graphics.drawable.Drawable
 import androidx.annotation.WorkerThread
 import androidx.core.content.res.ResourcesCompat
+import org.linphone.LinphoneApplication
 import java.util.Locale
 import org.linphone.LinphoneApplication.Companion.coreContext
 import org.linphone.R
@@ -38,6 +39,8 @@ class EventModel
 
     init {
         val name = getName()
+         val code: String? = LinphoneApplication.corePreferences.appLocale
+    val currentLocale: Locale = if (code.isNullOrEmpty()) Locale.getDefault() else Locale.forLanguageTag(code)
 
         text = when (eventLog.type) {
             EventLog.Type.ConferenceCreated -> AppUtils.getString(
@@ -83,7 +86,7 @@ class EventModel
             EventLog.Type.ConferenceEphemeralMessageLifetimeChanged -> AppUtils.getFormattedString(
                 R.string.conversation_event_ephemeral_messages_lifetime_changed,
                 LinphoneUtils.formatEphemeralExpiration(eventLog.ephemeralMessageLifetime).lowercase(
-                    Locale.getDefault()
+                    currentLocale
                 )
             )
             EventLog.Type.ConferenceSecurityEvent -> {

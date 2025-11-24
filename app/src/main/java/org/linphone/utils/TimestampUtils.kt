@@ -20,6 +20,7 @@
 package org.linphone.utils
 
 import androidx.annotation.AnyThread
+import org.linphone.LinphoneApplication
 import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.time.format.TextStyle
@@ -31,6 +32,16 @@ import org.linphone.R
 
 class TimestampUtils {
     companion object {
+        val currentLocale: Locale
+            get() {
+                val code = LinphoneApplication.corePreferences.appLocale
+                return if (code.isEmpty()) {
+                    Locale.getDefault()
+                } else {
+                    Locale.forLanguageTag(code)
+                }
+            }
+
         @AnyThread
         fun isToday(timestamp: Long, timestampInSecs: Boolean = true): Boolean {
             val cal = getCalendar()
@@ -73,12 +84,12 @@ class TimestampUtils {
             val dayName = calendar.getDisplayName(
                 Calendar.DAY_OF_WEEK,
                 TextStyle.SHORT.ordinal,
-                Locale.getDefault()
+                currentLocale
             )
             val upperCased = dayName?.replaceFirstChar {
                 if (it.isLowerCase()) {
                     it.titlecase(
-                        Locale.getDefault()
+                        currentLocale
                     )
                 } else {
                     it.toString()
@@ -106,14 +117,14 @@ class TimestampUtils {
             val firstDayOfWeekMonth = calendar.getDisplayName(
                 Calendar.MONTH,
                 TextStyle.SHORT.ordinal,
-                Locale.getDefault()
+                currentLocale
             )
             calendar.add(Calendar.DAY_OF_MONTH, 6)
             val lastDayOfWeek = calendar.get(Calendar.DAY_OF_MONTH).toString()
             val lastDayOfWeekMonth = calendar.getDisplayName(
                 Calendar.MONTH,
                 TextStyle.SHORT.ordinal,
-                Locale.getDefault()
+                currentLocale
             )
             return if (firstDayOfWeekMonth == lastDayOfWeekMonth) {
                 "$firstDayOfWeek - $lastDayOfWeek $lastDayOfWeekMonth"
@@ -129,9 +140,9 @@ class TimestampUtils {
             val month = calendar.getDisplayName(
                 Calendar.MONTH,
                 TextStyle.SHORT.ordinal,
-                Locale.getDefault()
+                currentLocale
             )
-                ?.replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }
+                ?.replaceFirstChar { if (it.isLowerCase()) it.titlecase(currentLocale) else it.toString() }
                 ?: "?"
 
             val now = getCalendar()
@@ -154,7 +165,7 @@ class TimestampUtils {
         fun durationToString(duration: Int): String {
             val dateFormat = SimpleDateFormat(
                 if (duration >= 3600) "HH:mm:ss" else "mm:ss",
-                Locale.getDefault()
+                currentLocale
             )
             val cal = getCalendar()
             cal[0, 0, 0, 0, 0] = duration
@@ -166,7 +177,7 @@ class TimestampUtils {
             val calendar = getCalendar()
             calendar.timeInMillis = if (timestampInSecs) time * 1000 else time
 
-            return SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(calendar.time)
+            return SimpleDateFormat("yyyyMMdd_HHmmss", currentLocale).format(calendar.time)
         }
 
         @AnyThread
@@ -205,7 +216,7 @@ class TimestampUtils {
 
             val millis = if (timestampInSecs) timestamp * 1000 else timestamp
             return dateFormat.format(Date(millis))
-                .replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }
+                .replaceFirstChar { if (it.isLowerCase()) it.titlecase(currentLocale) else it.toString() }
         }
 
         @AnyThread
@@ -220,7 +231,7 @@ class TimestampUtils {
                 )
                 hours >= 1L -> {
                     String.format(
-                        Locale.getDefault(),
+                        currentLocale,
                         "%02d:%02d:%02d",
                         seconds / 3600,
                         (seconds % 3600) / 60,
@@ -228,7 +239,7 @@ class TimestampUtils {
                     )
                 }
                 else -> String.format(
-                    Locale.getDefault(),
+                    currentLocale,
                     "%02d:%02d",
                     (seconds % 3600) / 60,
                     (seconds % 60)

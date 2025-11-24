@@ -109,13 +109,16 @@ class AccountSettingsViewModel
     private lateinit var natPolicyAuthInfo: AuthInfo
 
     init {
+         val code: String? = corePreferences.appLocale
+    val currentLocale: Locale = if (code.isNullOrEmpty()) Locale.getDefault() else Locale.forLanguageTag(code)
+
         expandAdvancedSettings.value = false
         expandNatPolicySettings.value = false
         showTurnPassword.value = false
 
-        availableTransports.add(TransportType.Udp.name.uppercase(Locale.getDefault()))
-        availableTransports.add(TransportType.Tcp.name.uppercase(Locale.getDefault()))
-        availableTransports.add(TransportType.Tls.name.uppercase(Locale.getDefault()))
+        availableTransports.add(TransportType.Udp.name.uppercase(currentLocale))
+        availableTransports.add(TransportType.Tcp.name.uppercase(currentLocale))
+        availableTransports.add(TransportType.Tls.name.uppercase(currentLocale))
 
         imEncryptionMandatoryAvailable.addSource(limeServerUrl) {
             imEncryptionMandatoryAvailable.value = isImEncryptionMandatoryAvailable()

@@ -308,6 +308,9 @@ abstract class AddressSelectionViewModel
 
     @WorkerThread
     private fun processMagicSearchResults(results: Array<SearchResult>) {
+        val code: String? = corePreferences.appLocale
+        val currentLocale: Locale = if (code.isNullOrEmpty()) Locale.getDefault() else Locale.forLanguageTag(code)
+
         Log.i("$TAG Processing [${results.size}] results")
 
         val conversationsList = if (!skipConversation) {
@@ -392,7 +395,7 @@ abstract class AddressSelectionViewModel
             }
         }
 
-        val collator = Collator.getInstance(Locale.getDefault())
+        val collator = Collator.getInstance(currentLocale)
         favoritesList.sortWith { model1, model2 ->
             collator.compare(model1.name, model2.name)
         }

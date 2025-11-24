@@ -82,6 +82,9 @@ class MessageModel
     private val onVoiceRecordingPlaybackEnded: ((id: String) -> Unit)? = null,
     private val onFileToExportToNativeGallery: ((path: String) -> Unit)? = null
 ) {
+    val code: String? = corePreferences.appLocale
+    val currentLocale: Locale = if (code.isNullOrEmpty()) Locale.getDefault() else Locale.forLanguageTag(code)
+
     companion object {
         private const val TAG = "[Message Model]"
 
@@ -353,7 +356,7 @@ class MessageModel
             firstFileModel.addSource(filesList) {
                 val first = it.firstOrNull()
                 if (first != null) {
-                    firstFileModel.value = first!!
+                    firstFileModel.value = first
                 }
             }
         }
@@ -879,7 +882,7 @@ class MessageModel
             val duration = voiceRecordPlayer.duration
             voiceRecordingDuration.postValue(duration)
             val formattedDuration =
-                SimpleDateFormat("mm:ss", Locale.getDefault()).format(duration) // duration is in ms
+                SimpleDateFormat("mm:ss", currentLocale).format(duration) // duration is in ms
             formattedVoiceRecordingDuration.postValue(formattedDuration)
         } else {
             Log.e("$TAG Player failed to open file at [$path]")
@@ -1052,7 +1055,7 @@ class MessageModel
 
         val formattedDuration = SimpleDateFormat(
             "mm:ss",
-            Locale.getDefault()
+            currentLocale
         ).format(duration) // duration is in ms
         formattedVoiceRecordingDuration.postValue(formattedDuration)
         Log.i(

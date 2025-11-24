@@ -23,12 +23,14 @@ import android.app.Activity
 import android.content.Intent
 import android.media.RingtoneManager
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.UiThread
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.navGraphViewModels
@@ -49,8 +51,6 @@ import java.lang.Exception
 class SettingsFragment : GenericMainFragment() {
     companion object {
         private const val TAG = "[Settings Fragment]"
-
-        private const val RINGTONE_PICKER_INTENT_ID = 89
     }
 
     private lateinit var binding: SettingsFragmentBinding
@@ -58,6 +58,31 @@ class SettingsFragment : GenericMainFragment() {
     private val viewModel: SettingsViewModel by navGraphViewModels(
         R.id.main_nav_graph
     )
+
+    // Replaces startActivityForResult and onActivityResult
+    private val ringtonePickerLauncher = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) { result ->
+        if (result.resultCode == Activity.RESULT_OK) {
+            val data = result.data
+
+            // Fix for getParcelableExtra deprecation
+            val uri: Uri? = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                data?.getParcelableExtra(RingtoneManager.EXTRA_RINGTONE_PICKED_URI, Uri::class.java)
+            } else {
+                @Suppress("DEPRECATION")
+                data?.getParcelableExtra(RingtoneManager.EXTRA_RINGTONE_PICKED_URI)
+            }
+
+            if (uri != null) {
+                Log.i("$TAG Ringtone picker result is OK, URI found in intent is [$uri]")
+                viewModel.setRingtoneUri(uri)
+            } else {
+                Log.e("$TAG Ringtone picker result is OK but URI is null!")
+                // TODO: show error to user
+            }
+        }
+    }
 
     private val sortContactsByListener = object : AdapterView.OnItemSelectedListener {
         override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
@@ -188,7 +213,8 @@ class SettingsFragment : GenericMainFragment() {
                         putExtra(RingtoneManager.EXTRA_RINGTONE_EXISTING_URI, currentRingtone)
                         putExtra(RingtoneManager.EXTRA_RINGTONE_TITLE, AppUtils.getString(R.string.settings_calls_change_ringtone_pick_title))
                     }
-                    startActivityForResult(intent, RINGTONE_PICKER_INTENT_ID)
+                    // Fix: Use the new Activity Result API launcher
+                    ringtonePickerLauncher.launch(intent)
                 } catch (e: Exception) {
                     Log.e("$TAG Failed start ringtone picker: $e")
                     // TODO: show error to user
@@ -306,6 +332,7 @@ class SettingsFragment : GenericMainFragment() {
                 viewModel.availableColorsValues.indexOf(color)
             )
             binding.userInterfaceSettings.colorSpinner.onItemSelectedListener = colorListener
+        }
 
         // Set up locale spinner
         LocaleSpinnerHelper.setupLocaleSpinner(
@@ -313,7 +340,6 @@ class SettingsFragment : GenericMainFragment() {
             binding.userInterfaceSettings.localeSpinner
         ) {
             requireActivity().recreate()
-        }
         }
 
         // Tunnel mode
@@ -335,20 +361,6 @@ class SettingsFragment : GenericMainFragment() {
         }
 
         startPostponedEnterTransition()
-    }
-
-    @Deprecated("Deprecated in Java")
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        if (resultCode == Activity.RESULT_OK && requestCode == RINGTONE_PICKER_INTENT_ID) {
-            val uri: Uri? = data?.getParcelableExtra(RingtoneManager.EXTRA_RINGTONE_PICKED_URI)
-            if (uri != null) {
-                Log.i("$TAG Ringtone picker result is OK, URI found in intent is [$uri]")
-                viewModel.setRingtoneUri(uri)
-            } else {
-                Log.e("$TAG Ringtone picker result is OK but URI is null!")
-                // TODO: show error to user
-            }
-        }
     }
 
     override fun onResume() {

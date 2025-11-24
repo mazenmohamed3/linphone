@@ -259,6 +259,8 @@ class AccountCreationViewModel
     }
 
     init {
+        val code: String? = corePreferences.appLocale
+        val currentLocale: Locale = if (code.isNullOrEmpty()) Locale.getDefault() else Locale.forLanguageTag(code)
         operationInProgress.value = false
         lockUsernameAndPassword.value = false
 
@@ -277,7 +279,7 @@ class AccountCreationViewModel
             }
 
             accountManagerServices = core.createAccountManagerServices()
-            accountManagerServices.language = Locale.getDefault().language // Returns en, fr, etc...
+            accountManagerServices.language = currentLocale.language // Returns en, fr, etc...
             core.addListener(coreListener)
         }
 

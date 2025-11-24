@@ -33,6 +33,7 @@ import androidx.annotation.PluralsRes
 import androidx.annotation.StringRes
 import androidx.annotation.UiThread
 import androidx.core.view.SoftwareKeyboardControllerCompat
+import org.linphone.LinphoneApplication
 import java.util.Locale
 import org.linphone.LinphoneApplication.Companion.coreContext
 import org.linphone.core.tools.Log
@@ -90,18 +91,31 @@ class AppUtils {
             forcePortrait: Boolean = false,
             forceLandscape: Boolean = false
         ): Rational {
-            val displayMetrics = DisplayMetrics()
-            activity.windowManager.defaultDisplay.getMetrics(displayMetrics)
-            var height = displayMetrics.heightPixels
-            var width = displayMetrics.widthPixels
+            var width: Int
+            var height: Int
 
-            val aspectRatio = width / height
-            if (aspectRatio < 1 / 2.39) {
-                height = 2.39.toInt()
-                width = 1
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                // API 30+ (Android 11 and newer)
+                val metrics = activity.windowManager.currentWindowMetrics
+                val bounds = metrics.bounds
+                width = bounds.width()
+                height = bounds.height()
+            } else {
+                // API < 30 (Older Android versions)
+                val displayMetrics = DisplayMetrics()
+                @Suppress("DEPRECATION")
+                activity.windowManager.defaultDisplay.getMetrics(displayMetrics)
+                width = displayMetrics.widthPixels
+                height = displayMetrics.heightPixels
+            }
+
+            val aspectRatio = width.toDouble() / height.toDouble()
+            if (aspectRatio < 1.0 / 2.39) {
+                height = 2
+                width = 1 // Simplified ratio logic for very tall screens
             } else if (aspectRatio > 2.39) {
-                width = 2.39.toInt()
-                height = 1
+                width = 2
+                height = 1 // Simplified ratio logic for very wide screens
             }
 
             val ratio = if (width > height) {
@@ -127,9 +141,11 @@ class AppUtils {
 
         @AnyThread
         fun getInitials(displayName: String, limit: Int = 2): String {
+            val code: String? = LinphoneApplication.corePreferences.appLocale
+            val currentLocale: Locale = if (code.isNullOrEmpty()) Locale.getDefault() else Locale.forLanguageTag(code)
             if (displayName.isEmpty()) return ""
 
-            val split = displayName.uppercase(Locale.getDefault()).split(" ")
+            val split = displayName.uppercase(currentLocale).split(" ")
             var initials = ""
             var characters = 0
 

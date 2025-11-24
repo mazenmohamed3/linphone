@@ -49,6 +49,7 @@ import org.linphone.R
 import org.linphone.compatibility.Compatibility
 import org.linphone.core.tools.Log
 import androidx.core.net.toUri
+import org.linphone.LinphoneApplication
 
 class FileUtils {
     enum class MimeType {
@@ -102,6 +103,8 @@ class FileUtils {
 
         @AnyThread
         fun getExtensionFromFileName(fileName: String): String {
+             val code: String? = LinphoneApplication.corePreferences.appLocale
+    val currentLocale: Locale = if (code.isNullOrEmpty()) Locale.getDefault() else Locale.forLanguageTag(code)
             var extension = MimeTypeMap.getFileExtensionFromUrl(fileName)
             if (extension.isNullOrEmpty()) {
                 val i = fileName.lastIndexOf('.')
@@ -110,7 +113,7 @@ class FileUtils {
                 }
             }
 
-            return extension.lowercase(Locale.getDefault())
+            return extension.lowercase(currentLocale)
         }
 
         @AnyThread

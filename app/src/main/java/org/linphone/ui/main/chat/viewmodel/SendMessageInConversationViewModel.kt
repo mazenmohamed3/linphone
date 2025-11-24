@@ -609,6 +609,9 @@ class SendMessageInConversationViewModel
 
     @WorkerThread
     private fun startVoiceRecorder() {
+         val code: String? = corePreferences.appLocale
+        val currentLocale: Locale = if (code.isNullOrEmpty()) Locale.getDefault() else Locale.forLanguageTag(code)
+        
         if (voiceRecordAudioFocusRequest == null) {
             Log.i("$TAG Requesting audio focus for voice message recording")
             voiceRecordAudioFocusRequest = AudioUtils.acquireAudioFocusForVoiceRecordingOrPlayback(
@@ -641,14 +644,14 @@ class SendMessageInConversationViewModel
         chatRoom.composeVoiceMessage()
 
         val duration = voiceMessageRecorder.duration
-        val formattedDuration = SimpleDateFormat("mm:ss", Locale.getDefault()).format(duration) // duration is in ms
+        val formattedDuration = SimpleDateFormat("mm:ss", currentLocale).format(duration) // duration is in ms
         formattedVoiceRecordingDuration.postValue(formattedDuration)
 
         val maxVoiceRecordDuration = corePreferences.voiceRecordingMaxDuration
         recorderTickerFlow().onEach {
             coreContext.postOnCoreThread {
                 val duration = voiceMessageRecorder.duration
-                val formattedDuration = SimpleDateFormat("mm:ss", Locale.getDefault()).format(
+                val formattedDuration = SimpleDateFormat("mm:ss", currentLocale).format(
                     duration
                 ) // duration is in ms
                 formattedVoiceRecordingDuration.postValue(formattedDuration)

@@ -395,11 +395,14 @@ class AccountProfileViewModel
 
     @WorkerThread
     private fun requestDevicesList(identityAddress: Address) {
+         val code: String? = corePreferences.appLocale
+        val currentLocale: Locale = if (code.isNullOrEmpty()) Locale.getDefault() else Locale.forLanguageTag(code)
+        
         Log.i(
             "$TAG Request devices list for identity address [${identityAddress.asStringUriOnly()}]"
         )
         accountManagerServices = coreContext.core.createAccountManagerServices()
-        accountManagerServices.language = Locale.getDefault().language // Returns en, fr, etc...
+        accountManagerServices.language = currentLocale.language // Returns en, fr, etc...
         val request = accountManagerServices.createGetDevicesListRequest(
             identityAddress
         )
