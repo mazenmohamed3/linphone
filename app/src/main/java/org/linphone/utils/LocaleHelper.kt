@@ -25,6 +25,21 @@ object LocaleHelper {
                 Pair(LOCALE_ENGLISH, "English"),
                 Pair(LOCALE_FRENCH, "Français"),
                 Pair(LOCALE_ARABIC, "العربية")
+        )
+    }
+
+    fun applyLocale(context: Context): Context {
+        val localeCode = getCurrentLocale(context)
+        val locale =
+                if (localeCode == LOCALE_SYSTEM_DEFAULT) {
+                    val configuration = Resources.getSystem().configuration
+                    ConfigurationCompat.getLocales(configuration).get(0) ?: Locale.getDefault()
+                } else {
+                    Locale.forLanguageTag(localeCode)
+                }
+        Locale.setDefault(locale)
+
+        val config = Configuration(context.resources.configuration)
         config.setLocale(locale)
 
         // Handle RTL for Arabic
