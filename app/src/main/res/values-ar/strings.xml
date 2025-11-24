@@ -1,0 +1,149 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<!DOCTYPE resources [<!ENTITY appName "Linphone">]>
+
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Common words -->
+    <string name="sip_address">عنوان SIP</string>
+    <string name="device_id">معرف الجهاز</string>
+    <string name="sip_address_display_name">الاسم المعروض</string>
+    <string name="sip_address_domain">النطاق</string>
+    <string name="username">اسم المستخدم</string>
+    <string name="authentication_id">معرف المصادقة (إذا كان مختلفًا)</string>
+    <string name="password">كلمة المرور</string>
+    <string name="phone_number">رقم الهاتف</string>
+    <string name="or">أو</string>
+    <string name="next">التالي</string>
+    <string name="start">ابدأ</string>
+    <string name="today">اليوم</string>
+    <string name="yesterday">أمس</string>
+    <plurals name="days" tools:ignore="MissingQuantity">
+        <item quantity="zero">%s أيام</item>
+        <item quantity="one">%s يوم</item>
+        <item quantity="two">%s يومان</item>
+        <item quantity="few">%s أيام</item>
+        <item quantity="many">%s يومًا</item>
+        <item quantity="other">%s يوم</item>
+    </plurals>
+    <string name="search">بحث</string>
+
+    <plurals name="selection_count_label" tools:ignore="MissingQuantity">
+        <item quantity="zero">%s محدد</item>
+        <item quantity="one">%s محدد</item>
+        <item quantity="two">%s محددان</item>
+        <item quantity="few">%s محددة</item>
+        <item quantity="many">%s محددًا</item>
+        <item quantity="other">%s محدد</item>
+    </plurals>
+
+    <!-- Dialog various possible buttons label -->
+    <string name="dialog_deny">رفض</string>
+    <string name="dialog_accept">قبول</string>
+    <string name="dialog_cancel">إلغاء</string>
+    <string name="dialog_continue">متابعة</string>
+    <string name="dialog_call">اتصال</string>
+    <string name="dialog_delete">حذف</string>
+    <string name="dialog_install">تثبيت</string>
+    <string name="dialog_do_not_show_anymore">لا تظهر هذه الرسالة مرة أخرى</string>
+    <string name="dialog_no">لا</string>
+    <string name="dialog_yes">نعم</string>
+    <string name="dialog_remove">إزالة</string>
+    <string name="dialog_confirm">تأكيد</string>
+    <string name="dialog_understood">فهمت</string>
+    <string name="dialog_do_not_cancel">لا تلغي</string>
+
+    <!-- First screens user see when app is installed and started -->
+    <string name="welcome_page_title">مرحبًا</string>
+    <string name="welcome_page_subtitle">في &appName;</string>
+    <string name="welcome_page_1_message">تطبيق اتصالات <b>آمن</b> و<b>مفتوح المصدر</b> و<b>فرنسي</b>.</string>
+    <string name="welcome_page_2_title">آمن</string>
+    <string name="welcome_page_2_message">اتصالاتك آمنة بفضل <b>التشفير من طرف إلى طرف</b>.</string>
+    <string name="welcome_page_3_title">مفتوح المصدر</string>
+    <string name="welcome_page_3_message">تطبيق <b>مجاني</b> ومفتوح المصدر منذ <b>2001</b>.</string>
+
+    <!-- Generic toasts -->
+    <string name="sip_address_copied_to_clipboard_toast">تم نسخ عنوان SIP</string>
+    <string name="new_account_configured_toast">تم إضافة حساب جديد</string>
+
+    <!-- Assistant related string (account register / login / etc...) -->
+    <string name="assistant_dialog_general_terms_and_privacy_policy_title">الشروط العامة وسياسة الخصوصية</string>
+    <string name="assistant_dialog_general_terms_label">الشروط العامة</string>
+    <string name="assistant_dialog_privacy_policy_label">سياسة الخصوصية</string>
+    <string name="assistant_dialog_general_terms_and_privacy_policy_message">بالمتابعة، أنت توافق على %1$s و %2$s.</string>
+    <string name="assistant_dialog_confirm_phone_number_title">تأكيد رقم الهاتف</string>
+    <string name="assistant_dialog_confirm_phone_number_message">هل أنت متأكد أن رقمك هو %s؟</string>
+    <string name="assistant_account_login">تسجيل الدخول</string>
+    <string name="assistant_scan_qr_code">مسح رمز QR</string>
+    <string name="assistant_qr_code_invalid_toast">رمز QR غير صالح!</string>
+    <string name="assistant_login_third_party_sip_account">استخدام حساب SIP خارجي</string>
+    <string name="assistant_login_third_party_sip_account_title">حساب SIP خارجي</string>
+    <string name="assistant_login_cant_parse_address_toast">عنوان SIP غير صالح!</string>
+    <string name="assistant_login_address_without_username_toast">عنوان SIP لا يحتوي على اسم مستخدم!</string>
+    <string name="assistant_account_login_already_connected_error">الحساب موجود بالفعل</string>
+    <string name="assistant_no_account_yet">لا يوجد حساب بعد؟</string>
+    <string name="assistant_account_register">إنشاء حساب</string>
+    <string name="assistant_account_create">إنشاء</string>
+    <string name="assistant_already_have_an_account">هل لديك حساب بالفعل؟</string>
+    <string name="assistant_forgotten_password_title">استعادة الحساب</string>
+    <string name="assistant_permissions_title">منح الأذونات</string>
+    <string name="assistant_permissions_grant_all_of_them">حسنًا</string>
+    <string name="assistant_permissions_skip_permissions">لاحقًا</string>
+
+    <!-- Main navigation items -->
+    <string name="bottom_navigation_contacts_label">جهات الاتصال</string>
+    <string name="bottom_navigation_calls_label">المكالمات</string>
+    <string name="bottom_navigation_conversations_label">المحادثات</string>
+    <string name="bottom_navigation_meetings_label">الاجتماعات</string>
+
+    <!-- Help & troubleshooting related -->
+    <string name="help_title">مساعدة</string>
+    <string name="help_about_title">حول &appName;</string>
+    <string name="help_quit_title">إنهاء التطبيق</string>
+
+    <!-- App & SDK settings -->
+    <string name="settings_title">الإعدادات</string>
+    <string name="settings_security_title">الأمان</string>
+    <string name="settings_calls_title">المكالمات</string>
+    <string name="settings_conversations_title">المحادثات</string>
+    <string name="settings_contacts_title">جهات الاتصال</string>
+    <string name="settings_meetings_title">الاجتماعات</string>
+    <string name="settings_network_title">الشبكة</string>
+    <string name="settings_user_interface_title">واجهة المستخدم</string>
+    <string name="settings_user_interface_auto_show_dialpad_title">فتح لوحة الاتصال تلقائيًا</string>
+    <string name="settings_user_interface_theme_title">المظهر</string>
+    <string name="settings_user_interface_dark_theme_label">المظهر الداكن</string>
+    <string name="settings_user_interface_light_theme_label">المظهر الفاتح</string>
+    <string name="settings_user_interface_auto_theme_label">تلقائي</string>
+    <string name="settings_user_interface_color_title">اللون الأساسي</string>
+    <string name="settings_advanced_title">الإعدادات المتقدمة</string>
+
+    <!-- Locale settings (new strings for locale toggle) -->
+    <string name="settings_locale_title">اللغة</string>
+    <string name="locale_english">English</string>
+    <string name="locale_french">Français</string>
+    <string name="locale_arabic">العربية</string>
+    <string name="locale_system_default">افتراضي النظام</string>
+
+    <!-- Contacts -->
+    <string name="contacts_list_empty">لا توجد جهات اتصال حاليًا…</string>
+    <string name="contacts_list_favourites_title">المفضلة</string>
+    <string name="contacts_list_all_contacts_title">جميع جهات الاتصال</string>
+
+    <!-- Chat -->
+    <string name="conversations_list_empty">لا توجد محادثات مرتبطة بهذا الحساب حاليًا…</string>
+    <string name="new_conversation_title">محادثة جديدة</string>
+    <string name="new_group_conversation_title">محادثة جماعية جديدة</string>
+
+    <!-- Call related -->
+    <string name="call_outgoing">مكالمة صادرة</string>
+    <string name="call_audio_incoming">مكالمة واردة</string>
+    <string name="call_video_incoming">مكالمة فيديو واردة</string>
+    <string name="call_action_hang_up">إنهاء</string>
+    <string name="call_action_answer">رد</string>
+    <string name="call_action_decline">رفض</string>
+
+    <!-- Account profile & settings -->
+    <string name="manage_account_title">إدارة الحساب</string>
+    <string name="manage_account_delete">تسجيل الخروج</string>
+    <string name="account_settings_title">إعدادات الحساب</string>
+</resources>

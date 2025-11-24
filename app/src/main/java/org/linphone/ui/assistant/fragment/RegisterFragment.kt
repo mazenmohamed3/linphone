@@ -47,7 +47,7 @@ import org.linphone.ui.assistant.viewmodel.AccountCreationViewModel
 import org.linphone.utils.ConfirmationDialogModel
 import org.linphone.utils.AppUtils
 import org.linphone.utils.DialogUtils
-import org.linphone.utils.PhoneNumberUtils
+import org.linphone.utils.PhoneNumberUtils`r`nimport org.linphone.utils.LocaleSpinnerHelper
 import androidx.core.net.toUri
 
 @UiThread
@@ -138,6 +138,15 @@ class RegisterFragment : GenericFragment() {
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
         })
+
+
+        // Set up locale spinner
+        LocaleSpinnerHelper.setupLocaleSpinner(
+            requireContext(),
+            binding.localeSpinner
+        ) {
+            requireActivity().recreate()
+        }
 
         viewModel.normalizedPhoneNumberEvent.observe(viewLifecycleOwner) {
             it.consume { number ->

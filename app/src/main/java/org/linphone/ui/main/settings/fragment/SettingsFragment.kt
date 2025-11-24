@@ -42,6 +42,7 @@ import org.linphone.ui.main.settings.viewmodel.SettingsViewModel
 import org.linphone.utils.AppUtils
 import org.linphone.utils.DialogUtils
 import org.linphone.utils.Event
+import org.linphone.utils.LocaleSpinnerHelper
 import java.lang.Exception
 
 @UiThread
@@ -305,6 +306,14 @@ class SettingsFragment : GenericMainFragment() {
                 viewModel.availableColorsValues.indexOf(color)
             )
             binding.userInterfaceSettings.colorSpinner.onItemSelectedListener = colorListener
+
+        // Set up locale spinner
+        LocaleSpinnerHelper.setupLocaleSpinner(
+            requireContext(),
+            binding.userInterfaceSettings.localeSpinner
+        ) {
+            requireActivity().recreate()
+        }
         }
 
         // Tunnel mode
