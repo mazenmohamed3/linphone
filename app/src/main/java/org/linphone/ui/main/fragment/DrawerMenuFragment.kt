@@ -29,6 +29,7 @@ import android.view.ViewGroup
 import android.view.ViewGroup.LayoutParams
 import android.widget.PopupWindow
 import androidx.annotation.UiThread
+import androidx.core.net.toUri
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
@@ -46,7 +47,6 @@ import org.linphone.ui.assistant.AssistantActivity
 import org.linphone.ui.main.MainActivity
 import org.linphone.ui.main.settings.fragment.AccountProfileFragmentDirections
 import org.linphone.ui.main.viewmodel.DrawerMenuViewModel
-import androidx.core.net.toUri
 
 @UiThread
 class DrawerMenuFragment : GenericMainFragment() {
@@ -65,6 +65,14 @@ class DrawerMenuFragment : GenericMainFragment() {
     ): View {
         binding = DrawerMenuBinding.inflate(layoutInflater)
         return binding.root
+    }
+
+    // FIX: Added onResume to trigger the ViewModel refresh logic
+    override fun onResume() {
+        super.onResume()
+        if (::viewModel.isInitialized) {
+            viewModel.onResume()
+        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

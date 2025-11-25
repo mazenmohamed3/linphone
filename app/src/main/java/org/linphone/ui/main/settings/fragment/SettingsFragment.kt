@@ -23,12 +23,14 @@ import android.app.Activity
 import android.content.Intent
 import android.media.RingtoneManager
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.UiThread
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.navGraphViewModels
@@ -49,8 +51,6 @@ import java.lang.Exception
 class SettingsFragment : GenericMainFragment() {
     companion object {
         private const val TAG = "[Settings Fragment]"
-
-        private const val RINGTONE_PICKER_INTENT_ID = 89
     }
 
     private lateinit var binding: SettingsFragmentBinding
@@ -58,6 +58,34 @@ class SettingsFragment : GenericMainFragment() {
     private val viewModel: SettingsViewModel by navGraphViewModels(
         R.id.main_nav_graph
     )
+
+    // -------------------------------------------------------------------------
+    // Replacement for startActivityForResult / onActivityResult
+    // -------------------------------------------------------------------------
+    private val ringtonePickerLauncher = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) { result ->
+        if (result.resultCode == Activity.RESULT_OK) {
+            val data = result.data
+            val uri: Uri? = if (Build.VERSION.SDK_INT >= 33) {
+                // New Type-safe API for Android 13+
+                data?.getParcelableExtra(RingtoneManager.EXTRA_RINGTONE_PICKED_URI, Uri::class.java)
+            } else {
+                // Deprecated API for older versions
+                @Suppress("DEPRECATION")
+                data?.getParcelableExtra(RingtoneManager.EXTRA_RINGTONE_PICKED_URI)
+            }
+
+            if (uri != null) {
+                Log.i("$TAG Ringtone picker result is OK, URI found in intent is [$uri]")
+                viewModel.setRingtoneUri(uri)
+            } else {
+                Log.e("$TAG Ringtone picker result is OK but URI is null!")
+                // TODO: show error to user
+            }
+        }
+    }
+    // -------------------------------------------------------------------------
 
     private val sortContactsByListener = object : AdapterView.OnItemSelectedListener {
         override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
@@ -145,6 +173,11 @@ class SettingsFragment : GenericMainFragment() {
         binding.viewModel = viewModel
         observeToastEvents(viewModel)
 
+        // -----------------------------------------------------------
+        // FIX: Refresh the lists in ViewModel with CURRENT localized strings
+        refreshLocalizedStrings()
+        // -----------------------------------------------------------
+
         binding.setBackClickListener {
             goBack()
         }
@@ -188,7 +221,8 @@ class SettingsFragment : GenericMainFragment() {
                         putExtra(RingtoneManager.EXTRA_RINGTONE_EXISTING_URI, currentRingtone)
                         putExtra(RingtoneManager.EXTRA_RINGTONE_TITLE, AppUtils.getString(R.string.settings_calls_change_ringtone_pick_title))
                     }
-                    startActivityForResult(intent, RINGTONE_PICKER_INTENT_ID)
+                    // FIX: Use the new Activity Result API launcher
+                    ringtonePickerLauncher.launch(intent)
                 } catch (e: Exception) {
                     Log.e("$TAG Failed start ringtone picker: $e")
                     // TODO: show error to user
@@ -307,13 +341,13 @@ class SettingsFragment : GenericMainFragment() {
             )
             binding.userInterfaceSettings.colorSpinner.onItemSelectedListener = colorListener
 
-        // Set up locale spinner
-        LocaleSpinnerHelper.setupLocaleSpinner(
-            requireContext(),
-            binding.userInterfaceSettings.localeSpinner
-        ) {
-            requireActivity().recreate()
-        }
+            // Set up locale spinner
+            LocaleSpinnerHelper.setupLocaleSpinner(
+                requireContext(),
+                binding.userInterfaceSettings.localeSpinner
+            ) {
+                requireActivity().recreate()
+            }
         }
 
         // Tunnel mode
@@ -337,19 +371,41 @@ class SettingsFragment : GenericMainFragment() {
         startPostponedEnterTransition()
     }
 
-    @Deprecated("Deprecated in Java")
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        if (resultCode == Activity.RESULT_OK && requestCode == RINGTONE_PICKER_INTENT_ID) {
-            val uri: Uri? = data?.getParcelableExtra(RingtoneManager.EXTRA_RINGTONE_PICKED_URI)
-            if (uri != null) {
-                Log.i("$TAG Ringtone picker result is OK, URI found in intent is [$uri]")
-                viewModel.setRingtoneUri(uri)
-            } else {
-                Log.e("$TAG Ringtone picker result is OK but URI is null!")
-                // TODO: show error to user
-            }
-        }
+    private fun refreshLocalizedStrings() {
+        // 1. Contacts Sorting
+        viewModel.sortContactsByNames.clear()
+        viewModel.sortContactsByNames.add(getString(R.string.contact_editor_first_name))
+        viewModel.sortContactsByNames.add(getString(R.string.contact_editor_last_name))
+
+        // 2. Meeting Layouts
+        viewModel.availableLayoutsNames.clear()
+        viewModel.availableLayoutsNames.add(getString(R.string.settings_meetings_layout_active_speaker_label))
+        viewModel.availableLayoutsNames.add(getString(R.string.settings_meetings_layout_mosaic_label))
+
+        // 3. Themes
+        viewModel.availableThemesNames.clear()
+        viewModel.availableThemesNames.add(getString(R.string.settings_user_interface_auto_theme_label))
+        viewModel.availableThemesNames.add(getString(R.string.settings_user_interface_light_theme_label))
+        viewModel.availableThemesNames.add(getString(R.string.settings_user_interface_dark_theme_label))
+
+        // 4. Colors
+        viewModel.availableColorsNames.clear()
+        viewModel.availableColorsNames.add(getString(R.string.orange))
+        viewModel.availableColorsNames.add(getString(R.string.yellow))
+        viewModel.availableColorsNames.add(getString(R.string.green))
+        viewModel.availableColorsNames.add(getString(R.string.blue))
+        viewModel.availableColorsNames.add(getString(R.string.red))
+        viewModel.availableColorsNames.add(getString(R.string.pink))
+        viewModel.availableColorsNames.add(getString(R.string.purple))
+
+        // 5. Tunnel Mode
+        viewModel.tunnelModeLabels.clear()
+        viewModel.tunnelModeLabels.add(getString(R.string.settings_tunnel_mode_disabled_label))
+        viewModel.tunnelModeLabels.add(getString(R.string.settings_tunnel_mode_always_label))
+        viewModel.tunnelModeLabels.add(getString(R.string.settings_tunnel_mode_auto_label))
     }
+
+    // Removed the deprecated onActivityResult as it is now handled by the launcher
 
     override fun onResume() {
         super.onResume()
