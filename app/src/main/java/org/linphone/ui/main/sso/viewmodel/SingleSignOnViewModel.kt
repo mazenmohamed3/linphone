@@ -45,7 +45,9 @@ import org.linphone.utils.Event
 import org.linphone.utils.FileUtils
 import org.linphone.utils.TimestampUtils
 
-class SingleSignOnViewModel @UiThread constructor() : GenericViewModel() {
+class SingleSignOnViewModel
+    @UiThread
+    constructor() : GenericViewModel() {
     companion object {
         private const val TAG = "[Single Sign On ViewModel]"
     }
