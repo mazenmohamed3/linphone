@@ -83,18 +83,17 @@
             android:id="@+id/last_connection_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="25dp"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="10dp"
             android:text="@{model.lastConnectionDate, default=`03/10/2023`}"
             android:textSize="14sp"
             android:textColor="?attr/color_main2_600"
             android:drawableStart="@drawable/calendar_blank"
             android:drawablePadding="6dp"
+            android:textDirection="ltr"
             app:drawableTint="?attr/color_main2_700"
             app:layout_constraintTop_toBottomOf="@id/last_connection"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/last_connection_time"/>
+            app:layout_constraintStart_toStartOf="parent" />
 
         <androidx.appcompat.widget.AppCompatTextView
             style="@style/default_text_style"
@@ -108,11 +107,10 @@
             android:textColor="?attr/color_main2_600"
             android:drawableStart="@drawable/clock"
             android:drawablePadding="6dp"
+            android:textDirection="ltr"
             app:drawableTint="?attr/color_main2_700"
             app:layout_constraintTop_toBottomOf="@id/last_connection"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@id/last_connection_date"/>
+            app:layout_constraintStart_toEndOf="@id/last_connection_date" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 </layout>

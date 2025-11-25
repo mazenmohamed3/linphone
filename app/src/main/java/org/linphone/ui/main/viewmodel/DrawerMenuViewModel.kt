@@ -36,8 +36,8 @@ import org.linphone.ui.main.model.ShortcutModel
 import org.linphone.utils.Event
 
 class DrawerMenuViewModel
-    @UiThread
-    constructor() : GenericViewModel() {
+@UiThread
+constructor() : GenericViewModel() {
     companion object {
         private const val TAG = "[Drawer Menu ViewModel]"
     }
@@ -142,6 +142,14 @@ class DrawerMenuViewModel
         }
 
         super.onCleared()
+    }
+
+    @UiThread
+    fun onResume() {
+        // Forces the list to be re-computed. This is crucial for localization changes,
+        // as it recreates AccountModel instances with the fresh Locale/Context.
+        updateAccountsList()
+        refreshAccountsNotificationsCount()
     }
 
     @UiThread

@@ -26,7 +26,6 @@ import android.view.View
 import androidx.annotation.UiThread
 import androidx.lifecycle.MutableLiveData
 import java.util.regex.Pattern
-import org.linphone.LinphoneApplication.Companion.coreContext
 import org.linphone.R
 import org.linphone.core.tools.Log
 import org.linphone.utils.AppUtils
@@ -52,42 +51,45 @@ class AcceptConditionsAndPolicyDialogModel
     init {
         val generalTerms = AppUtils.getString(R.string.assistant_dialog_general_terms_label)
         val privacyPolicy = AppUtils.getString(R.string.assistant_dialog_privacy_policy_label)
-        val label = coreContext.context.getString(
-            R.string.assistant_dialog_general_terms_and_privacy_policy_message,
-            generalTerms,
-            privacyPolicy
-        )
+        val label =
+                AppUtils.getFormattedString(
+                        R.string.assistant_dialog_general_terms_and_privacy_policy_message,
+                        generalTerms,
+                        privacyPolicy
+                )
         val spannable = SpannableString(label)
 
         val termsMatcher = Pattern.compile(generalTerms).matcher(label)
         if (termsMatcher.find()) {
-            val clickableSpan: ClickableSpan = object : ClickableSpan() {
-                override fun onClick(widget: View) {
-                    Log.i("$TAG Clicked on general terms link")
-                    generalTermsClickedEvent.value = Event(true)
-                }
-            }
+            val clickableSpan: ClickableSpan =
+                    object : ClickableSpan() {
+                        override fun onClick(widget: View) {
+                            Log.i("$TAG Clicked on general terms link")
+                            generalTermsClickedEvent.value = Event(true)
+                        }
+                    }
             spannable.setSpan(
-                clickableSpan,
-                termsMatcher.start(0),
-                termsMatcher.end(),
-                Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
+                    clickableSpan,
+                    termsMatcher.start(0),
+                    termsMatcher.end(),
+                    Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
             )
         }
 
         val policyMatcher = Pattern.compile(privacyPolicy).matcher(label)
         if (policyMatcher.find()) {
-            val clickableSpan: ClickableSpan = object : ClickableSpan() {
-                override fun onClick(widget: View) {
-                    Log.i("$TAG Clicked on privacy policy link")
-                    privacyPolicyClickedEvent.value = Event(true)
-                }
-            }
+            val clickableSpan: ClickableSpan =
+                    object : ClickableSpan() {
+                        override fun onClick(widget: View) {
+                            Log.i("$TAG Clicked on privacy policy link")
+                            privacyPolicyClickedEvent.value = Event(true)
+                        }
+                    }
             spannable.setSpan(
-                clickableSpan,
-                policyMatcher.start(0),
-                policyMatcher.end(),
-                Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
+                    clickableSpan,
+                    policyMatcher.start(0),
+                    policyMatcher.end(),
+                    Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
             )
         }
 

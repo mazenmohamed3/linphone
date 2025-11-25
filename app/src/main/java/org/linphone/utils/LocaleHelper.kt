@@ -21,22 +21,22 @@ object LocaleHelper {
     /** Get list of available locales */
     fun getAvailableLocales(): List<Pair<String, String>> {
         return listOf(
-                Pair(LOCALE_SYSTEM_DEFAULT, "System Default"),
-                Pair(LOCALE_ENGLISH, "English"),
-                Pair(LOCALE_FRENCH, "Français"),
-                Pair(LOCALE_ARABIC, "العربية")
+            Pair(LOCALE_SYSTEM_DEFAULT, "System Default"),
+            Pair(LOCALE_ENGLISH, "English"),
+            Pair(LOCALE_FRENCH, "Français"),
+            Pair(LOCALE_ARABIC, "العربية")
         )
     }
 
     fun applyLocale(context: Context): Context {
         val localeCode = getCurrentLocale(context)
         val locale =
-                if (localeCode == LOCALE_SYSTEM_DEFAULT) {
-                    val configuration = Resources.getSystem().configuration
-                    ConfigurationCompat.getLocales(configuration).get(0) ?: Locale.getDefault()
-                } else {
-                    Locale.forLanguageTag(localeCode)
-                }
+            if (localeCode == LOCALE_SYSTEM_DEFAULT) {
+                val configuration = Resources.getSystem().configuration
+                ConfigurationCompat.getLocales(configuration).get(0) ?: Locale.getDefault()
+            } else {
+                Locale.forLanguageTag(localeCode)
+            }
         Locale.setDefault(locale)
 
         val config = Configuration(context.resources.configuration)
